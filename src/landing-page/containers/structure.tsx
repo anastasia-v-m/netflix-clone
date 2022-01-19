@@ -1,3 +1,5 @@
+import '../reset.css';
+
 export default function LandingStructure() {
   return (
     <>
@@ -13,9 +15,7 @@ export default function LandingStructure() {
       <main>
         <div className="about">reusable description x4</div>
         <div className="questions">
-          <div className="questions-container">
-            reusable question components x7
-          </div>
+          <div className="questions-container"></div>
           <form className="questions-email-form" method="GET">
             formTitle, input, btn
           </form>

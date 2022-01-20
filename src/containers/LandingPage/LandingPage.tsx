@@ -1,3 +1,5 @@
+import FooterSpot from '../../modules/FooterSpot';
+
 export default function LandingStructure() {
   return (
     <>
@@ -19,10 +21,7 @@ export default function LandingStructure() {
           </form>
         </div>
       </main>
-      <footer>
-        <div className="footer-links"></div>
-        langSelector developers-info
-      </footer>
+      <FooterSpot />
     </>
   );
 }

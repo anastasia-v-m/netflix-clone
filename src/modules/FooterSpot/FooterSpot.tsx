@@ -35,6 +35,22 @@ export default function FooterSpot() {
           <p className="footer-country">Netflix Беларусь</p>
         </div>
       </div>
+      <div className="developers-links">
+        <div>Rss logo</div>
+        <a className="dev-link" href="/#">
+          Developer 1
+        </a>
+        <a className="dev-link" href="/#">
+          Developer 2
+        </a>
+        <a className="dev-link" href="/#">
+          Developer 3
+        </a>
+        <a className="dev-link" href="/#">
+          Mentor
+        </a>
+        <div>Github logo</div>
+      </div>
     </footer>
   );
 }

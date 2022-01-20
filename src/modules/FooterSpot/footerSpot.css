@@ -61,5 +61,24 @@ footer {
 .footer-country {
   font-size: 13px;
   margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.developers-links {
+  width: 90%;
+  margin: 0 auto;
+  color: #757575;
+  display: flex;
+  justify-content: space-between;
   padding-bottom: 13px;
+}
+
+.dev-link {
+  color: #757575;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.dev-link:hover {
+  text-decoration: underline;
 }

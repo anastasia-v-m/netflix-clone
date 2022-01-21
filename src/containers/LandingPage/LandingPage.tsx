@@ -1,5 +1,3 @@
-import '../reset.css';
-
 export default function LandingStructure() {
   return (
     <>

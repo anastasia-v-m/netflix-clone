@@ -1,3 +1,5 @@
+import AnnouncesSpot from '../../modules/AnnouncesModule/AnnouncesSpot';
+
 export default function LandingStructure() {
   return (
     <>
@@ -11,7 +13,9 @@ export default function LandingStructure() {
         </div>
       </header>
       <main>
-        <div className="about">reusable description x4</div>
+        <div className="about">
+          <AnnouncesSpot></AnnouncesSpot>
+        </div>
         <div className="questions">
           <div className="questions-container"></div>
           <form className="questions-email-form" method="GET">

@@ -1,10 +1,13 @@
 import React from 'react';
 
-interface IProps {
+export interface IProps {
 }
 
-interface IState {
+export interface IState {
   value?: string;
+  formTitle?: string;
+  placeLabel?: string;
+  startButton?: string
 }
 
 export default class LangSelection extends React.Component<IProps, IState> {
@@ -22,7 +25,7 @@ export default class LangSelection extends React.Component<IProps, IState> {
     return (
       <div className='lang-selection-container'>
         <div className="lang-selection-wrapper">
-        <label htmlFor="lang-switcher-select" className="">
+        <label htmlFor="lang-switcher-select">
         </label>
           <div className="select-arrow lang-select-prefix">
             <select value={this.state.value} onChange={this.handleChange} className='select-value' id="lang-switcher-select">

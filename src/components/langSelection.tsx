@@ -28,7 +28,11 @@ export default class LangSelection extends React.Component<IProps, IState> {
         <label htmlFor="lang-switcher-select">
         </label>
           <div className="select-arrow lang-select-prefix">
-            <select value={this.state.value} onChange={this.handleChange} className='select-value' id="lang-switcher-select">
+            <select 
+              value={this.state.value} 
+              onChange={this.handleChange} 
+              className='select-value' 
+              id="lang-switcher-select">
               <option lang='en' value="en">English</option>
               <option lang='ru' value="ru">Русский</option>
             </select>

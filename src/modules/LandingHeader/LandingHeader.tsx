@@ -2,6 +2,7 @@ import LangSelection from '../../components/langSelection'
 import NetflixLogo from './LandingHeaderLogo'
 import Buttons from '../../components/button'
 import StartCard from './LandingStartCard'
+
 import '../LandingHeader/landingHeader.css'
 
 export default function Header() {

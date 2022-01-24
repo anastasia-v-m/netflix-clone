@@ -1,11 +1,10 @@
 import LoginHeader from '../../modules/LoginHeader';
 import LoginOverlap from '../../modules/LoginOverlap';
 
-import './data';
+import data from './data';
 
 import './reset.css';
 import './loginPage.css';
-import backgroundLink from './data';
 
 export default function LoginPage() {
   return (
@@ -13,7 +12,7 @@ export default function LoginPage() {
       <div className="login-background">
         <img
           className="login-background__image"
-          src={backgroundLink}
+          src={data.link}
           alt="login-background"
         />
         <div className="login-background__shadow"></div>

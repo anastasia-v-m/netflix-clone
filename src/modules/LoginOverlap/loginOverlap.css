@@ -14,7 +14,7 @@
   min-height: 700px;
   width: 100%;
   z-index: -1;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .login-overlap__form {
@@ -22,4 +22,5 @@
   width: 100%;
   padding: 60px 68px 40px;
   z-index: 1;
+  margin-bottom: 90px;
 }

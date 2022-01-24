@@ -3,3 +3,7 @@ export default interface DataInterface {
   title: string;
   link: string;
 }
+
+export interface IFooterProps {
+  footerPrefix?: string;
+}

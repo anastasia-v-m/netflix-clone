@@ -1,17 +1,10 @@
 import FooterSpot from '../../modules/FooterSpot';
+import LandingHeader from "../../modules/LandingHeader"
 
 export default function LandingStructure() {
   return (
     <>
-      <header>
-        <div className="header-top-container">svg, langSelector, authBtn</div>
-        <div className="header-text-container">
-          title, subTitle
-          <form className="email-form" method="GET">
-            formTitle, input, btn
-          </form>
-        </div>
-      </header>
+      <LandingHeader />
       <main>
         <div className="about">reusable description x4</div>
         <div className="questions">

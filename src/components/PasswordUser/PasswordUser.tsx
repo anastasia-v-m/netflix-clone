@@ -1,3 +1,5 @@
+import data from './data';
+
 export default function PasswordUser() {
   return (
     <>
@@ -9,12 +11,10 @@ export default function PasswordUser() {
           id="id-password-user"
         />
         <label htmlFor="id-password-user" className="password-user__label">
-          Пароль
+          {data.label}
         </label>
       </div>
-      <div className="login-user__error">
-        Пароль должен содержать от 4 до 60 символов.
-      </div>
+      <div className="login-user__error">{data.error}</div>
     </>
   );
 }

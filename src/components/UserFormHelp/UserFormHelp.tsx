@@ -1,3 +1,5 @@
+import data from './data';
+
 export default function UserFormHelp() {
   return (
     <div className="user-form__help">
@@ -8,11 +10,11 @@ export default function UserFormHelp() {
           id="remember-me__id"
         />
         <label className="remember-me__label" htmlFor="remember-me__id">
-          <span className="remember-me__span">Запомнить меня</span>
+          <span className="remember-me__span">{data.span}</span>
         </label>
       </div>
       <a className="help-link" href="/#">
-        Нужна помощь?
+        {data.linkTitle}
       </a>
     </div>
   );

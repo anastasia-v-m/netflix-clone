@@ -1,9 +1,11 @@
+import data from './data';
+
 export default function UserSignupNow() {
   return (
     <div className="user-signup-now">
-      Впервые на Netflix? &nbsp;
-      <a className="user-signup-now__link" href="/#">
-        Зарегестрируйтесь сечас
+      {data.signUpTitle} &nbsp;
+      <a className="user-signup-now__link" href={data.link}>
+        {data.linkTitle}
       </a>
     </div>
   );

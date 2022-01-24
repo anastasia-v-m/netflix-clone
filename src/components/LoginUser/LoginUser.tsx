@@ -1,3 +1,5 @@
+import data from './data';
+
 export default function LoginUser() {
   return (
     <>
@@ -9,12 +11,10 @@ export default function LoginUser() {
           id="id-login-user"
         />
         <label htmlFor="id-login-user" className="login-user__label">
-          Адрес электронной почты или номер телефона
+          {data.label}
         </label>
       </div>
-      <div className="login-user__error">
-        Укажите действительный адрес электронной почты или номер телефона.
-      </div>
+      <div className="login-user__error">{data.error}</div>
     </>
   );
 }

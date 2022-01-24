@@ -1,3 +1,15 @@
 .login-header {
   line-height: 90px;
+  z-index: 1;
+}
+
+.logo-link {
+  margin-left: 3%;
+}
+
+.logo-svg {
+  height: 45px;
+  width: 167px;
+  vertical-align: middle;
+  fill: #e50914;
 }

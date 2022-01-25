@@ -1,0 +1,201 @@
+.announce-text-container {
+  padding: 0 0 0 3rem;
+  width: 52%;
+  height: 100%;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+  -moz-box-flex: 0;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  padding: 0 3rem 0 0;
+  z-index: 3;
+}
+
+.announce-precontainer {
+  padding: 50px 5%;
+  padding: 70px 45px;
+  position: relative;
+  border-bottom: 8px solid #222;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.announce-container-0 {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+}
+
+.announce-container-1 {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-flow: row-reverse;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: reverse;
+  -ms-flex-flow: row-reverse;
+  flex-flow: row-reverse;
+}
+
+.all-announces-container {
+  margin: 0 auto;
+  background-color: #000;
+  color: #fff;
+}
+
+@media only scrour-story-cardeen and (min-width: 550px) and (max-width: 949px), only screen and (min-width: 950px) and (max-width: 1449px), only screen and (min-width: 1450px) {
+  .announce-container {
+      padding: 70px 45px;
+  }
+}
+
+.announce-title {
+  font-size: 3.125rem;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.announce-description {
+  font-size: 1.625rem;
+  font-weight: 400;
+}
+
+.announce-img-precontainer {
+  position: relative;
+  width: 48%;
+  height: 100%;
+  display: flex;
+  flex: 0 1 auto;
+  -webkit-box-flex: 0;
+  box-sizing: border-box;
+}
+
+.announce-img {
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  z-index: 2;
+}
+
+.announce-animation-container {
+  width: 100%;
+  height: 100%;
+  max-width: 73%;
+  max-height: 54%;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.announce-animation-container-2 {
+  width: 100%;
+  height: 100%;
+  max-width: 63%;
+  max-height: 47%;
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.announce-video {
+  width: 100%;
+  height: 100%;
+}
+
+.announce-load-img {
+  height: 4em;
+  max-width: 100%;
+  border: 0;
+}
+
+.announce-load-img-container {
+  margin: 0 1em 0 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-flow: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+}
+
+.announce-load-container {
+  padding: 0.35em 0.75em;
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  background: #000;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 60%;
+  min-width: 15em;
+  padding: 0.25em 0.65em;
+  border: 2px solid rgba(255,255,255,.25);
+  box-shadow: 0 0 2em 0 #000;
+  border-radius: 0.75em;
+  z-index: 10;
+}
+
+.announce-load-text-container {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0.3em 0;
+}
+
+.announce-load-text-state {
+  font-size: .9em;
+  color: #0071eb;
+  font-weight: 400;
+}
+
+.announce-load-text-movie{
+  font-size: 1em;
+  color: #fff;
+  font-weight: 600;
+}
+
+.announce-load-container:after {
+  width: 3em;
+  height: 3.75em;
+  outline: 2px solid #000;
+  outline-offset: -2px;
+  display: block;
+  background: url(https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif) center center no-repeat;
+  background-size: 100%;
+  content: '';
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+}

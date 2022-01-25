@@ -1,6 +1,8 @@
 import FooterSpot from '../../modules/FooterSpot';
-import LandingHeader from "../../modules/LandingHeader"
+import LandingHeader from '../../modules/LandingHeader';
 import AnnouncesSpot from '../../modules/AnnouncesSpot';
+import QuestionsSpot from '../../modules/QuestionSpot';
+import EmailForm from '../../components/emailForm';
 
 export default function LandingStructure() {
   return (
@@ -11,10 +13,8 @@ export default function LandingStructure() {
           <AnnouncesSpot></AnnouncesSpot>
         </div>
         <div className="questions">
-          <div className="questions-container"></div>
-          <form className="questions-email-form" method="GET">
-            formTitle, input, btn
-          </form>
+          <QuestionsSpot />
+          <EmailForm />
         </div>
       </main>
       <FooterSpot />

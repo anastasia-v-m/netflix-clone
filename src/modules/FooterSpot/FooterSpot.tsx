@@ -4,6 +4,8 @@ import data from './data.json';
 
 import DataInterface from './types';
 
+import LangSelection from '../../components/langSelection';
+
 import './footerSpot.css';
 
 const FooterLinks = () => {
@@ -31,7 +33,7 @@ export default function FooterSpot() {
             <span>Есть вопросы? Свяжитесь с нами</span>
           </a>
           <FooterLinks />
-          <div className="lang-selector">This space for langSelector</div>
+          <LangSelection />
           <p className="footer-country">Netflix Беларусь</p>
         </div>
       </div>

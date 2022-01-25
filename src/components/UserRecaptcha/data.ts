@@ -1,9 +1,7 @@
 export const data = {
-  spanTitle:
-    ' Эта страница защищена Google reCAPTCHA, чтобы мы знали, что вы не бот.',
+  spanTitle: ' Эта страница защищена Google reCAPTCHA, чтобы мы знали, что вы не бот.',
   buttonTitle: 'Подробнее.',
-  description:
-    'На информацию, собираемую службой Google reCAPTCHA, распространяются',
+  description: 'На информацию, собираемую службой Google reCAPTCHA, распространяются',
   privacyLink: 'https://policies.google.com/privacy',
   privacyTitle: 'Политика конфиденциальности',
   terms:

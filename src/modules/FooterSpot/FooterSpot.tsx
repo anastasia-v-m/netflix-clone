@@ -2,7 +2,7 @@ import React from 'react';
 
 import data from './data.json';
 
-import DataInterface from './types';
+import DataInterface, { IFooterProps } from './types';
 
 import LangSelection from '../../components/langSelection';
 
@@ -24,9 +24,10 @@ const FooterLinks = () => {
   );
 };
 
-export default function FooterSpot() {
+export default function FooterSpot(props?: IFooterProps) {
+  const footerPrefix = (props as IFooterProps).footerPrefix ? 'login-page__footer' : '';
   return (
-    <footer>
+    <footer className={footerPrefix}>
       <div className="footer-wrapper">
         <div className="footer-links-container">
           <a className="footer-title" href="/#">

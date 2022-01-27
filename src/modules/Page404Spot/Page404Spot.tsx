@@ -1,6 +1,7 @@
 import Button from '../../components/CommonButton';
 import data from './data.json';
-import './page404Spot.css'
+import '../../reset.css'
+import './page404Spot.css';
 
 const toHomePage = () => {
   document.location.href = '/';
@@ -9,8 +10,8 @@ const toHomePage = () => {
 export default function Page404Content() {
   return (
     <div className='p404-main'>
-      <div className="message-precontainer">
-        <div className="message-container">
+      <div className='message-precontainer'>
+        <div className='message-container'>
           <h1
             className='p404-message'
           >
@@ -32,7 +33,12 @@ export default function Page404Content() {
           className='p404-error-code'
         >
           {data[0]['error-code-title']}
+          <span className='main-info'>{data[0]['error-code']}</span>
         </p>
+      </div>
+      <div className='img-source'>
+        {data[0]['src-word']}
+        <span className='main-info'>{data[0]['img-src-title']}</span>
       </div>
     </div>
   );

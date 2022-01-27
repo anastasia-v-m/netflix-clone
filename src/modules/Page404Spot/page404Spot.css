@@ -1,0 +1,73 @@
+.p404-main {
+  background-image: url('https://assets.nflxext.com/ffe/siteui/pages/errors/bg-lost-in-space.png');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-size: .75vw;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.message-precontainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+  min-height: 50vw;
+  width: 50vw;
+  align-items: center;
+}
+
+.p404-message {
+  display: flex;
+  font-size: 6em;
+  justify-content: space-around;
+}
+
+.p404-message2 {
+  font-size: 2.2em;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 57%);
+}
+
+.btn-to-home {
+  position: relative;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.45em;
+  align-items: center;
+  appearance: none;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  padding: 0.8rem 2.4rem;
+  margin: 0 auto;
+  user-select: none;
+  will-change: background-color,color;
+  word-break: break-word;
+  white-space: nowrap;
+}
+
+body,
+.root {
+  display: flex;
+}
+
+.p404-error-code {
+  position: relative;
+  bottom: 0;
+  border-left: 2px solid #e50914;
+  font-size: 2.4em;
+  font-weight: 100;
+  letter-spacing: .1em;
+  line-height: 2.2em;
+  padding: 0 1vw;
+}

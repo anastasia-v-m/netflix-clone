@@ -7,7 +7,7 @@ export default function UserRecaptcha() {
         <p className="user-recaptcha__title">
           <span className="user-recaptcha__span">{data.spanTitle}</span>
           &nbsp;
-          <button className="user-recaptcha__link_button">
+          <button className="user-recaptcha__link_button" type='button'>
             {data.buttonTitle}
           </button>
         </p>
@@ -18,7 +18,7 @@ export default function UserRecaptcha() {
           <a
             className="user-recaptcha__privacy"
             href={data.privacyLink}
-            target={'_blank'}
+            target="_blank" rel="noreferrer"
           >
             {data.privacyTitle}
           </a>
@@ -26,7 +26,7 @@ export default function UserRecaptcha() {
           <a
             className="user-recaptcha__terms"
             href={data.termsLink}
-            target={'_blank'}
+            target="_blank" rel="noreferrer"
           >
             {data.termsTitle}
           </a>

@@ -1,4 +1,4 @@
-export const data = {
+const data = {
   spanTitle: ' Эта страница защищена Google reCAPTCHA, чтобы мы знали, что вы не бот.',
   buttonTitle: 'Подробнее.',
   description: 'На информацию, собираемую службой Google reCAPTCHA, распространяются',

@@ -6,7 +6,7 @@ import './loginOverlap.css';
 export default function LoginOverlap() {
   return (
     <div className="login-overlap">
-      <div className="login-overlap__shadow"></div>
+      <div className="login-overlap__shadow" />
       <div className="login-overlap__form">
         <div className="login-overlap__content">
           <UserFormMain />

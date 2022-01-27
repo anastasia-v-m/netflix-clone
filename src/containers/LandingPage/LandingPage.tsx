@@ -10,7 +10,7 @@ export default function LandingStructure() {
       <LandingHeader />
       <main>
         <div className="about">
-          <AnnouncesSpot></AnnouncesSpot>
+          <AnnouncesSpot />
         </div>
         <div className="questions">
           <QuestionsSpot />

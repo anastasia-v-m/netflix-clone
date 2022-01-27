@@ -7,9 +7,9 @@ export interface IPropsButton {
 
 export default function Buttons(props: IPropsButton) {
   return (
-    <button className={props.name}>
+    <button className={props.name} type="button">
       <span className={props.nameContent}>{props.content}</span>
-      <span className={props.icon}></span>
+      <span className={props.icon} />
     </button>
   )
 }

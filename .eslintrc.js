@@ -81,9 +81,11 @@ module.exports = {
   overrides: [
     // fix 'JSX' is not defined  no-undef
     {
-      files: ['*.ts', '*.tsx'],
+      files: ['**/*.ts', '**/*.tsx'],
       rules: {
         'no-undef': 'warn',
+        'no-unused-vars': 'warn',
+        'import/no-unresolved': 'warn',
       },
     },
   ],

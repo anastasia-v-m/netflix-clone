@@ -8,7 +8,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "pre-commit": "prettier --config .prettierrc 'src/**/*.ts' --write && git add -A .",
-    "lint": "eslint . --ext .tsx,.ts"
+    "lint": "eslint . --ext .tsx,.ts",
+    "lint:fix": "eslint . --ext .tsx,.ts --fix"
   },
   "husky": {
     "hooks": {

@@ -3,7 +3,7 @@ import NetflixLogo from './LandingHeaderLogo'
 import Buttons from '../../components/button'
 import StartCard from './LandingStartCard'
 
-import '../LandingHeader/landingHeader.css'
+import "./landingHeader.css"
 
 export default function Header() {
   return (

@@ -11,7 +11,7 @@ export default function LoginPage() {
     <div className="login-wrapper">
       <div className="login-background">
         <img className="login-background__image" src={data.link} alt="login-background" />
-        <div className="login-background__shadow"></div>
+        <div className="login-background__shadow" />
       </div>
       <LoginHeader />
       <LoginOverlap />

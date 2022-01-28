@@ -5,6 +5,14 @@ import { announcesTitles } from './data';
 import './announcesSpot.css';
 
 class Announcements extends React.Component {
+  getBlocks() {
+    const blocks = [];
+    for (let j = 0; j < announcesTitles.length; j +=1) {
+      blocks.push(this.renderBlock(j));
+    }
+    return blocks;
+  }
+
   renderBlock(i: number) {
     return (
       <div className='announce-precontainer' key={`announce-wrap-1-${i}`}>
@@ -29,14 +37,6 @@ class Announcements extends React.Component {
         </div>
       </div>
     );
-  }
-
-  getBlocks() {
-    let blocks = [];
-    for (let j = 0; j < announcesTitles.length; j +=1) {
-      blocks.push(this.renderBlock(j));
-    }
-    return blocks;
   }
 
   render() {  

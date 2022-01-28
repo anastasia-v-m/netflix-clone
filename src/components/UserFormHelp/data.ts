@@ -1,4 +1,4 @@
-export const data = {
+const data = {
   span: 'Запомнить меня',
   linkTitle: 'Нужна помощь?',
 };

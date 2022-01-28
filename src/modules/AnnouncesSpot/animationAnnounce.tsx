@@ -1,5 +1,5 @@
 import React from 'react';
-import { IAnimPartProps } from './types';
+import IAnimPartProps from './types';
 import Source from '../../components/Source';
 import Video from '../../components/Video';
 import { announcesVideos, announceLoadAnimationImg, announceLoadAnimationTexts } from './data';
@@ -17,12 +17,12 @@ class AnimationAnnounce extends React.Component<IAnimPartProps> {
       case 0:
         animationPart = (
           <Video
-            autoPlay={true}
-            muted={true}
-            loop={true}
-            playsInline={true}
+            autoPlay
+            muted
+            loop
+            playsInline
             sources={[source1]}
-            className={'announce-video announce-animation-container'}
+            className="announce-video announce-animation-container"
           />
         );
         break;
@@ -50,18 +50,18 @@ class AnimationAnnounce extends React.Component<IAnimPartProps> {
       case 2:
         animationPart = (
           <Video
-            autoPlay={true}
-            muted={true}
-            loop={true}
-            playsInline={true}
+            autoPlay
+            muted
+            loop
+            playsInline
             sources={[source2]}
-            className={`announce-video announce-animation-container-2`}
+            className="announce-video announce-animation-container-2"
           />
         );
         break;
       default:
         animationPart = (
-          <div></div>
+          <div />
         );
         break;
     }

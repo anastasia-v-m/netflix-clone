@@ -8,21 +8,19 @@ import LangSelection from '../../components/langSelection';
 
 import './footerSpot.css';
 
-const FooterLinks = () => {
+function FooterLinks() {
   return (
     <ul className="links-list">
-      {data.map((data: DataInterface) => {
-        return (
-          <li className="footer-link-item" key={data.id}>
-            <a className="footer-link" href={data.link}>
-              {data.title}
+      {data.map((elem: DataInterface) => (
+          <li className="footer-link-item" key={elem.id}>
+            <a className="footer-link" href={elem.link}>
+              {elem.title}
             </a>
           </li>
-        );
-      })}
+        ))}
     </ul>
   );
-};
+}
 
 export default function FooterSpot(props?: IFooterProps) {
   const footerPrefix = (props as IFooterProps).footerPrefix ? 'login-page__footer' : '';

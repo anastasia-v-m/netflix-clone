@@ -1,4 +1,4 @@
-import './page404Header.css';
+import './page404Header.scss';
 
 export default function Page404Header() {
   return (

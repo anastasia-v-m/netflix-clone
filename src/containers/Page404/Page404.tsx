@@ -1,14 +1,15 @@
+import React from 'react';
 import Page404Header from '../../modules/Page404Header';
 import Page404Spot from '../../modules/Page404Spot';
 
-export default function Page404Structure() {
+export default function Page404() {
   return (
     <>
       <header>
-        <Page404Header></Page404Header>
+        <Page404Header />
       </header>
       <main>
-        <Page404Spot></Page404Spot>
+        <Page404Spot />
       </main>
     </>
   );

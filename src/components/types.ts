@@ -1,3 +1,11 @@
+import { MouseEventHandler } from "react";
+
+interface IButtonProps {
+  className?: string,
+  content?: string,
+  clickHandler?: MouseEventHandler<HTMLButtonElement> | undefined,
+}
+
 interface IImageProps {
   src: string;
   alt: string;
@@ -19,4 +27,9 @@ interface ISourceProps {
   className?: string;
 }
 
-export type { IImageProps, IVideoProps, ISourceProps };
+export type {
+  IImageProps,
+  IVideoProps,
+  ISourceProps,
+  IButtonProps,
+};

@@ -3,7 +3,7 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  font-size: .75vw;
+  font-size: 0.75vw;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -54,15 +54,14 @@
   padding: 0.8rem 2.4rem;
   margin: 0 auto;
   user-select: none;
-  will-change: background-color,color;
+  will-change: background-color, color;
   word-break: break-word;
   white-space: nowrap;
 }
 
 body,
 .root {
-  display: flex;
-  background-color: rgba(0,0,0,.97);
+  background-color: rgba(0, 0, 0, 0.97);
 }
 
 .p404-error-code {
@@ -71,7 +70,7 @@ body,
   border-left: 2px solid #e50914;
   font-size: 2.4em;
   font-weight: 100;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   line-height: 2.2em;
   padding: 0 1vw;
 }
@@ -82,10 +81,10 @@ body,
   height: 20vh;
   align-items: flex-end;
   justify-content: flex-end;
-  color: rgba(229,229,229,.57);
+  color: rgba(229, 229, 229, 0.57);
   font-size: 1.4em;
   font-weight: 100;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   line-height: 1.5vw;
   margin-right: 4.8vw;
   margin-bottom: 2.5vw;

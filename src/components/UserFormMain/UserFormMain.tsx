@@ -5,7 +5,7 @@ import UserFormHelp from '../UserFormHelp';
 
 import data from './data';
 
-import './userFormMain.css';
+import './userFormMain.scss';
 
 export default function UserFormMain() {
   return (

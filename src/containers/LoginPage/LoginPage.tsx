@@ -4,7 +4,7 @@ import FooterSpot from '../../modules/FooterSpot';
 
 import data from './data';
 
-import './loginPage.css';
+import './loginPage.scss';
 
 export default function LoginPage() {
   return (

@@ -1,16 +1,20 @@
 export interface IPropsButton {
-  name: string,
-  nameContent: string,
-  content: string,
-  icon?: string,
+  name: string;
+  nameContent: string;
+  content: string;
+  icon?: string;
+  href?: string;
 }
 
 export default function Buttons(props: IPropsButton) {
+  const toNextPage = (link?: string) => () => {
+    document.location.href = link as string;
+  };
+
   return (
-    <button className={props.name} type="button">
+    <button type="button" className={props.name} onClick={toNextPage(props.href)}>
       <span className={props.nameContent}>{props.content}</span>
       <span className={props.icon} />
     </button>
-  )
+  );
 }
-  

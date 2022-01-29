@@ -4,7 +4,7 @@ import data from './data.json';
 
 import DataInterface from './types';
 
-import './questionsSpot.css';
+import './questionsSpot.scss';
 
 function QuestionsItem(): JSX.Element {
   const statusArray: boolean[] = [];
@@ -29,7 +29,7 @@ function QuestionsItem(): JSX.Element {
 
         return (
           <li className="question-item" onClick={handleClick(index)} key={index}>
-            <button className="question-item__btn" type='button'>
+            <button className="question-item__btn" type="button">
               {elem.title}
               <svg id="thin-x" viewBox="0 0 26 26" className={`svg-icon svg-icon-thin-x ${svgPrefixStyle}`} focusable="true">
                 <path d="M10.5 9.3L1.8 0.5 0.5 1.8 9.3 10.5 0.5 19.3 1.8 20.5 10.5 11.8 19.3 20.5 20.5 19.3 11.8 10.5 20.5 1.8 19.3 0.5 10.5 9.3Z" />

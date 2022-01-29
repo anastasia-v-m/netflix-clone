@@ -2,7 +2,7 @@ import FacebookForm from '../FacebookForm';
 import UserRecaptcha from '../UserRecaptcha';
 import UserSignupNow from '../UserSignupNow';
 
-import './userFormOther.css';
+import './userFormOther.scss';
 
 export default function UserFormOther() {
   return (

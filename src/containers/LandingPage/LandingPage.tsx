@@ -2,7 +2,7 @@ import FooterSpot from '../../modules/FooterSpot';
 import LandingHeader from '../../modules/LandingHeader';
 import AnnouncesSpot from '../../modules/AnnouncesSpot';
 import QuestionsSpot from '../../modules/QuestionSpot';
-import EmailForm from '../../components/emailForm';
+import EmailForm from '../../components/EmailForm';
 
 export default function LandingStructure() {
   return (

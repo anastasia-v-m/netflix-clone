@@ -1,9 +1,12 @@
+import React from 'react';
+
 import EmailForm from '../../components/EmailForm';
+
 import landingStartCardData from './landingStartCardData.json';
 
 import './landingHeader.scss';
 
-export default function StartCard() {
+export default function StartCard(): JSX.Element {
   return (
     <div className="start-card">
       <div className="start-card-background">

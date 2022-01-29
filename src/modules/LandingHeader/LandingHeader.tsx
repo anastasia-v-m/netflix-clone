@@ -1,11 +1,13 @@
+import React from 'react';
+
 import LangSelection from '../../components/langSelection';
-import NetflixLogo from './LandingHeaderLogo';
 import Button from '../../components/Button';
+import NetflixLogo from './LandingHeaderLogo';
 import StartCard from './LandingStartCard';
 
 import './landingHeader.scss';
 
-export default function Header() {
+export default function Header(): JSX.Element {
   return (
     <>
       <div className="header-wrapper">

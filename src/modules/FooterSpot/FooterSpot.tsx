@@ -4,11 +4,11 @@ import data from './data.json';
 
 import DataInterface, { IFooterProps } from './types';
 
-import LangSelection from '../../components/langSelection';
+import LangSelection from '../../components/LangSelection';
 
 import './footerSpot.scss';
 
-function FooterLinks() {
+function FooterLinks(): JSX.Element {
   return (
     <ul className="links-list">
       {data.map((elem: DataInterface) => (
@@ -22,7 +22,7 @@ function FooterLinks() {
   );
 }
 
-export default function FooterSpot(props?: IFooterProps) {
+export default function FooterSpot(props?: IFooterProps): JSX.Element {
   const footerPrefix = (props as IFooterProps).footerPrefix ? 'login-page__footer' : '';
   return (
     <footer className={footerPrefix}>

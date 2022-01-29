@@ -1,5 +1,5 @@
 import React from 'react';
-import { IProps, IState } from './langSelection';
+import { IProps, IState } from './LangSelection';
 import landingStartCardData from '../modules/LandingHeader/landingStartCardData.json';
 import Buttons from './Button';
 

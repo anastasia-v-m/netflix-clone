@@ -1,4 +1,4 @@
-import LangSelection from '../../components/langSelection';
+import LangSelection from '../../components/LangSelection';
 import NetflixLogo from './LandingHeaderLogo';
 import Button from '../../components/Button';
 import StartCard from './LandingStartCard';

@@ -6,18 +6,18 @@ import DataInterface, { IFooterProps } from './types';
 
 import LangSelection from '../../components/langSelection';
 
-import './footerSpot.css';
+import './footerSpot.scss';
 
 function FooterLinks() {
   return (
     <ul className="links-list">
       {data.map((elem: DataInterface) => (
-          <li className="footer-link-item" key={elem.id}>
-            <a className="footer-link" href={elem.link}>
-              {elem.title}
-            </a>
-          </li>
-        ))}
+        <li className="footer-link-item" key={elem.id}>
+          <a className="footer-link" href={elem.link}>
+            {elem.title}
+          </a>
+        </li>
+      ))}
     </ul>
   );
 }

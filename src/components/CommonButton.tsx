@@ -1,15 +1,16 @@
 import React from 'react';
-import { IButtonProps } from "./types";
+import { IButtonProps } from './types';
 
-class Button extends React.Component<IButtonProps> {
-  render() {    
-    return (<button
-      className={this.props.className ? this.props.className : ''}
-      onClick={this.props.clickHandler ? this.props.clickHandler : undefined}
+function Button(props: IButtonProps) {
+  return (
+    <button
+      type="button"
+      className={props.className ? props.className : ''}
+      onClick={props.clickHandler ? props.clickHandler : undefined}
     >
-        {this.props.content ? this.props.content : ''}
-      </button>)
-  }
-};
+      {props.content ? props.content : ''}
+    </button>
+  );
+}
 
 export default Button;

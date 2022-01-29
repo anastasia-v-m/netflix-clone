@@ -1,7 +1,7 @@
 import UserFormMain from '../../components/UserFormMain';
 import UserFormOther from '../../components/UserFormOther';
 
-import './loginOverlap.css';
+import './loginOverlap.scss';
 
 export default function LoginOverlap() {
   return (

@@ -6,7 +6,7 @@ export interface IPropsButton {
   href?: string;
 }
 
-export default function Buttons(props: IPropsButton) {
+export default function Button(props: IPropsButton) {
   const toNextPage = (link?: string) => () => {
     document.location.href = link as string;
   };

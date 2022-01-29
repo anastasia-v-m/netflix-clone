@@ -15,6 +15,7 @@ export default function App(): JSX.Element {
         <Route path="/registration" element={<Page404 />} />
         <Route path="/search" element={<Page404 />} />
         <Route path="/stub" element={<Stub />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   );

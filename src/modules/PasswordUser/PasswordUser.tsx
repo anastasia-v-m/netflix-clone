@@ -4,26 +4,24 @@ import IFormData from '../UserFormMain/types';
 
 import data from './data';
 
-export default function PasswordUser(props: IFormData) {
-  let errorPrefixStatus = '';
-  let focusPrefixStatus = '';
-  const [errorPrefix, setErrorPrefix] = useState('');
-  const [focusPrefix, setFocusPrefix] = useState('');
+const withoutSpecialChars = /^[^-() /]*$/;
+const containsLetters = /^.*[a-zA-Zа-яА-Я]+.*$/;
+const from4To60 = /^.{4,60}$/;
+const withoutSpaces = /^[\S]$/;
+
+export default function PasswordUser(props: IFormData): JSX.Element {
+  const [errorPrefixStatus, setErrorPrefix] = useState(false);
+  const [focusPrefixStatus, setFocusPrefix] = useState(false);
 
   const onChangePassword = (e: SyntheticEvent) => {
-    const withoutSpecialChars = /^[^-() /]*$/;
-    const containsLetters = /^.*[a-zA-Z]+.*$/;
-    const from4To60 = /^.{4,60}$/;
-    const withoutSpaces = /^[\S]$/;
     const password = (e.target as HTMLInputElement).value;
-    const newFormData = props.formData;
+    const isEmail = true;
+    const isValid = true;
 
     if (password) {
-      focusPrefixStatus = 'focus';
-      setFocusPrefix(focusPrefixStatus);
+      setFocusPrefix(true);
     } else {
-      focusPrefixStatus = '';
-      setFocusPrefix(focusPrefixStatus);
+      setFocusPrefix(false);
     }
 
     if (
@@ -32,19 +30,15 @@ export default function PasswordUser(props: IFormData) {
       !from4To60.test(password) ||
       withoutSpaces.test(password)
     ) {
-      errorPrefixStatus = 'active';
-      setErrorPrefix(errorPrefixStatus);
-      newFormData.password = '';
-      newFormData.isPasswordValid = false;
-      props.setFormData(newFormData);
+      setErrorPrefix(true);
+      props.update('', !isValid, !isEmail);
     } else {
-      errorPrefixStatus = '';
-      setErrorPrefix(errorPrefixStatus);
-      newFormData.password = password;
-      newFormData.isPasswordValid = true;
-      props.setFormData(newFormData);
+      setErrorPrefix(false);
+      props.update(password, isValid, !isEmail);
     }
   };
+  const errorPrefix = errorPrefixStatus ? 'active' : '';
+  const focusPrefix = focusPrefixStatus ? 'focus' : '';
 
   return (
     <>

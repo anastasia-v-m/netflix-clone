@@ -5,13 +5,14 @@
   width: 100%;
   position: relative;
   z-index: 1;
+  margin-bottom: 10%;
 }
 
 .login-overlap__shadow {
   background-color: #000;
   position: absolute;
   max-width: 450px;
-  min-height: 700px;
+  min-height: 600px;
   width: 100%;
   z-index: -1;
   opacity: 0.8;

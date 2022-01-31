@@ -1,0 +1,37 @@
+[
+  {
+    "movieTitle": "The Wasteland",
+    "item": "Film",
+    "releas": "releasing",
+    "country": "in Belarus",
+    "date": "on January 6th, 2022 at 11:00 AM GMT+3",
+    "tags": [
+      "Film",
+      "Horror"
+    ],
+    "loglineTitle": "Logline",
+    "logline": "The tranquility of a family that lives isolated from society is suddenly disturbed by a horrific creature that would put the bounds that tights them to test.",
+    "synopsis": "",
+    "synopsisTitle": "Synopsis",
+    "imgSrc": "https://dnm.nflximg.net/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABa_igUZT4XdZM3bd0rmukA0TjFVW1VGC-JaEGHrRyQFZroZG3m19Qc8ZQdxYMnBxoeP0eeakZQhhuoPxVqVAQ_-E_lVMXMOUUumgNpHN1QogrePf0m6uIj9rAdJG1g.jpg?r=700",
+    "alt": "The Wasteland movie poster"
+  },
+  {
+    "movieTitle": "Ozark",
+    "item": "Season 4",
+    "releas": "releasing",
+    "country": "in Belarus",
+    "date": "on January 21st, 2022 at 11:00 AM GMT+3",
+    "tags": [
+      "Series",
+      "Thrillers",
+      "Dramas"
+    ],
+    "loglineTitle": "Logline",
+    "logline": "Season 4 of Ozark will be released in two parts consisting of 7 episodes each. Part 1 will be released on Netflix on January 21. The new season stars Emmy Award® Winner Jason Bateman, Emmy Award® Winner Laura Linney, Emmy Award® Winner Julia Garner, Sofia Hublitz, Skylar Gaertner, Charlie Tahan, Jessica Frances Dukes, Lisa Emery, Felix Solis, Damian Young, Alfonso Herrera, Adam Rothenberg, John Bedford Lloyd, Joseph Sikora, Bruno Bichir, CC Castillo, Katrina Lenk, Bruce Davison, Ali Stroker and Veronica Falcón. Emmy Award® Nominee Chris Mundy returns as showrunner, writer and executive producer. Jason Bateman, Mark Williams, John Shiban, Patrick Markey and Bill Dubuque serve as executive producers. Laura Linney serves as Co-Executive Producer. The series is from MRC Television.",
+    "synopsis": "Ozark is a thrilling drama set in the present-day and follows the Byrde family’s journey from their normal, suburban Chicago life to their dangerous criminal enterprise in the Ozarks, Missouri. The series explores capitalism, family dynamics, and survival through the eyes of (anything but) ordinary Americans.",
+    "synopsisTitle": "Synopsis",
+    "imgSrc": "https://dnm.nflximg.net/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABfpzB8-17go5xa4ODtv0NBfyvmFgN_n2nxbC5Iw08_4bUUImX6C8x-Ke_ckFv2BxrdFWHCijBFDnTUE6qoXTCo1volY6dA3izJETTzXLapFfaAvjWNxCZVhzKKkF6w.jpg?r=07b",
+    "alt": "Ozark movie poster"
+  }
+]

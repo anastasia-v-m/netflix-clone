@@ -34,6 +34,9 @@ export default function PasswordUser(props: IFormData) {
     ) {
       errorPrefixStatus = 'active';
       setErrorPrefix(errorPrefixStatus);
+      newFormData.password = '';
+      newFormData.isPasswordValid = false;
+      props.setFormData(newFormData);
     } else {
       errorPrefixStatus = '';
       setErrorPrefix(errorPrefixStatus);

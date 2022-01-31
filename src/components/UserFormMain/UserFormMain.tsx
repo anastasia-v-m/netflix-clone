@@ -16,9 +16,8 @@ export default function UserFormMain() {
   const [formDataState, setFormData] = useState(formData);
   const submitHandle = async (e: SyntheticEvent) => {
     e.preventDefault();
-    if (formData.isEmailValid && formData.isPasswordValid) {
+    if (formDataState.isEmailValid && formDataState.isPasswordValid) {
       errorPrefixStatus = '';
-      console.log(formDataState);
       setErrorPrefix(errorPrefixStatus);
     } else {
       errorPrefixStatus = 'active';
@@ -32,7 +31,7 @@ export default function UserFormMain() {
       <div className={`form-invalid-data ${errorPrefix}`}>{data.invalid}</div>
       <form className="user-form" method="POST" onSubmit={submitHandle}>
         <LoginUser formData={formDataState} setFormData={setFormData} />
-        <PasswordUser formData={formData} setFormData={setFormData} />
+        <PasswordUser formData={formDataState} setFormData={setFormData} />
         <UserFormButton />
         <UserFormHelp />
       </form>

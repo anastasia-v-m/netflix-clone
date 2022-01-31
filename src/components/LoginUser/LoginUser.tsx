@@ -26,6 +26,9 @@ export default function LoginUser(props: IFormData) {
     if (!validateEmail.test(email)) {
       errorPrefixStatus = 'active';
       setErrorPrefix(errorPrefixStatus);
+      newFormData.email = '';
+      newFormData.isEmailValid = false;
+      props.setFormData(newFormData);
     } else {
       errorPrefixStatus = '';
       setErrorPrefix(errorPrefixStatus);

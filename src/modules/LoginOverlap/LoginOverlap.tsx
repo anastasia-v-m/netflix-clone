@@ -1,5 +1,4 @@
-import UserFormMain from '../../components/UserFormMain';
-import UserFormOther from '../../components/UserFormOther';
+import UserFormMain from '../UserFormMain';
 
 import './loginOverlap.scss';
 
@@ -10,7 +9,6 @@ export default function LoginOverlap() {
       <div className="login-overlap__form">
         <div className="login-overlap__content">
           <UserFormMain />
-          <UserFormOther />
         </div>
       </div>
     </div>

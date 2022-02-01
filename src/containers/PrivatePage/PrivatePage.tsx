@@ -4,14 +4,13 @@ import FooterSpot from '../../modules/FooterSpot';
 import LoginHeader from '../../modules/LoginHeader';
 import data from './data.json';
 
-import './notFullAccessPage.scss';
+import './privatePage.scss';
 
-const n = 1;
 const BTN_CONTENT = 'Log in for full access';
 
-export default function NotFullAccessPage() {
+export default function PrivatePage(): JSX.Element {
   const bkg: React.CSSProperties = {
-    background: `url(${data[n].imgSrc}) center top / cover no-repeat scroll`,
+    background: `url(${data.imgSrc}) center top / cover no-repeat scroll`,
   };
 
   return (
@@ -21,28 +20,28 @@ export default function NotFullAccessPage() {
         <div className="blur-theme">
           <div className="btn-container">
             <div className="btn-position">
-              <button className='red-btn'>{BTN_CONTENT}</button>
+              <button className='red-btn' type='button'>{BTN_CONTENT}</button>
             </div>
-            <div className="btn-line"></div>
+            <div className="btn-line">.</div>
           </div>
           <div className="movie-precontainer">
             <div className="movie-container">
-              <h1 className="movie-title">{data[n].movieTitle}</h1>
+              <h1 className="movie-title">{data.movieTitle}</h1>
               <h3 className="movie-meta-info">
-                {`${data[n].item} ${data[n].releas} ${data[n].country} ${data[n].date}`}
+                {`${data.item} ${data.releas} ${data.country} ${data.date}`}
               </h3>
               <div className="movie-description">
-                <h6 className="movie-description__part-title">{data[n].loglineTitle}</h6>
+                <h6 className="movie-description__part-title">{data.loglineTitle}</h6>
                 <div className="movie-description__part">
-                  <p>{data[n].logline}</p>
+                  <p>{data.logline}</p>
                 </div>
-                <h6 className="movie-description__part-title">{data[n].synopsisTitle}</h6>
+                <h6 className="movie-description__part-title">{data.synopsisTitle}</h6>
                 <div className="movie-description__part">
-                  <p>{data[n].synopsis}</p>
+                  <p>{data.synopsis}</p>
                 </div>
                 <div className="movie-tags">
-                  {data[n].tags.map((item, index) => (
-                    <div className="movie-tags__tag" key={`tag-${index}`}>
+                  {data.tags.map((item  ) => (
+                    <div className="movie-tags__tag" key={`tag-${item}`}>
                       <span className="movie-tags__tag-wrapper">{item}</span>
                     </div>
                   ))}
@@ -52,17 +51,11 @@ export default function NotFullAccessPage() {
             <div className="pre-movie-poster">  
               <div className="movie-poster">
                 <Image
-                  src={data[n].imgSrc}
-                  alt={data[n].alt}
+                  src={data.imgSrc}
+                  alt={data.alt}
                   className='movie-img'
                 />
               </div>
-            </div>
-          </div>
-          <div className="related-articles-precontainer">
-            <h3 className="related-articles-title"></h3>
-            <div className="related-articles-container">
-              {/* place for articles */}
             </div>
           </div>
         </div>

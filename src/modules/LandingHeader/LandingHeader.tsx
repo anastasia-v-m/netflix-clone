@@ -14,7 +14,13 @@ export default function Header(): JSX.Element {
         <div className="header-container">
           <NetflixLogo />
           <LangSelection />
-          <Button name="auth-button" nameContent="auth-button-content" content="Войти" href="/login-form" />
+          <Button
+            type="BTN_TYPE_WITH_ICONS"
+            name="auth-button"
+            nameContent="auth-button-content"
+            content="Войти"
+            href="/login-form"
+          />
         </div>
       </div>
       <StartCard />

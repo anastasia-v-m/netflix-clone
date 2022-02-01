@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IProps, IState } from './langSelection';
 import landingStartCardData from '../modules/LandingHeader/landingStartCardData.json';
-import Buttons from './Button';
+import Button from './Button';
 
 export default class EmailForm extends React.Component<IProps, IState> {
   constructor(props: IProps) {
@@ -36,7 +36,8 @@ export default class EmailForm extends React.Component<IProps, IState> {
               placeholder={this.state.placeLabel}
             />
           </label>
-          <Buttons
+          <Button
+            type="BTN_TYPE_WITH_ICONS"
             name="start-button"
             nameContent="start-button-content"
             content={this.state.startButton!}

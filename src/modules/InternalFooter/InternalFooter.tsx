@@ -1,3 +1,5 @@
+import React from 'react';
+
 import data from './data.json';
 
 import TwitterSVG from './svg/TwitterSVG';
@@ -6,7 +8,7 @@ import FacebookSVG from './svg/FacebookSVG';
 
 import './internalFooter.scss';
 
-export default function InternalFooter() {
+export default function InternalFooter(): JSX.Element {
   return (
     <footer className="internal-footer">
       <ul className="internal-footer__links">

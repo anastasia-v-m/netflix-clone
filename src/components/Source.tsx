@@ -1,13 +1,12 @@
+import React from 'react';
+
 import { ISourceProps } from "./types";
 
-function Source(props: ISourceProps) {
-  return (
-    <source
-      src={props.src}
-      type={props.type}
-      className={props.className ? props.className : ''}
-    />
-  );
+function Source(props: ISourceProps): JSX.Element {
+  const { src, type, className = '' } = props;
+
+  return <source src={src} type={type} className={className} />
+
 };
 
 export default Source;

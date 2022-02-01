@@ -11,9 +11,9 @@ function Video(props: IVideoProps) {
     loop={props.loop}
     playsInline={props.playsInline}
   >
-      {React.Children.map(children, (item) => item)}
-      <track kind='captions' />
-    </video>)
+    {React.Children.map(children, (item) => item)}
+    <track kind='captions' />
+  </video>)
 }
 
 export default Video;

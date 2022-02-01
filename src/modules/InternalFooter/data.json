@@ -1,0 +1,40 @@
+{
+  "leftColumn": [
+    {
+      "title": "About Netflix",
+      "link": "/#"
+    },
+    {
+      "title": "Newsroom",
+      "link": "/#"
+    },
+    {
+      "title": "Company Assets",
+      "link": "/#"
+    },
+    {
+      "title": "Start watching",
+      "link": "/#"
+    }
+  ],
+  "midColumn": [
+    {
+      "title": "Contact Us",
+      "link": "/#"
+    }
+  ],
+  "rightColumn": [
+    {
+      "title": "Terms and Conditions",
+      "link": "/#"
+    },
+    {
+      "title": "Privacy",
+      "link": "/#"
+    },
+    {
+      "title": "Cookie Preferences",
+      "link": "/#"
+    }
+  ]
+}

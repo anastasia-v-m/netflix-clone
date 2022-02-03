@@ -1,6 +1,6 @@
 import LoginHeader from '../../modules/LoginHeader';
 import LoginOverlap from '../../modules/LoginOverlap';
-import FooterSpot from '../../modules/FooterSpot';
+import Footer from '../../modules/Footer';
 
 import data from './data';
 
@@ -15,7 +15,7 @@ export default function LoginPage() {
       </div>
       <LoginHeader />
       <LoginOverlap />
-      <FooterSpot footerPrefix="login-page__footer" />
+      <Footer footerPrefix="login-page__footer" />
     </div>
   );
 }

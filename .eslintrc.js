@@ -77,6 +77,23 @@ module.exports = {
     'no-unused-expressions': 'error', // TODO - need add comment
     'import/no-extraneous-dependencies': 'error', // TODO - need add comment
     'global-require': 'error', // TODO - need add comment
+    'jsx-a11y/label-has-associated-control': [
+      // fix error - A form label must be associated with a control
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
   },
   overrides: [
     // fix 'JSX' is not defined  no-undef

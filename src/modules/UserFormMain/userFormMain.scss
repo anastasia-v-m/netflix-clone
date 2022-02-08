@@ -19,7 +19,9 @@
 }
 
 .login-user__input,
-.password-user__input {
+.password-user__input,
+.firstname-user__input,
+.secondname-user__input {
   color: #fff;
   background-color: #333;
   width: 100%;
@@ -32,12 +34,16 @@
 }
 
 .login-user__input:focus,
-.password-user__input:focus {
+.password-user__input:focus,
+.firstname-user__input:focus,
+.secondname-user__input:focus {
   background-color: #454545;
 }
 
 .login-user__label,
-.password-user__label {
+.password-user__label,
+.firstname-user__label,
+.secondname-user__label {
   color: #fff;
   position: absolute;
   top: 50%;
@@ -50,14 +56,23 @@
 }
 
 .login-user__input.focus + .login-user__label,
-.password-user__input.focus + .password-user__label {
+.password-user__input.focus + .password-user__label,
+.firstname-user__input.focus + .firstname-user__label,
+.secondname-user__input.focus + .secondname-user__label {
   font-size: 11px;
   top: 7px;
 }
 
 .login-user__wrapper,
-.password-user__wrapper {
+.password-user__wrapper,
+.firstname-user__wrapper,
+.secondname-user__wrapper {
   position: relative;
+}
+
+.firstname-user__wrapper,
+.secondname-user__wrapper {
+  margin-bottom: 20px;
 }
 
 .login-user__wrapper.active::after,
@@ -168,4 +183,38 @@
 
 .help-link:hover {
   text-decoration: underline;
+}
+
+.login-form__link,
+.registration-form__link {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.login-form__link:hover,
+.registration-form__link:hover {
+  text-decoration: underline;
+}
+
+.loading-svg {
+  margin: auto;
+  background: transparent;
+  display: block;
+  shape-rendering: auto;
+  width: 100px;
+  height: 100px;
+  visibility: hidden;
+}
+
+.loading-svg.active {
+  visibility: visible;
+}
+
+.circle-loading {
+  stroke-width: 8;
+  stroke: #e87c03;
+  stroke-dasharray: 50.26548245743669 50.26548245743669;
+  fill: none;
+  stroke-linecap: round;
 }

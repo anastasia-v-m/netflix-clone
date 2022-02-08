@@ -6,7 +6,7 @@ import data from './data';
 
 const withoutSpecialChars = /^[^-() /]*$/;
 const containsLetters = /^.*[a-zA-Zа-яА-Я]+.*$/;
-const from4To60 = /^.{4,60}$/;
+const from4To60 = /^.{6,60}$/;
 const withoutSpaces = /^[\S]$/;
 
 export default function PasswordUser(props: IFormData): JSX.Element {

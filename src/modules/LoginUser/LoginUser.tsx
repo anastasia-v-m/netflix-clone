@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 
 import IFormData from '../UserFormMain/types';
 
@@ -9,8 +9,9 @@ const validateEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-
 export default function LoginUser(props: IFormData): JSX.Element {
   const [errorPrefixStatus, setErrorPrefix] = useState(false);
   const [focusPrefixStatus, setFocusPrefix] = useState(false);
+  const { update } = props;
 
-  const onChangeLogin = (e: SyntheticEvent) => {
+  const onChangeLogin = (e: SyntheticEvent): void => {
     const email = (e.target as HTMLInputElement).value;
     const isEmail = true;
     const isValid = true;
@@ -23,10 +24,10 @@ export default function LoginUser(props: IFormData): JSX.Element {
 
     if (!validateEmail.test(email)) {
       setErrorPrefix(true);
-      props.update('', !isValid, isEmail);
+      update('', !isValid, isEmail);
     } else {
       setErrorPrefix(false);
-      props.update(email, isValid, isEmail);
+      update(email, isValid, isEmail);
     }
   };
   const errorPrefix = errorPrefixStatus ? 'active' : '';

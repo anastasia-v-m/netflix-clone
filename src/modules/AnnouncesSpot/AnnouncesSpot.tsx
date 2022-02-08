@@ -1,11 +1,15 @@
 import React from 'react';
+
 import Image from '../../components/Image';
+
 import AnimationAnnounce from './animationAnnounce';
+
 import { announcesTitles } from './data';
+
 import './announcesSpot.scss';
 
 class Announcements extends React.Component {
-  getBlocks() {
+  getBlocks(): JSX.Element[] {
     const blocks = [];
     for (let j = 0; j < announcesTitles.length; j += 1) {
       blocks.push(this.renderBlock(j));
@@ -13,7 +17,7 @@ class Announcements extends React.Component {
     return blocks;
   }
 
-  renderBlock(i: number) {
+  renderBlock(i: number): JSX.Element {
     return (
       <div className="announce-precontainer" key={`announce-wrap-1-${i}`}>
         <div className={`announce-container-${i % 2}`}>
@@ -37,7 +41,7 @@ class Announcements extends React.Component {
     );
   }
 
-  render() {
+  render(): JSX.Element {
     return <div className="all-announces-container">{this.getBlocks()}</div>;
   }
 }

@@ -1,4 +1,6 @@
-export default function FacebookSVG() {
+import React from 'react';
+
+export default function FacebookSVG(): JSX.Element {
   return (
     <svg viewBox="0 0 24 24" className="footer-icons__facebook">
       <path fill="none" d="M0 24V0h24v24z" />

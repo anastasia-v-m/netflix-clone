@@ -1,3 +1,3 @@
-export default interface IAnimPartProps {
+export interface IAnimPartProps {
   ind: number;
 }

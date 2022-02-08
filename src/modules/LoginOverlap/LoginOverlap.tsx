@@ -1,9 +1,14 @@
+import React from 'react';
+
 import UserFormMain from '../UserFormMain';
+import { IUserFormProps } from '../UserFormMain/types';
 
 import './loginOverlap.scss';
 
-export default function LoginOverlap(props: any) {
-  if (props.reg) {
+export default function LoginOverlap(props: IUserFormProps): JSX.Element {
+  const { reg } = props;
+
+  if (reg) {
     return (
       <div className="login-overlap">
         <div className="login-overlap__shadow" />

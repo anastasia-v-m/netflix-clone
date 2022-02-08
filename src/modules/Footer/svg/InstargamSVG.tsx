@@ -1,4 +1,6 @@
-export default function InstagramSVG() {
+import React from 'react';
+
+export default function InstagramSVG(): JSX.Element {
   return (
     <svg viewBox="0 0 24 24" className="footer-icons__instagram">
       <path fill="none" d="M0 24V0h24v24z" />

@@ -9,13 +9,14 @@ import { login, registration } from './api/requests';
 
 import internalData from './data';
 import LoadingSVG from './svg/LoadingSVG';
-import { IError, ILoginData, ILoginResp, IRegData } from './types';
+import { IError, ILoginData, ILoginResp, IRegData, IUserFormProps } from './types';
 
 import './userFormMain.scss';
 
-export default function UserFormMain(props: any): JSX.Element {
+export default function UserFormMain(props?: IUserFormProps): JSX.Element {
   const formData = { email: '', isEmailValid: false, password: '', isPasswordValid: false };
   const userNameData = { firstName: '', secondName: '' };
+  const { reg } = props as IUserFormProps;
   const [errorPrefixStatus, setErrorPrefix] = useState(false);
   const [formDataState, setFormData] = useState(formData);
   const [userNameDataState, setUserName] = useState(userNameData);
@@ -105,7 +106,7 @@ export default function UserFormMain(props: any): JSX.Element {
   const errorPrefix = errorPrefixStatus ? 'active' : '';
   const loadingPrefix = isLoading ? 'active' : '';
 
-  if (props.reg) {
+  if (reg) {
     return (
       <div className="user-form__main">
         <h2 className="form-title">{internalData.regTitle}</h2>

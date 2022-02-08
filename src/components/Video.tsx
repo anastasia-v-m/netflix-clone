@@ -1,19 +1,17 @@
 import React from 'react';
-import { IVideoProps } from "./types";
 
-function Video(props: IVideoProps) {
-  const children = props.sources;
+import { IVideoProps } from './types';
 
-  return (<video
-    className={props.className ? props.className : ''}
-    autoPlay={props.autoPlay}
-    muted={props.muted}
-    loop={props.loop}
-    playsInline={props.playsInline}
-  >
+function Video(props: IVideoProps): JSX.Element {
+  const { sources, className, autoPlay, muted, loop, playsInline } = props;
+  const children = sources;
+
+  return (
+    <video className={!className ? '' : className} autoPlay={autoPlay} muted={muted} loop={loop} playsInline={playsInline}>
       {React.Children.map(children, (item) => item)}
-      <track kind='captions' />
-    </video>)
+      <track kind="captions" />
+    </video>
+  );
 }
 
 export default Video;

@@ -1,3 +1,3 @@
-import LandingHeader from "./LandingHeader"
+import LandingHeader from './LandingHeader';
 
 export default LandingHeader;

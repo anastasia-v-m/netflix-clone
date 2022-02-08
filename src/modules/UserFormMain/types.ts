@@ -2,6 +2,10 @@ export default interface IFormData {
   update(value: string, isValid: boolean, isEmail: boolean): void;
 }
 
+export interface IRegFunc {
+  update(firstName: string, isFirstName: boolean): void;
+}
+
 export interface IRegData {
   email: string;
   password: string;
@@ -48,4 +52,12 @@ export interface IError {
       errors: Array<string>;
     };
   };
+}
+
+export interface ILoadingSVG {
+  prefix: string;
+}
+
+export interface IUserFormProps {
+  reg?: string;
 }

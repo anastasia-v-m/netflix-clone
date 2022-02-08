@@ -9,6 +9,7 @@ import { login, registration } from './api/requests';
 
 import internalData from './data';
 import LoadingSVG from './svg/LoadingSVG';
+import { IError, ILoginData, ILoginResp, IRegData } from './types';
 
 import './userFormMain.scss';
 
@@ -21,25 +22,27 @@ export default function UserFormMain(props: any): JSX.Element {
   const [isLoading, setLoading] = useState(false);
   const navigator = useNavigate();
 
-  const loginUser = async (e: SyntheticEvent) => {
+  const loginUser = async (e: SyntheticEvent): Promise<void> => {
     e.preventDefault();
     setLoading(true);
-    const reqData = {
+    const loginData: ILoginData = {
       email: formDataState.email,
       password: formDataState.password,
     };
     if (formDataState.isEmailValid && formDataState.isPasswordValid) {
       setErrorPrefix(false);
       try {
-        const { data: loginData } = await login(reqData);
-        sessionStorage.setItem('user', JSON.stringify(loginData.user));
+        const { data: loginResp }: { data: ILoginResp } = await login(loginData);
+        sessionStorage.setItem('user', JSON.stringify(loginResp.user));
         setLoading(false);
         navigator('/private-page');
-      } catch (err: any) {
-        if (err.response.status === 422) {
+      } catch (err) {
+        if ((err as IError).response.status === 422) {
           setErrorPrefix(true);
           setLoading(false);
-          Object.keys(err.response.data.errors).forEach((key) => console.error(err.response.data.errors[key]));
+          Object.keys((err as IError).response.data.errors).forEach((key, ind) =>
+            console.error((err as IError).response.data.errors[ind]),
+          );
         }
       }
     } else {
@@ -47,10 +50,10 @@ export default function UserFormMain(props: any): JSX.Element {
     }
   };
 
-  const regUser = async (e: SyntheticEvent) => {
+  const regUser = async (e: SyntheticEvent): Promise<void> => {
     e.preventDefault();
     setLoading(true);
-    const reqData = {
+    const regData: IRegData = {
       email: formDataState.email,
       password: formDataState.password,
       firstName: userNameDataState.firstName,
@@ -60,22 +63,24 @@ export default function UserFormMain(props: any): JSX.Element {
     if (formDataState.isEmailValid && formDataState.isPasswordValid) {
       setErrorPrefix(false);
       try {
-        await registration(reqData);
-        const { data: loginData } = await login(reqData);
+        await registration(regData);
+        const { data: loginData } = await login(regData);
         sessionStorage.setItem('user', JSON.stringify(loginData.user));
         setLoading(false);
         navigator('/private-page');
-      } catch (err: any) {
-        if (err.response.status === 422) {
+      } catch (err) {
+        if ((err as IError).response.status === 422) {
           setErrorPrefix(true);
           setLoading(false);
-          Object.keys(err.response.data.errors).forEach((key) => console.error(err.response.data.errors[key]));
+          Object.keys((err as IError).response.data.errors).forEach((key, index) =>
+            console.error((err as IError).response.data.errors[index]),
+          );
         }
       }
     }
   };
 
-  const updateValues = (value: string, isValid: boolean, isEmail: boolean) => {
+  const updateValues = (value: string, isValid: boolean, isEmail: boolean): void => {
     if (isEmail) {
       formDataState.email = value;
       formDataState.isEmailValid = isValid;
@@ -87,7 +92,7 @@ export default function UserFormMain(props: any): JSX.Element {
     }
   };
 
-  const updateUserName = (value: string, isFirstName: boolean) => {
+  const updateUserName = (value: string, isFirstName: boolean): void => {
     if (isFirstName) {
       userNameDataState.firstName = value;
       setUserName(userNameDataState);

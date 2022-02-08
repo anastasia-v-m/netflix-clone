@@ -40,12 +40,6 @@ export default function PageOnlyOnNetflix(): JSX.Element {
             <div className="movie-category-wrapper">
               <ul className="movie-category-list">
                 {item.items.map((innerItem: IOneMovieData) => (
-                  // <li className="only-netflix-movie-container">
-                  //   <a className="only-netflix-movie" href={innerItem.src}>
-                  //     <Image src={innerItem.posterSrc} alt="movie poster" className="only-netflix-movie-poster" />
-                  //     <span className="only-netflix-movie-title">{innerItem.title}</span>
-                  //   </a>
-                  // </li>
                   <MovieCard
                     imgSrc={innerItem.posterSrc}
                     imgAlt="movie-poster"

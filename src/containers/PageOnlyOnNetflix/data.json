@@ -1,0 +1,107 @@
+[
+  {
+    "movieType": "Популярно на Netflix",
+    "items": [
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTC8NvN6X_qTbN3eMHeZTeria2_ZtbSE5dbhYJwnMrvj6A6OrqQEpf1UQ3FRo1wlddXbzFRXw9npEOAfaV2STa-de8hbaIlZetmzlGrzPYiL7kWWf7dQ8QhZ5krG.jpg?r=6b7",
+        "title": "Paper house",
+        "src": "https://www.netflix.com/by-ru/title/80192098"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABbgCw2Jb11BGixvbeowuVazD1U5mMcnriDCd3vhYFiVQ9uMqgGTBOs115J5lOOXh85VIA0mYyxkgezuPqnLBdYlZ8070KIr2qbjb_aly1nLBtobHVTTEYoYhEhqe.jpg?r=050",
+        "title": "Witcher",
+        "src": "https://www.netflix.com/by-ru/title/80189685"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSu-9uXqdU8yJhWKmW_R6xZNCwKsLCDpoqRf1opGt0JZtbeKIc4VEJxr3F_7iEB5hDWWEWMst9cJowM9xmFIyXCJow5ev9xyFGtF4GamsJ3NJPKjatLx1r5jG906.jpg?r=fe9",
+        "title": "We all are dead",
+        "src": "https://www.netflix.com/by-ru/title/81237994"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTC8NvN6X_qTbN3eMHeZTeria2_ZtbSE5dbhYJwnMrvj6A6OrqQEpf1UQ3FRo1wlddXbzFRXw9npEOAfaV2STa-de8hbaIlZetmzlGrzPYiL7kWWf7dQ8QhZ5krG.jpg?r=6b7",
+        "title": "Paper house",
+        "src": "https://www.netflix.com/by-ru/title/80192098"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABbgCw2Jb11BGixvbeowuVazD1U5mMcnriDCd3vhYFiVQ9uMqgGTBOs115J5lOOXh85VIA0mYyxkgezuPqnLBdYlZ8070KIr2qbjb_aly1nLBtobHVTTEYoYhEhqe.jpg?r=050",
+        "title": "Witcher",
+        "src": "https://www.netflix.com/by-ru/title/80189685"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSu-9uXqdU8yJhWKmW_R6xZNCwKsLCDpoqRf1opGt0JZtbeKIc4VEJxr3F_7iEB5hDWWEWMst9cJowM9xmFIyXCJow5ev9xyFGtF4GamsJ3NJPKjatLx1r5jG906.jpg?r=fe9",
+        "title": "We all are dead",
+        "src": "https://www.netflix.com/by-ru/title/81237994"
+      }
+    ]
+  },
+  {
+    "movieType": "Популярно на Netflix",
+    "items": [
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTC8NvN6X_qTbN3eMHeZTeria2_ZtbSE5dbhYJwnMrvj6A6OrqQEpf1UQ3FRo1wlddXbzFRXw9npEOAfaV2STa-de8hbaIlZetmzlGrzPYiL7kWWf7dQ8QhZ5krG.jpg?r=6b7",
+        "title": "Paper house",
+        "src": "https://www.netflix.com/by-ru/title/80192098"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABbgCw2Jb11BGixvbeowuVazD1U5mMcnriDCd3vhYFiVQ9uMqgGTBOs115J5lOOXh85VIA0mYyxkgezuPqnLBdYlZ8070KIr2qbjb_aly1nLBtobHVTTEYoYhEhqe.jpg?r=050",
+        "title": "Witcher",
+        "src": "https://www.netflix.com/by-ru/title/80189685"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSu-9uXqdU8yJhWKmW_R6xZNCwKsLCDpoqRf1opGt0JZtbeKIc4VEJxr3F_7iEB5hDWWEWMst9cJowM9xmFIyXCJow5ev9xyFGtF4GamsJ3NJPKjatLx1r5jG906.jpg?r=fe9",
+        "title": "We all are dead",
+        "src": "https://www.netflix.com/by-ru/title/81237994"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTC8NvN6X_qTbN3eMHeZTeria2_ZtbSE5dbhYJwnMrvj6A6OrqQEpf1UQ3FRo1wlddXbzFRXw9npEOAfaV2STa-de8hbaIlZetmzlGrzPYiL7kWWf7dQ8QhZ5krG.jpg?r=6b7",
+        "title": "Paper house",
+        "src": "https://www.netflix.com/by-ru/title/80192098"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABbgCw2Jb11BGixvbeowuVazD1U5mMcnriDCd3vhYFiVQ9uMqgGTBOs115J5lOOXh85VIA0mYyxkgezuPqnLBdYlZ8070KIr2qbjb_aly1nLBtobHVTTEYoYhEhqe.jpg?r=050",
+        "title": "Witcher",
+        "src": "https://www.netflix.com/by-ru/title/80189685"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSu-9uXqdU8yJhWKmW_R6xZNCwKsLCDpoqRf1opGt0JZtbeKIc4VEJxr3F_7iEB5hDWWEWMst9cJowM9xmFIyXCJow5ev9xyFGtF4GamsJ3NJPKjatLx1r5jG906.jpg?r=fe9",
+        "title": "We all are dead",
+        "src": "https://www.netflix.com/by-ru/title/81237994"
+      }
+    ]
+  },
+  {
+    "movieType": "Популярно на Netflix",
+    "items": [
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTC8NvN6X_qTbN3eMHeZTeria2_ZtbSE5dbhYJwnMrvj6A6OrqQEpf1UQ3FRo1wlddXbzFRXw9npEOAfaV2STa-de8hbaIlZetmzlGrzPYiL7kWWf7dQ8QhZ5krG.jpg?r=6b7",
+        "title": "Paper house",
+        "src": "https://www.netflix.com/by-ru/title/80192098"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABbgCw2Jb11BGixvbeowuVazD1U5mMcnriDCd3vhYFiVQ9uMqgGTBOs115J5lOOXh85VIA0mYyxkgezuPqnLBdYlZ8070KIr2qbjb_aly1nLBtobHVTTEYoYhEhqe.jpg?r=050",
+        "title": "Witcher",
+        "src": "https://www.netflix.com/by-ru/title/80189685"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSu-9uXqdU8yJhWKmW_R6xZNCwKsLCDpoqRf1opGt0JZtbeKIc4VEJxr3F_7iEB5hDWWEWMst9cJowM9xmFIyXCJow5ev9xyFGtF4GamsJ3NJPKjatLx1r5jG906.jpg?r=fe9",
+        "title": "We all are dead",
+        "src": "https://www.netflix.com/by-ru/title/81237994"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTC8NvN6X_qTbN3eMHeZTeria2_ZtbSE5dbhYJwnMrvj6A6OrqQEpf1UQ3FRo1wlddXbzFRXw9npEOAfaV2STa-de8hbaIlZetmzlGrzPYiL7kWWf7dQ8QhZ5krG.jpg?r=6b7",
+        "title": "Paper house",
+        "src": "https://www.netflix.com/by-ru/title/80192098"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABbgCw2Jb11BGixvbeowuVazD1U5mMcnriDCd3vhYFiVQ9uMqgGTBOs115J5lOOXh85VIA0mYyxkgezuPqnLBdYlZ8070KIr2qbjb_aly1nLBtobHVTTEYoYhEhqe.jpg?r=050",
+        "title": "Witcher",
+        "src": "https://www.netflix.com/by-ru/title/80189685"
+      },
+      {
+        "posterSrc": "https://occ-0-3666-2773.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSu-9uXqdU8yJhWKmW_R6xZNCwKsLCDpoqRf1opGt0JZtbeKIc4VEJxr3F_7iEB5hDWWEWMst9cJowM9xmFIyXCJow5ev9xyFGtF4GamsJ3NJPKjatLx1r5jG906.jpg?r=fe9",
+        "title": "We all are dead",
+        "src": "https://www.netflix.com/by-ru/title/81237994"
+      }
+    ]
+  }
+]

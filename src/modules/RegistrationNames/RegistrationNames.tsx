@@ -1,11 +1,13 @@
 import React, { SyntheticEvent, useState } from 'react';
+import { IRegFunc } from '../UserFormMain/types';
 
 import data from './data';
 
-export default function RegistrationNames(props: any): JSX.Element {
+export default function RegistrationNames(props: IRegFunc): JSX.Element {
   const [isFocused, setFocusPrefix] = useState(false);
+  const { update } = props;
 
-  const onChangeName = (e: SyntheticEvent) => {
+  const onChangeName = (e: SyntheticEvent): void => {
     const userName = (e.target as HTMLInputElement).value;
     const elemPrefixList = (e.target as HTMLInputElement).classList;
     const isFirstName = true;
@@ -17,9 +19,9 @@ export default function RegistrationNames(props: any): JSX.Element {
     }
 
     if (elemPrefixList.contains('firstname-user__input')) {
-      props.update(userName, isFirstName);
+      update(userName, isFirstName);
     } else {
-      props.update(userName, !isFirstName);
+      update(userName, !isFirstName);
     }
   };
 

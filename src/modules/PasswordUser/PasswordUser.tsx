@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 
 import IFormData from '../UserFormMain/types';
 
@@ -12,8 +12,9 @@ const withoutSpaces = /^[\S]$/;
 export default function PasswordUser(props: IFormData): JSX.Element {
   const [errorPrefixStatus, setErrorPrefix] = useState(false);
   const [focusPrefixStatus, setFocusPrefix] = useState(false);
+  const { update } = props;
 
-  const onChangePassword = (e: SyntheticEvent) => {
+  const onChangePassword = (e: SyntheticEvent): void => {
     const password = (e.target as HTMLInputElement).value;
     const isEmail = true;
     const isValid = true;
@@ -31,10 +32,10 @@ export default function PasswordUser(props: IFormData): JSX.Element {
       withoutSpaces.test(password)
     ) {
       setErrorPrefix(true);
-      props.update('', !isValid, !isEmail);
+      update('', !isValid, !isEmail);
     } else {
       setErrorPrefix(false);
-      props.update(password, isValid, !isEmail);
+      update(password, isValid, !isEmail);
     }
   };
   const errorPrefix = errorPrefixStatus ? 'active' : '';

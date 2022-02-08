@@ -100,7 +100,7 @@ module.exports = {
     {
       files: ['**/*.ts', '**/*.tsx'],
       rules: {
-        'no-undef': 'warn',
+        'no-undef': 'off',
         'no-unused-vars': 'warn',
         'import/no-unresolved': 'warn',
       },

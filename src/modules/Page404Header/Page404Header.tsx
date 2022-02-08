@@ -1,6 +1,8 @@
+import React from 'react';
+
 import './page404Header.scss';
 
-export default function Page404Header() {
+export default function Page404Header(): JSX.Element {
   return (
     <div className="page404-header">
       <a className="logo-link" href="/#">

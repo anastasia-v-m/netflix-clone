@@ -1,14 +1,19 @@
+import React from 'react';
+
 import LoginHeader from '../../modules/LoginHeader';
 import LoginOverlap from '../../modules/LoginOverlap';
 import Footer from '../../modules/Footer';
 
 import data from './data';
 import { FOOTER_LOGIN_PAGE_TYPE } from '../../components/constants';
+import { IUserFormProps } from '../../modules/UserFormMain/types';
 
 import './loginPage.scss';
 
-export default function LoginPage(props: any) {
-  if (props.reg) {
+export default function LoginPage(props: IUserFormProps): JSX.Element {
+  const { reg } = props;
+
+  if (reg) {
     return (
       <div className="login-wrapper">
         <div className="login-background">
@@ -17,7 +22,7 @@ export default function LoginPage(props: any) {
         </div>
         <LoginHeader />
         <LoginOverlap reg="true" />
-        <FooterSpot footerPrefix="login-page__footer" />
+        <Footer footerType={FOOTER_LOGIN_PAGE_TYPE} />
       </div>
     );
   }

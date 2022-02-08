@@ -1,6 +1,8 @@
+import React from 'react';
+
 import './loginHeader.scss';
 
-export default function LoginHeader() {
+export default function LoginHeader(): JSX.Element {
   return (
     <div className="login-header">
       <a className="logo-link" href="/">

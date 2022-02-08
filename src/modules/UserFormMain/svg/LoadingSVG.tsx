@@ -1,7 +1,11 @@
-export default function LoadingSVG(props: any): JSX.Element {
+import React from 'react';
+import { ILoadingSVG } from '../types';
+
+export default function LoadingSVG(props: ILoadingSVG): JSX.Element {
+  const { prefix } = props;
   return (
     <svg
-      className={`loading-svg ${props.prefix}`}
+      className={`loading-svg ${prefix}`}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 100 100"

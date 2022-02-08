@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import data from './data.json';
 
@@ -45,7 +45,7 @@ function QuestionsItem(): JSX.Element {
   );
 }
 
-export default function QuestionsSpot() {
+export default function QuestionsSpot(): JSX.Element {
   return (
     <div className="questions">
       <div className="questions-wrapper">

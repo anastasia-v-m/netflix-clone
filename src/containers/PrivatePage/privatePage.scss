@@ -119,8 +119,8 @@
   z-index: 30;
   position: sticky;
   background-color: transparent;
-  background: rgba(15,15,15, 0.8);
-  box-shadow: 0 8px 16px 10px rgba(0, 0, 0, .5), 0 0 2px 0 rgba(0, 0, 0, .6);
+  background: rgba(15, 15, 15, 0.8);
+  box-shadow: 0 8px 16px 10px rgba(0, 0, 0, 0.5), 0 0 2px 0 rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(1px);
 
   @media screen and (min-width: 1280px) {

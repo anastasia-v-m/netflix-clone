@@ -5,5 +5,5 @@ export default interface DataInterface {
 }
 
 export interface IFooterProps {
-  footerPrefix?: string;
+  footerType?: string;
 }

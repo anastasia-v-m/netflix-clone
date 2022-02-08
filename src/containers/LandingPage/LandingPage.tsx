@@ -1,4 +1,4 @@
-import FooterSpot from '../../modules/FooterSpot';
+import Footer from '../../modules/Footer';
 import LandingHeader from '../../modules/LandingHeader';
 import AnnouncesSpot from '../../modules/AnnouncesSpot';
 import QuestionsSpot from '../../modules/QuestionSpot';
@@ -18,7 +18,7 @@ export default function LandingStructure() {
           <EmailForm />
         </div>
       </main>
-      <FooterSpot />
+      <Footer />
     </>
   );
 }

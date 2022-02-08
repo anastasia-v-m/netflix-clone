@@ -1,8 +1,11 @@
 import React from 'react';
+
 import Image from '../../components/Image';
 import Footer from '../../modules/Footer';
 import LoginHeader from '../../modules/LoginHeader';
+
 import data from './data.json';
+import { FOOTER_INTERNAL_PAGE_TYPE } from '../../components/constants';
 
 import './privatePage.scss';
 
@@ -56,7 +59,7 @@ export default function PrivatePage(): JSX.Element {
           </div>
         </div>
       </section>
-      <Footer footerPrefix="internal-footer" />
+      <Footer footerType={FOOTER_INTERNAL_PAGE_TYPE} />
     </>
   );
 }

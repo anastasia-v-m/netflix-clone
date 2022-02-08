@@ -1,3 +1,3 @@
-import FooterSpot from './Footer';
+import Footer from './Footer';
 
-export default FooterSpot;
+export default Footer;

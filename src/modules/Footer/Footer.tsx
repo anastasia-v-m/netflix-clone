@@ -10,9 +10,11 @@ import TwitterSVG from './svg/TwitterSVG';
 import InstagramSVG from './svg/InstargamSVG';
 import FacebookSVG from './svg/FacebookSVG';
 
+import { FOOTER_INTERNAL_PAGE_TYPE } from '../../components/constants';
+
 import './footer.scss';
 
-function FooterLinks() {
+function FooterLinks(): JSX.Element {
   return (
     <ul className="links-list">
       {data.map((elem: DataInterface) => (
@@ -26,16 +28,17 @@ function FooterLinks() {
   );
 }
 
-export default function Footer(props?: IFooterProps) {
-  if (props?.footerPrefix === 'internal-footer') {
+export default function Footer(props?: IFooterProps): JSX.Element {
+  const { footerType = undefined } = props as IFooterProps;
+  if (footerType === FOOTER_INTERNAL_PAGE_TYPE) {
     return (
-      <footer className="internal-footer">
+      <footer className={FOOTER_INTERNAL_PAGE_TYPE}>
         <ul className="internal-footer__links">
           <li className="internal-footer__item">
             <p className="internal-footer__item_descr">Company</p>
           </li>
-          {dataInternal.leftColumn.map((elem) => (
-            <li className="internal-footer__item_descr">
+          {dataInternal.leftColumn.map((elem, index) => (
+            <li className="internal-footer__item_descr" key={index}>
               <a className="internal-footer__item_link" href={elem.link}>
                 {elem.title}
               </a>
@@ -46,8 +49,8 @@ export default function Footer(props?: IFooterProps) {
           <li className="internal-footer__item">
             <p className="internal-footer__item_descr">Connect</p>
           </li>
-          {dataInternal.midColumn.map((elem) => (
-            <li className="internal-footer__item_descr">
+          {dataInternal.midColumn.map((elem, index) => (
+            <li className="internal-footer__item_descr" key={index}>
               <a className="internal-footer__item_link" href={elem.link}>
                 {elem.title}
               </a>
@@ -69,8 +72,8 @@ export default function Footer(props?: IFooterProps) {
           <li className="internal-footer__item">
             <p className="internal-footer__item_descr">Legal</p>
           </li>
-          {dataInternal.rightColumn.map((elem) => (
-            <li className="internal-footer__item_descr">
+          {dataInternal.rightColumn.map((elem, index) => (
+            <li className="internal-footer__item_descr" key={index}>
               <a className="internal-footer__item_link" href={elem.link}>
                 {elem.title}
               </a>
@@ -80,9 +83,10 @@ export default function Footer(props?: IFooterProps) {
       </footer>
     );
   }
-  const footerPrefix = (props as IFooterProps).footerPrefix ? 'login-page__footer' : '';
+
+  const prefix = footerType ? 'login-page__footer' : '';
   return (
-    <footer className={footerPrefix}>
+    <footer className={prefix}>
       <div className="footer-wrapper">
         <div className="footer-links-container">
           <a className="footer-title" href="/#">

@@ -1,14 +1,12 @@
 import React from 'react';
 
-import Page404Header from '../../modules/Page404Header';
+import Header from '../../modules/Header';
 import Page404Spot from '../../modules/Page404Spot';
 
 export default function Page404(): JSX.Element {
   return (
     <>
-      <header>
-        <Page404Header />
-      </header>
+      <Header type="HEADER_404_PAGE" name="header-container" />
       <main>
         <Page404Spot />
       </main>

@@ -15,7 +15,7 @@ export default function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login-form" element={<LoginPage />} />
-          <Route path="/registration" element={<LoginPage reg="true" />} />
+          <Route path="/registration" element={<Page404 />} />
           <Route path="/search" element={<Page404 />} />
           <Route path="/stub" element={<Stub />} />
           <Route

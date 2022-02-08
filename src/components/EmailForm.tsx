@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { IProps, IState } from './langSelection';
-import landingStartCardData from '../modules/LandingHeader/landingStartCardData.json';
+import data from '../modules/LandingStartSpot/data.json';
 import Button from './Button';
 
 export default class EmailForm extends React.Component<IProps, IState> {
@@ -9,9 +9,9 @@ export default class EmailForm extends React.Component<IProps, IState> {
     super(props);
     this.state = {
       value: '',
-      formTitle: landingStartCardData.formTitle,
-      placeLabel: landingStartCardData.placeLabel,
-      startButton: landingStartCardData.startButton,
+      formTitle: data.formTitle,
+      placeLabel: data.placeLabel,
+      startButton: data.startButton,
     };
 
     this.handleChange = this.handleChange.bind(this);

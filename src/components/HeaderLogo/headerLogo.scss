@@ -1,6 +1,11 @@
-.page404-header {
+.page404-header,
+.login-header {
   line-height: 68px;
   z-index: 1;
+}
+
+.landing-header {
+  margin-right: auto;
 }
 
 .logo-link {
@@ -8,8 +13,8 @@
 }
 
 .logo-svg {
-  height: 25px;
-  width: 93px;
+  height: 45px;
+  width: 167px;
   vertical-align: middle;
   fill: #e50914;
 }

@@ -3,7 +3,7 @@ import Button from '../../components/Button';
 import data from './data';
 import './page404Spot.scss';
 
-export default function Page404Content(): JSX.Element {
+export default function Page404Spot(): JSX.Element {
   return (
     <div className="p404-main">
       <div className="message-precontainer">

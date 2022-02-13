@@ -19,7 +19,7 @@ export default function Header(): JSX.Element {
             name="auth-button"
             nameContent="auth-button-content"
             content="Войти"
-            href="/login-form"
+            linkAdr="/login-form"
           />
         </div>
       </div>

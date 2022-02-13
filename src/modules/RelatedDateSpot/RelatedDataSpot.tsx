@@ -17,7 +17,7 @@ export default function PrivatePage(): JSX.Element {
               <div className="related-data__item">
                 <a className="related-data__item-link" href={item.pageSrc} target="_blank" rel="noreferrer">
                   <div className="related-data__item-img-container">
-                    <img alt="placeholder" src="https://media.netflix.com/static/images/news_placeholder.png" aria-hidden="true" className="jss225" />
+                    <img alt="placeholder" src="https://media.netflix.com/static/images/news_placeholder.png" aria-hidden="true" />
                     <div
                       className="related-data__item-img"
                       style={

@@ -33,7 +33,7 @@ export default function Header(props: IHeader): ReactElement {
               name="auth-button"
               nameContent="auth-button-content"
               content="Войти"
-              href="/login-form"
+              linkAdr="/login-form"
             />
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Header(props: IHeader): ReactElement {
               name="auth-button"
               nameContent="auth-button-content"
               content="Войти"
-              href="/login-form"
+              linkAdr="/login-form"
             />
             <PopupSearchInput />
           </div>

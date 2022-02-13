@@ -1,3 +1,3 @@
-import FilterSpot from "./FilterSpot";
+import FilterSpot from './FilterSpot';
 
 export default FilterSpot;

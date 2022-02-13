@@ -43,7 +43,7 @@ export default class EmailForm extends React.Component<IProps, IState> {
             nameContent="start-button-content"
             content={startButton!}
             icon="start-button-arrow"
-            href="/registration"
+            linkAdr="/registration"
           />
         </div>
       </form>

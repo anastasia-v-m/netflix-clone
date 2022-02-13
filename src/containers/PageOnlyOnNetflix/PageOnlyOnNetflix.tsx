@@ -63,7 +63,7 @@ export default function PageOnlyOnNetflix(): JSX.Element {
           <Button
             type="BTN_TYPE_SIMPLE"
             name="only-netflix-btn-to-home"
-            href="/"
+            linkAdr="/"
             content={TO_HOME}
           />
         </div>

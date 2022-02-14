@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { IProps, IState } from './langSelection';
 import landingStartCardData from '../modules/LandingHeader/landingStartCardData.json';
@@ -9,7 +10,6 @@ export default class EmailForm extends React.Component<IProps, IState> {
     super(props);
     this.state = {
       value: '',
-      formTitle: landingStartCardData.formTitle,
       placeLabel: landingStartCardData.placeLabel,
       startButton: landingStartCardData.startButton,
     };
@@ -22,10 +22,12 @@ export default class EmailForm extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
-    const { formTitle, placeLabel, value, startButton } = this.state;
+    const { placeLabel, value, startButton } = this.state;
     return (
       <form className="emailForm">
-        <h3>{formTitle}</h3>
+        <h3>
+          <FormattedMessage id="formTitle" />
+        </h3>
         <div className="emailFormContainer">
           <label htmlFor="email">
             <input

@@ -1,8 +1,16 @@
 import React from 'react';
 
-import { IProps, IState } from './langSelection';
 import landingStartCardData from '../modules/LandingHeader/landingStartCardData.json';
 import Button from './Button';
+
+export interface IProps {}
+
+export interface IState {
+  value?: string;
+  formTitle?: string;
+  placeLabel?: string;
+  startButton?: string;
+}
 
 export default class EmailForm extends React.Component<IProps, IState> {
   constructor(props: IProps) {

@@ -1,19 +1,13 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { AppContext } from './AppProvider';
 
-export interface IProps {}
+const LANG_EN = 'English';
+const LANG_RU = 'Русский';
 
-export interface IState {
-  value?: string;
-  formTitle?: string;
-  placeLabel?: string;
-  startButton?: string;
-}
-
-export default function LangSelection() {
+export default function LangSelection(): ReactElement {
   return (
     <AppContext.Consumer>
-      {(context) => (
+      {(context): ReactElement => (
         <div className="lang-selection-container">
           <div className="lang-selection-wrapper">
             <label htmlFor="lang-switcher-select">
@@ -25,10 +19,10 @@ export default function LangSelection() {
                   id="lang-switcher-select"
                 >
                   <option lang="en" value="en">
-                    English
+                    {LANG_EN}
                   </option>
                   <option lang="ru" value="ru">
-                    Русский
+                    {LANG_RU}
                   </option>
                 </select>
               </div>

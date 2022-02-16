@@ -1,14 +1,19 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, ReactElement, useState } from 'react';
 
 interface IAppContextType {
-  locale: any;
+  locale: string;
   updateLocalCode: (T: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+interface IAppProvider {
+  children: ReactElement;
 }
 
 export const AppContext = createContext<IAppContextType>({} as IAppContextType);
 
-function AppProvider(props: any) {
-  const [locale, setLocale] = useState('en');
+function AppProvider(props: IAppProvider) {
+  const LANG_EN = 'en';
+  const [locale, setLocale] = useState(LANG_EN);
   function updateLocalCode(e: React.ChangeEvent<HTMLSelectElement>) {
     const newLocale = e.target.value;
     setLocale(newLocale);

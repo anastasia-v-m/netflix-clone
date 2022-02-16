@@ -1,6 +1,6 @@
 import React from 'react';
 
-import EmailForm from '../../components/EmailForm';
+import SearchIcon from '../../assets/SearchIcon';
 import data from './data';
 
 import '../Header/header.scss';
@@ -21,7 +21,12 @@ export default function LandingStartSpot(): JSX.Element {
           <div className="start-card-content">
             <h1>{data[context.locale].landingHeaderTitle}</h1>
             <h2>{data[context.locale].landingHeaderAnnotation}</h2>
-            <EmailForm />
+            <form className="search-spot search-spot_landing-page">
+              <div className="search-spot_block">
+                <SearchIcon />
+                <input type="search" className="search-spot_input" placeholder="Search for Netflix titles and news" />
+              </div>
+            </form>
           </div>
         </div>
       )}

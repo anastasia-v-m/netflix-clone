@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import data from './data';
 import './page404.scss';
@@ -7,7 +9,7 @@ function Page404Header(): JSX.Element {
   return (
     <header>
       <div className="page404-header">
-        <a className="logo-link" href="/#">
+        <Link className="logo-link" to="/#">
           <svg viewBox="0 0 111 30" className="logo-svg" focusable="true">
             <g id="netflix-logo">
               <path
@@ -16,7 +18,7 @@ function Page404Header(): JSX.Element {
               />
             </g>
           </svg>
-        </a>
+        </Link>
       </div>
     </header>
   );
@@ -30,12 +32,7 @@ function Page404Spot(): JSX.Element {
           <div className="message-container">
             <h1 className="p404-message">{data.header}</h1>
             <h4 className="p404-message2">{data.explanation}</h4>
-            <Button
-              type="BTN_TYPE_SIMPLE"
-              name="btn-to-home"
-              linkAdr="/"
-              content={data.buttonText}
-            />
+            <Button type="BTN_TYPE_SIMPLE" name="btn-to-home" linkAdr="/" content={data.buttonText} />
           </div>
           <p className="p404-error-code">
             {data.errorCodeTitle}

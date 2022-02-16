@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 
 import './headerLogo.scss';
 
@@ -32,7 +33,7 @@ export default function HeaderLogo(props: ILogo): ReactElement {
   } else {
     result = (
       <div className={name}>
-        <a className="logo-link" href={link}>
+        <Link className="logo-link" to={link as string}>
           <svg viewBox="0 0 111 30" className="logo-svg" focusable="true">
             <g id="netflix-logo">
               <path
@@ -41,7 +42,7 @@ export default function HeaderLogo(props: ILogo): ReactElement {
               />
             </g>
           </svg>
-        </a>
+        </Link>
       </div>
     );
   }

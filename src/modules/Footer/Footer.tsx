@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import data from './data.json';
 import dataInternal from './dataInternal.json';
@@ -19,9 +20,9 @@ function FooterLinks(): JSX.Element {
     <ul className="links-list">
       {data.map((elem: DataInterface) => (
         <li className="footer-link-item" key={elem.id}>
-          <a className="footer-link" href={elem.link}>
+          <Link className="footer-link" to={elem.link}>
             {elem.title}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
@@ -39,9 +40,9 @@ export default function Footer(props?: IFooterProps): JSX.Element {
           </li>
           {dataInternal.leftColumn.map((elem, index) => (
             <li className="internal-footer__item_descr" key={index}>
-              <a className="internal-footer__item_link" href={elem.link}>
+              <Link className="internal-footer__item_link" to={elem.link}>
                 {elem.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -51,21 +52,21 @@ export default function Footer(props?: IFooterProps): JSX.Element {
           </li>
           {dataInternal.midColumn.map((elem, index) => (
             <li className="internal-footer__item_descr" key={index}>
-              <a className="internal-footer__item_link" href={elem.link}>
+              <Link className="internal-footer__item_link" to={elem.link}>
                 {elem.title}
-              </a>
+              </Link>
             </li>
           ))}
           <li className="internal-footer__item_descr">
-            <a className="social-links" href="/#">
+            <Link className="social-links" to="/#">
               <TwitterSVG />
-            </a>
-            <a className="social-links" href="/#">
+            </Link>
+            <Link className="social-links" to="/#">
               <InstagramSVG />
-            </a>
-            <a className="social-links" href="/#">
+            </Link>
+            <Link className="social-links" to="/#">
               <FacebookSVG />
-            </a>
+            </Link>
           </li>
         </ul>
         <ul className="internal-footer__links">
@@ -74,9 +75,9 @@ export default function Footer(props?: IFooterProps): JSX.Element {
           </li>
           {dataInternal.rightColumn.map((elem, index) => (
             <li className="internal-footer__item_descr" key={index}>
-              <a className="internal-footer__item_link" href={elem.link}>
+              <Link className="internal-footer__item_link" to={elem.link}>
                 {elem.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -89,9 +90,9 @@ export default function Footer(props?: IFooterProps): JSX.Element {
     <footer className={prefix}>
       <div className="footer-wrapper">
         <div className="footer-links-container">
-          <a className="footer-title" href="/#">
+          <Link className="footer-title" to="/#">
             <span>Есть вопросы? Свяжитесь с нами</span>
-          </a>
+          </Link>
           <FooterLinks />
           <LangSelection />
           <p className="footer-country">Netflix Беларусь</p>
@@ -99,18 +100,18 @@ export default function Footer(props?: IFooterProps): JSX.Element {
       </div>
       <div className="developers-links">
         <div>Rss logo</div>
-        <a className="dev-link" href="/#">
+        <Link className="dev-link" to="/#">
           Developer 1
-        </a>
-        <a className="dev-link" href="/#">
+        </Link>
+        <Link className="dev-link" to="/#">
           Developer 2
-        </a>
-        <a className="dev-link" href="/#">
+        </Link>
+        <Link className="dev-link" to="/#">
           Developer 3
-        </a>
-        <a className="dev-link" href="/#">
+        </Link>
+        <Link className="dev-link" to="/#">
           Mentor
-        </a>
+        </Link>
         <div>Github logo</div>
       </div>
     </footer>

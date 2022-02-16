@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import './loginHeader.scss';
 
 export default function LoginHeader(): JSX.Element {
   return (
     <div className="login-header">
-      <a className="logo-link" href="/">
+      <Link className="logo-link" to="/">
         <svg viewBox="0 0 111 30" className="logo-svg" focusable="true">
           <g id="netflix-logo">
             <path
@@ -14,7 +16,7 @@ export default function LoginHeader(): JSX.Element {
             />
           </g>
         </svg>
-      </a>
+      </Link>
     </div>
   );
 }

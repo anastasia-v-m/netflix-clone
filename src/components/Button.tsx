@@ -10,21 +10,14 @@ export interface IPropsButton {
   content?: string | JSX.Element | Element;
   icon?: string;
   linkAdr?: string;
-  clickHandler?: React.MouseEventHandler<HTMLButtonElement> | undefined,
+  clickHandler?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 export default function Button(props: IPropsButton): JSX.Element {
-  const {
-    type = BTN_TYPE_SIMPLE,
-    name = '',
-    linkAdr,
-    nameContent = '',
-    content = '',
-    icon,
-  } = props;
+  const { type = BTN_TYPE_SIMPLE, name = '', linkAdr, nameContent = '', content = '', icon } = props;
 
   const toNextPage = (link?: string) => () => {
-    document.location.href = link as string;
+    window.location.href = link as string;
   };
 
   let result: JSX.Element;
@@ -39,22 +32,15 @@ export default function Button(props: IPropsButton): JSX.Element {
     let onclickFunc: undefined | (() => void) | React.MouseEventHandler;
     if (linkAdr) {
       onclickFunc = toNextPage(linkAdr);
-    }
-    else if (props.clickHandler){
+    } else if (props.clickHandler) {
       onclickFunc = props.clickHandler;
     }
     result = (
-      <button
-        type="button"
-        className={name}
-        onClick={onclickFunc}
-      >
+      <button type="button" className={name} onClick={onclickFunc}>
         {content}
       </button>
     );
   }
 
-  return (
-    result
-  );
+  return result;
 }

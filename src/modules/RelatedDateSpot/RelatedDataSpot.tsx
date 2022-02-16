@@ -1,10 +1,12 @@
 import React from 'react';
 import data from './data.json';
 
+import { Link } from 'react-router-dom';
+
 import './relatedDataSpot.scss';
 
 const SPOT_TITLE = 'Related Articles';
-const READ_MORE= 'Read More';
+const READ_MORE = 'Read More';
 
 export default function PrivatePage(): JSX.Element {
   return (
@@ -15,16 +17,18 @@ export default function PrivatePage(): JSX.Element {
           {data.map((item) => (
             <div className="related-data__item-wrapper" key={`tag-${item.articleTitle}`}>
               <div className="related-data__item">
-                <a className="related-data__item-link" href={item.pageSrc} target="_blank" rel="noreferrer">
+                <Link className="related-data__item-link" to={item.pageSrc} target="_blank" rel="noreferrer">
                   <div className="related-data__item-img-container">
-                    <img alt="placeholder" src="https://media.netflix.com/static/images/news_placeholder.png" aria-hidden="true" />
+                    <img
+                      alt="placeholder"
+                      src="https://media.netflix.com/static/images/news_placeholder.png"
+                      aria-hidden="true"
+                    />
                     <div
                       className="related-data__item-img"
-                      style={
-                        {
-                          background: `url(${item.imgSrc}) center top / cover no-repeat scroll`,
-                        }
-                      }
+                      style={{
+                        background: `url(${item.imgSrc}) center top / cover no-repeat scroll`,
+                      }}
                     />
                   </div>
                   <div className="article-container">
@@ -33,7 +37,10 @@ export default function PrivatePage(): JSX.Element {
                         <g>
                           <path fill="none" d="M0 0h24v24H0z" />
                           <path fill="white" d="M8 15h8v2H8zM20 7H8v6h12zm-2 4h-8V9h8z" />
-                          <path fill="white" d="M4 3v4H0v11a3 3 0 003 3h18a3 3 0 003-3V3zm0 16H3a1 1 0 01-1-1V9h2zm18-1a1 1 0 01-1 1H6V5h16z" />
+                          <path
+                            fill="white"
+                            d="M4 3v4H0v11a3 3 0 003 3h18a3 3 0 003-3V3zm0 16H3a1 1 0 01-1-1V9h2zm18-1a1 1 0 01-1 1H6V5h16z"
+                          />
                         </g>
                       </svg>
                     </div>
@@ -47,12 +54,12 @@ export default function PrivatePage(): JSX.Element {
                       <span className="read-more-btn">{READ_MORE}</span>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           ))}
         </div>
-      </div>        
+      </div>
     </section>
   );
 }

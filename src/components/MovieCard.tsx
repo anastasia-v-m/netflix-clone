@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
 import Image from './Image';
 
 export interface IMovieCard {
@@ -19,10 +18,10 @@ export default function MovieCard(props: IMovieCard): JSX.Element {
 
   return (
     <li className={liClass}>
-      <Link className={aClass} to={linkAdr as string}>
+      <a className={aClass} href={linkAdr as string}>
         <Image src={imgSrc} alt={imgAlt} className={imageClass} />
         <span className={spanClass}>{cardTitle}</span>
-      </Link>
+      </a>
     </li>
   );
 }

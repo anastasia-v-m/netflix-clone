@@ -36,7 +36,7 @@ export default function UserFormMain(props?: IUserFormProps): JSX.Element {
         const { data: loginResp }: { data: ILoginResp } = await login(loginData);
         sessionStorage.setItem('user', JSON.stringify(loginResp.user));
         setLoading(false);
-        navigator('/private-page');
+        navigator('/announces');
       } catch (err) {
         if ((err as IError).response.status === 422) {
           setErrorPrefix(true);
@@ -68,7 +68,7 @@ export default function UserFormMain(props?: IUserFormProps): JSX.Element {
         const { data: loginData } = await login(regData);
         sessionStorage.setItem('user', JSON.stringify(loginData.user));
         setLoading(false);
-        navigator('/private-page');
+        navigator('/announces');
       } catch (err) {
         if ((err as IError).response.status === 422) {
           setErrorPrefix(true);

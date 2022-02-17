@@ -1,12 +1,7 @@
 import React from 'react';
 import Button from '../../components/Button';
 import MovieCard from '../../components/MovieCard';
-import {
-  pageHead,
-  pageSubHead,
-  pageEndHead,
-  pageEndSubHead,
-} from './data';
+import { pageHead, pageSubHead, pageEndHead, pageEndSubHead } from './data';
 import data from './data.json';
 
 import './pageOnlyOnNetflix.scss';
@@ -14,14 +9,14 @@ import './pageOnlyOnNetflix.scss';
 const TO_HOME = 'Присоединяйтесь';
 
 export interface IOneMovieData {
-  posterSrc: string,
-  title: string,
-  src: string,
+  posterSrc: string;
+  title: string;
+  src: string;
 }
 
 export interface IMoviesData {
-  movieType: string,
-  items: Array<IOneMovieData>,
+  movieType: string;
+  items: Array<IOneMovieData>;
 }
 
 export default function PageOnlyOnNetflix(): JSX.Element {
@@ -60,12 +55,7 @@ export default function PageOnlyOnNetflix(): JSX.Element {
         <div className="only-netflix-endhead-container">
           <h2 className="only-netflix-endhead">{pageEndHead}</h2>
           <p className="only-netflix-endsubhead">{pageEndSubHead}</p>
-          <Button
-            type="BTN_TYPE_SIMPLE"
-            name="only-netflix-btn-to-home"
-            linkAdr="/"
-            content={TO_HOME}
-          />
+          <Button type="BTN_TYPE_SIMPLE" name="only-netflix-btn-to-home" linkAdr="/" content={TO_HOME} />
         </div>
       </section>
     </main>

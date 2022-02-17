@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../components/Button';
 import data from './data';
 import './filterSpot.scss';
 import dataSvg from './dataSvg';
@@ -189,12 +188,9 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
         </div>
         <div className="filter-btn-wrapper">
           {data.map((item, index) => (
-            <Button
-              type='BTN_TYPE_SIMPLE'
-              name='filter-btn'
-              content={getContent({ title: item, iconMaker: dataSvg[index] })}
-              key={item}
-            />
+            <button className="filter-btn" key={item} type="button">
+              {getContent({ title: item, iconMaker: dataSvg[index] })}
+            </button>
           ))}
         </div>
       </div>

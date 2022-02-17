@@ -17,7 +17,7 @@ export default function InternalPage(): JSX.Element {
     <>
       <Header type="HEADER_INTERNAL_PAGE" name="header-container" />
       <InternalSearchSpot />
-
+      <FilterSpot isOpened={false} />
       <div className="announce">
         <ul className="announce-content">
           {data.map((item) =>

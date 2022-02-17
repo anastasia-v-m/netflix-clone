@@ -1,5 +1,4 @@
 import React from 'react';
-// import Button from '../../components/Button';
 import data from './data';
 import './filterSpot.scss';
 import dataSvg from './dataSvg';

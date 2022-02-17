@@ -4,7 +4,6 @@ import LangSelection from '../../components/langSelection';
 import Button from '../../components/Button';
 import HeaderLogo from '../../components/HeaderLogo';
 import LandingStartSpot from '../LandingStartSpot';
-import InternalSearchSpot from '../InternalSearchSpot';
 import PopupSearchInput from '../PopupSearchInput';
 
 import './header.scss';
@@ -57,7 +56,6 @@ export default function Header(props: IHeader): ReactElement {
             <PopupSearchInput />
           </div>
         </div>
-        <InternalSearchSpot />
       </header>
     );
   }

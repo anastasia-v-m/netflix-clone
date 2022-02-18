@@ -13,35 +13,43 @@ import { IError, ILoginData, ILoginResp, IRegData, IUserFormProps } from './type
 
 import './userFormMain.scss';
 
+const initialFormData = { email: '', isEmailValid: false, password: '', isPasswordValid: false };
+const initialUserNameData = { firstName: '', secondName: '' };
+
 export default function UserFormMain(props?: IUserFormProps): JSX.Element {
-  const formData = { email: '', isEmailValid: false, password: '', isPasswordValid: false };
-  const userNameData = { firstName: '', secondName: '' };
-  const { reg } = props as IUserFormProps;
   const [errorPrefixStatus, setErrorPrefix] = useState(false);
-  const [formDataState, setFormData] = useState(formData);
-  const [userNameDataState, setUserName] = useState(userNameData);
+  const [formDataState, setFormData] = useState(initialFormData);
+  const [userNameDataState, setUserName] = useState(initialUserNameData);
   const [isLoading, setLoading] = useState(false);
+
   const navigator = useNavigate();
+
+  const { reg } = props as IUserFormProps;
 
   const loginUser = async (e: SyntheticEvent): Promise<void> => {
     e.preventDefault();
+
     setLoading(true);
+
     const loginData: ILoginData = {
       email: formDataState.email,
       password: formDataState.password,
     };
+
     if (formDataState.isEmailValid && formDataState.isPasswordValid) {
       setErrorPrefix(false);
+
       try {
         const { data: loginResp }: { data: ILoginResp } = await login(loginData);
         sessionStorage.setItem('user', JSON.stringify(loginResp.user));
         setLoading(false);
-        navigator('/private-page');
+        navigator('/announces');
       } catch (err) {
         if ((err as IError).response.status === 422) {
           setErrorPrefix(true);
           setLoading(false);
           Object.keys((err as IError).response.data.errors).forEach((key, ind) =>
+            // eslint-disable-next-line no-console
             console.error((err as IError).response.data.errors[ind]),
           );
         }
@@ -68,12 +76,13 @@ export default function UserFormMain(props?: IUserFormProps): JSX.Element {
         const { data: loginData } = await login(regData);
         sessionStorage.setItem('user', JSON.stringify(loginData.user));
         setLoading(false);
-        navigator('/private-page');
+        navigator('/announces');
       } catch (err) {
         if ((err as IError).response.status === 422) {
           setErrorPrefix(true);
           setLoading(false);
           Object.keys((err as IError).response.data.errors).forEach((key, index) =>
+            // eslint-disable-next-line no-console
             console.error((err as IError).response.data.errors[index]),
           );
         }

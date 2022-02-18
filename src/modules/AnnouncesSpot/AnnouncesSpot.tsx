@@ -18,10 +18,11 @@ class Announcements extends React.Component {
     return blocks;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   renderBlock(i: number): JSX.Element {
     return (
       <AppContext.Consumer>
-        {(context) => (
+        {(context): JSX.Element => (
           <div className="announce-precontainer" key={`announce-wrap-1-${i}`}>
             <div className={`announce-container-${i % 2}`}>
               <div className="announce-text-container">
@@ -32,9 +33,8 @@ class Announcements extends React.Component {
                 <div>
                   <Image
                     src={announcesTitles[context.locale][i].imgSrc}
-                    alt={announcesTitles[context.locale][i].altDescr}
+                    alt={announcesTitles[context.locale][i].altDesc}
                     className="announce-img"
-                    key={`announce-img-${i}`}
                   />
                   <AnimationAnnounce ind={i} />
                 </div>

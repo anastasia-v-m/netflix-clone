@@ -49,7 +49,8 @@ export default function InternalPage(): JSX.Element {
         setLoading(true);
       })
       .catch((err) => {
-        console.log(err);
+        // eslint-disable-next-line no-console
+        console.error(err);
         setLoading(false);
       });
   };
@@ -73,7 +74,7 @@ export default function InternalPage(): JSX.Element {
       <FilterSpot isOpened={false} />
       <div className="announce">
         <ul className="announce-content">
-          {(moviesData as IMoviesData).results.map((item, index) => (
+          {(moviesData as IMoviesData).results.map((item) => (
             <MovieCard
               imgSrc={posterBaseURL + item.backdrop_path}
               imgAlt="movie-poster"
@@ -83,7 +84,7 @@ export default function InternalPage(): JSX.Element {
               aClass="only-netflix-movie"
               imageClass="only-netflix-movie-poster"
               spanClass="only-netflix-movie-title"
-              key={index}
+              key={item.title}
             />
           ))}
         </ul>

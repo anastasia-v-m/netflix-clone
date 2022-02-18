@@ -32,6 +32,8 @@ export default class PopupSearchInput extends React.Component<{}, { isSearch: bo
   renderButton(): ReactElement {
     let classNameSearch = 'search-button';
     let classNameClose = 'close-button';
+
+    // eslint-disable-next-line react/destructuring-assignment
     if (!this.state.isSearch) {
       classNameSearch += ' search-button_active';
       classNameClose += ' close-button_active';

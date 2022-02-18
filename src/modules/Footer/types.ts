@@ -1,4 +1,4 @@
-export default interface DataInterface {
+export interface DataInterface {
   id: number;
   title: string;
   link: string;

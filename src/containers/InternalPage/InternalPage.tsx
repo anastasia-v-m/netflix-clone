@@ -2,6 +2,7 @@ import React from 'react';
 
 import Footer from '../../modules/Footer';
 import Header from '../../modules/Header/Header';
+import InternalSearchSpot from '../../modules/InternalSearchSpot';
 import FilterSpot from '../../modules/Filter';
 import MovieCard from '../../components/MovieCard';
 
@@ -15,7 +16,8 @@ export default function InternalPage(): JSX.Element {
   return (
     <>
       <Header type="HEADER_INTERNAL_PAGE" name="header-container" />
-      <FilterSpot isOpened={false}/>
+      <InternalSearchSpot />
+      <FilterSpot isOpened={false} />
       <div className="announce">
         <ul className="announce-content">
           {data.map((item) =>

@@ -13,11 +13,12 @@ import controller from '../../modules/TMDB/controller';
 
 import './internalPage.scss';
 
-interface IMoviesData {
+export interface IMoviesData {
   results: [
     {
       backdrop_path: string;
       title: string;
+      poster_path: string;
     },
   ];
 }
@@ -28,6 +29,7 @@ const defaultData = {
     {
       backdrop_path: '/#',
       title: 'title',
+      poster_path: '/#',
     },
   ],
 };
@@ -76,14 +78,14 @@ export default function InternalPage(): JSX.Element {
         <ul className="announce-content">
           {(moviesData as IMoviesData).results.map((item) => (
             <MovieCard
-              imgSrc={posterBaseURL + item.backdrop_path}
+              imgSrc={posterBaseURL + item.poster_path}
               imgAlt="movie-poster"
               linkAdr="/#"
               cardTitle={item.title}
-              liClass="only-netflix-movie-container"
-              aClass="only-netflix-movie"
-              imageClass="only-netflix-movie-poster"
-              spanClass="only-netflix-movie-title"
+              liClass="card-container"
+              aClass="card-item"
+              imageClass="card-item__poster"
+              spanClass="card-item__title"
               key={item.title}
             />
           ))}

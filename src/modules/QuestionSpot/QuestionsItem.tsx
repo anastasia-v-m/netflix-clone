@@ -23,7 +23,7 @@ export default function QuestionsItem(): JSX.Element {
 
   return (
     <AppContext.Consumer>
-      {(item) => (
+      {(item): JSX.Element => (
         <ul className="questions-list">
           {data[item.locale].map((elem: IItemData, index: number) => {
             const isCurrent = index === activeItem && currentStatus[activeItem];

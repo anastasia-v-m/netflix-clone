@@ -8,7 +8,7 @@ import RegistrationNames from '../RegistrationNames';
 import { login, registration } from './api/requests';
 
 import internalData from './data';
-import LoadingSVG from './svg/LoadingSVG';
+import LoadingSVG from '../../assets/LoadingSVG';
 import { IError, ILoginData, ILoginResp, IRegData, IUserFormProps } from './types';
 
 import './userFormMain.scss';

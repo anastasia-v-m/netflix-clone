@@ -7,6 +7,8 @@ import Page404 from './containers/Page404';
 import Stub from './components/Stub';
 import PrivatePage from './containers/PrivatePage';
 import PrivateRoute from './components/PrivateRoute';
+import InternalPage from './containers/InternalPage';
+import PageOnlyOnNetflix from './containers/PageOnlyOnNetflix';
 
 export default function App(): JSX.Element {
   return (
@@ -23,6 +25,22 @@ export default function App(): JSX.Element {
             element={
               <PrivateRoute>
                 <PrivatePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/announces"
+            element={
+              <PrivateRoute>
+                <InternalPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/on-netflix"
+            element={
+              <PrivateRoute>
+                <PageOnlyOnNetflix />
               </PrivateRoute>
             }
           />

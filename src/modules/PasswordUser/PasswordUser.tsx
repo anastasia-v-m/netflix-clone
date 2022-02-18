@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react';
 
-import IFormData from '../UserFormMain/types';
+import { IFormData } from '../UserFormMain/types';
 
 import data from './data';
 

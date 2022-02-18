@@ -1,11 +1,15 @@
-import { combineReducers } from 'redux';
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
 export interface IActions {
   type: string;
   value: string;
 }
 
-function reducer(state = {}, action: IActions) {
+const INITIAL_STATE = {};
+
+// eslint-disable-next-line @typescript-eslint/default-param-last
+function reducer(state: any = INITIAL_STATE, action: IActions,) {
   switch (action.type) {
     case 'ACTION':
       return { value: action.value };

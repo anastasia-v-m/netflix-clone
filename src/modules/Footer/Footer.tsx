@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import data from './data.json';
 import dataInternal from './dataInternal.json';
 
-import DataInterface, { IFooterProps } from './types';
+import { DataInterface, IFooterProps } from './types';
 
 import LangSelection from '../../components/langSelection';
 import TwitterSVG from './svg/TwitterSVG';
@@ -38,8 +38,8 @@ export default function Footer(props?: IFooterProps): JSX.Element {
           <li className="internal-footer__item">
             <p className="internal-footer__item_descr">Company</p>
           </li>
-          {dataInternal.leftColumn.map((elem, index) => (
-            <li className="internal-footer__item_descr" key={index}>
+          {dataInternal.leftColumn.map((elem) => (
+            <li className="internal-footer__item_descr" key={elem.title}>
               <Link className="internal-footer__item_link" to={elem.link}>
                 {elem.title}
               </Link>
@@ -50,8 +50,8 @@ export default function Footer(props?: IFooterProps): JSX.Element {
           <li className="internal-footer__item">
             <p className="internal-footer__item_descr">Connect</p>
           </li>
-          {dataInternal.midColumn.map((elem, index) => (
-            <li className="internal-footer__item_descr" key={index}>
+          {dataInternal.midColumn.map((elem) => (
+            <li className="internal-footer__item_descr" key={elem.title}>
               <Link className="internal-footer__item_link" to={elem.link}>
                 {elem.title}
               </Link>
@@ -73,8 +73,8 @@ export default function Footer(props?: IFooterProps): JSX.Element {
           <li className="internal-footer__item">
             <p className="internal-footer__item_descr">Legal</p>
           </li>
-          {dataInternal.rightColumn.map((elem, index) => (
-            <li className="internal-footer__item_descr" key={index}>
+          {dataInternal.rightColumn.map((elem) => (
+            <li className="internal-footer__item_descr" key={elem.title}>
               <Link className="internal-footer__item_link" to={elem.link}>
                 {elem.title}
               </Link>

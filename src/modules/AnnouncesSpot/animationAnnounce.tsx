@@ -30,7 +30,7 @@ class AnimationAnnounce extends React.Component<IAnimPartProps> {
             <div className="announce-load-img-container">
               <Image
                 src={announceLoadAnimationImg.imgSrc}
-                alt={announceLoadAnimationImg.altDescr}
+                alt={announceLoadAnimationImg.altDesc}
                 className="announce-load-img"
               />
             </div>

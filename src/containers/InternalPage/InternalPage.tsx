@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Footer from '../../modules/Footer';
 import Header from '../../modules/Header/Header';
+import InternalSearchSpot from '../../modules/InternalSearchSpot';
 import FilterSpot from '../../modules/Filter';
 import MovieCard from '../../components/MovieCard';
 
@@ -48,7 +49,8 @@ export default function InternalPage(): JSX.Element {
         setLoading(true);
       })
       .catch((err) => {
-        console.log(err);
+        // eslint-disable-next-line no-console
+        console.error(err);
         setLoading(false);
       });
   };
@@ -68,10 +70,11 @@ export default function InternalPage(): JSX.Element {
   return (
     <>
       <Header type="HEADER_INTERNAL_PAGE" name="header-container" />
+      <InternalSearchSpot />
       <FilterSpot isOpened={false} />
       <div className="announce">
         <ul className="announce-content">
-          {(moviesData as IMoviesData).results.map((item, index) => (
+          {(moviesData as IMoviesData).results.map((item) => (
             <MovieCard
               imgSrc={posterBaseURL + item.backdrop_path}
               imgAlt="movie-poster"
@@ -81,7 +84,7 @@ export default function InternalPage(): JSX.Element {
               aClass="only-netflix-movie"
               imageClass="only-netflix-movie-poster"
               spanClass="only-netflix-movie-title"
-              key={index}
+              key={item.title}
             />
           ))}
         </ul>

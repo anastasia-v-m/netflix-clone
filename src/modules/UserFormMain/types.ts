@@ -1,4 +1,4 @@
-export default interface IFormData {
+export interface IFormData {
   update(value: string, isValid: boolean, isEmail: boolean): void;
 }
 

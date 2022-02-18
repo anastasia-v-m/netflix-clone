@@ -37,7 +37,7 @@ export default function App(): JSX.Element {
             }
           />
           <Route
-            path="/on_netfl"
+            path="/on-netflix"
             element={
               <PrivateRoute>
                 <PageOnlyOnNetflix />

@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import FilmDetailsCreateSpot from './FilmDetailsCreateSpot';
 import FilmDetailsSimilarsSpot from './FilmDetailsSimilarSpot';
@@ -52,6 +53,8 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
     }
   );
 
+  const navigator = useNavigate();
+
   useEffect(() => {
     setIsLoaded(false);
 
@@ -62,7 +65,8 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
         setIsLoaded(true);
       })
       .catch((err) => {
-        document.location.href = '/stub';
+        // document.location.href = '/stub';
+        navigator("*");
         setError(err);
       });
 
@@ -150,7 +154,7 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
           <div className="film-description-container">{gotData.tagline === '' ? gotData.overview : gotData.tagline}</div>
           <div className="film-description-border" />
         </section>
-        <FilmDetailsTrailersSpot filmName={gotData.title} />
+        <FilmDetailsTrailersSpot filmName={gotData.title} movieID={movieID} />
         <FilmDetailsCreateSpot productionCompanies={gotData.production_companies} movieID={movieID} />
         <FilmDetailsSimilarsSpot movieID={movieID} />
       </main>

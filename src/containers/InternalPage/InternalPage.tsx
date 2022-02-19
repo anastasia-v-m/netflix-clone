@@ -8,7 +8,6 @@ import InternalSearchSpot from '../../modules/InternalSearchSpot';
 import FilterSpot from '../../modules/Filter';
 import MovieCard from '../../components/MovieCard';
 
-import { FOOTER_INTERNAL_PAGE_TYPE } from '../../components/constants';
 import controller from '../../modules/TMDB/controller';
 
 import './internalPage.scss';
@@ -94,7 +93,7 @@ export default function InternalPage(): JSX.Element {
           Show More
         </button>
       </div>
-      <Footer footerType={FOOTER_INTERNAL_PAGE_TYPE} />
+      <Footer />
     </>
   );
 }

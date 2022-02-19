@@ -41,7 +41,9 @@ export default function SearchPage(): JSX.Element {
     if (curButtonClassList.contains('next-page') && currentOptions.page < totalPages) {
       currentOptions.page += 1;
       currentOptions.query = requestValue as string;
+
       setOptions(currentOptions);
+
       const url = controller(request, currentOptions);
 
       await axios
@@ -55,7 +57,9 @@ export default function SearchPage(): JSX.Element {
     } else if (curButtonClassList.contains('prev-page') && currentOptions.page >= 2) {
       currentOptions.page -= 1;
       currentOptions.query = requestValue as string;
+
       setOptions(currentOptions);
+
       const url = controller(request, currentOptions);
 
       await axios
@@ -76,8 +80,11 @@ export default function SearchPage(): JSX.Element {
 
   const submitHandler = async (e: SyntheticEvent): Promise<void> => {
     e.preventDefault();
+
     options.query = searchValue;
+
     setRequestValue(searchValue);
+
     const url = controller(request, options);
 
     await axios
@@ -151,20 +158,22 @@ export default function SearchPage(): JSX.Element {
               </div>
             </div>
             <ul className="search-cards">
-              {currentMoviesData.map((elem, index) => (
-                <MovieCard
-                  imgSrc={posterBaseURL + elem.poster_path}
-                  imgAlt="movie-poster"
-                  linkAdr="/#"
-                  cardTitle={elem.title}
-                  liClass="card-container"
-                  aClass="card-item"
-                  imageClass="card-item__poster"
-                  spanClass="card-item__title"
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={index}
-                />
-              ))}
+              {currentMoviesData.map((elem, index) => {
+                const key = elem.title + index.toString();
+                return (
+                  <MovieCard
+                    imgSrc={posterBaseURL + elem.poster_path}
+                    imgAlt="movie-poster"
+                    linkAdr="/#"
+                    cardTitle={elem.title}
+                    liClass="card-container"
+                    aClass="card-item"
+                    imageClass="card-item__poster"
+                    spanClass="card-item__title"
+                    key={key}
+                  />
+                );
+              })}
             </ul>
             <div className="results-pages bot-line">
               <span className="pages-span">

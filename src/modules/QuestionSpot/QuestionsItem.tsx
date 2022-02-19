@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import data from './data';
 
 import './questionsSpot.scss';
-import { AppContext } from '../../components/AppProvider';
+import { AppContext } from '../../components/constants';
 import { IItemData } from '../AnnouncesSpot/data';
 
 export default function QuestionsItem(): JSX.Element {

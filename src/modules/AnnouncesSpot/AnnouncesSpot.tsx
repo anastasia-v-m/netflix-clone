@@ -7,7 +7,7 @@ import AnimationAnnounce from './animationAnnounce';
 import { announcesTitles } from './data';
 
 import './announcesSpot.scss';
-import { AppContext } from '../../components/AppProvider';
+import { AppContext } from '../../components/constants';
 
 class Announcements extends React.Component {
   getBlocks(): JSX.Element[] {

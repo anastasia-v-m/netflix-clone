@@ -19,20 +19,11 @@ export default function App(): JSX.Element {
           <Route path="/login-form" element={<LoginPage />} />
           <Route path="/registration" element={<LoginPage reg="true" />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="*" element={<Page404 />} />
           <Route
             path="/not-full-access"
             element={
               <PrivateRoute>
                 <PrivatePage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/only-on-netflix"
-            element={
-              <PrivateRoute>
-                <PageOnlyOnNetflix />
               </PrivateRoute>
             }
           />
@@ -52,6 +43,7 @@ export default function App(): JSX.Element {
               </PrivateRoute>
             }
           />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>

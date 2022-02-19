@@ -35,7 +35,7 @@ const defaultData = {
 };
 const request = '/discover/movie';
 const options = {
-  language: 'ru-RU',
+  language: 'ru',
   page: 1,
 };
 

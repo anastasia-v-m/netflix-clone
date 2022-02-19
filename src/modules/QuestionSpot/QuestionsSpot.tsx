@@ -3,7 +3,7 @@ import React from 'react';
 import data from './data';
 
 import './questionsSpot.scss';
-import { AppContext } from '../../components/AppProvider';
+import { AppContext } from '../../components/constants';
 import QuestionsItem from './QuestionsItem';
 
 export default function QuestionsSpot(): JSX.Element {

@@ -3,7 +3,7 @@ import React from 'react';
 import SearchIcon from '../../assets/SearchIcon';
 
 import '../Header/header.scss';
-import { AppContext } from '../../components/AppProvider';
+import { AppContext } from '../../components/constants';
 
 import data from './data';
 

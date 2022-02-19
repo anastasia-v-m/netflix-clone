@@ -3,7 +3,7 @@ import React from 'react';
 import SearchIcon from '../../assets/SearchIcon';
 
 import '../Header/header.scss';
-import { AppContext } from '../../components/AppProvider';
+import { AppContext } from '../../components/constants';
 
 import data from './data';
 
@@ -13,7 +13,7 @@ const srcName =
 export default function LandingStartSpot(): JSX.Element {
   return (
     <AppContext.Consumer>
-      {(context) => (
+      {(context): JSX.Element => (
         <div className="start-card">
           <div className="start-card-background">
             <img className="start-card-img" src={srcName} alt="with promotional movie posters" />

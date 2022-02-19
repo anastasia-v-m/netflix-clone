@@ -1,16 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import React, { createContext, ReactElement, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
-interface IAppContextType {
-  locale: string;
-  updateLocalCode: (T: React.ChangeEvent<HTMLSelectElement>) => void;
-}
+import { AppContext } from './constants';
 
 interface IAppProvider {
   children: ReactElement;
 }
-
-export const AppContext = createContext<IAppContextType>({} as IAppContextType);
 
 const LANG_EN = 'en';
 
@@ -25,7 +20,7 @@ function AppProvider(props: IAppProvider) {
     setLocale(newLocale);
   }
 
-  // eslint-disable-next-line react/jsx-no-constructed-context-values 
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   return <AppContext.Provider value={{ locale, updateLocalCode }}>{children}</AppContext.Provider>;
 }
 

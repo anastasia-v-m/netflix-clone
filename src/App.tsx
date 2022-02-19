@@ -4,11 +4,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './containers/LandingPage';
 import LoginPage from './containers/LoginPage';
 import Page404 from './containers/Page404';
-import Stub from './components/Stub';
 import PrivatePage from './containers/PrivatePage';
 import PrivateRoute from './components/PrivateRoute';
-import InternalPage from './containers/InternalPage';
 import PageOnlyOnNetflix from './containers/PageOnlyOnNetflix';
+import SearchPage from './containers/SearchPage/SearchPage';
+import InternalPage from './containers/InternalPage';
 
 export default function App(): JSX.Element {
   return (
@@ -18,10 +18,9 @@ export default function App(): JSX.Element {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login-form" element={<LoginPage />} />
           <Route path="/registration" element={<LoginPage reg="true" />} />
-          <Route path="/search" element={<Page404 />} />
-          <Route path="/stub" element={<Stub />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route
-            path="/private-page"
+            path="/not-full-access"
             element={
               <PrivateRoute>
                 <PrivatePage />
@@ -44,6 +43,7 @@ export default function App(): JSX.Element {
               </PrivateRoute>
             }
           />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>

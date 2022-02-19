@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import data from './data';
 
 import './questionsSpot.scss';
-import { AppContext } from '../../components/AppProvider';
+import { AppContext } from '../../components/constants';
 import { IItemData } from '../AnnouncesSpot/data';
 
 export default function QuestionsItem(): JSX.Element {
@@ -23,7 +23,7 @@ export default function QuestionsItem(): JSX.Element {
 
   return (
     <AppContext.Consumer>
-      {(item) => (
+      {(item): JSX.Element => (
         <ul className="questions-list">
           {data[item.locale].map((elem: IItemData, index: number) => {
             const isCurrent = index === activeItem && currentStatus[activeItem];

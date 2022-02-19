@@ -7,7 +7,7 @@ import AnimationAnnounce from './animationAnnounce';
 import { announcesTitles } from './data';
 
 import './announcesSpot.scss';
-import { AppContext } from '../../components/AppProvider';
+import { AppContext } from '../../components/constants';
 
 class Announcements extends React.Component {
   getBlocks(): JSX.Element[] {
@@ -22,7 +22,7 @@ class Announcements extends React.Component {
   renderBlock(i: number): JSX.Element {
     return (
       <AppContext.Consumer>
-        {(context) => (
+        {(context): JSX.Element => (
           <div className="announce-precontainer" key={`announce-wrap-1-${i}`}>
             <div className={`announce-container-${i % 2}`}>
               <div className="announce-text-container">
@@ -35,7 +35,6 @@ class Announcements extends React.Component {
                     src={announcesTitles[context.locale][i].imgSrc}
                     alt={announcesTitles[context.locale][i].altDesc}
                     className="announce-img"
-                    key={`announce-img-${i}`}
                   />
                   <AnimationAnnounce ind={i} />
                 </div>

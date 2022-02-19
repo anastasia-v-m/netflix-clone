@@ -1,5 +1,5 @@
 import React from 'react';
-import { ILoadingSVG } from '../types';
+import { ILoadingSVG } from '../modules/UserFormMain/types';
 
 export default function LoadingSVG(props: ILoadingSVG): JSX.Element {
   const { prefix } = props;

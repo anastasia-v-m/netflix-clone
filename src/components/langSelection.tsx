@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { AppContext } from './AppProvider';
+import { AppContext } from './constants';
 
 const LANG_EN = 'English';
 const LANG_RU = 'Русский';

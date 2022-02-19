@@ -19,35 +19,41 @@ export interface IMoviesData {
       backdrop_path: string;
       title: string;
       poster_path: string;
+      include_adult: boolean;
     },
   ];
 }
 
 const posterBaseURL = 'https://image.tmdb.org/t/p/original';
-const defaultData = {
-  results: [
-    {
-      backdrop_path: '/#',
-      title: 'title',
-      poster_path: '/#',
-    },
-  ],
-};
-const request = '/discover/movie';
+
+let request = '/discover/movie';
 const options = {
-  language: 'ru',
+  language: 'en',
   page: 1,
+  with_original_language: 'en',
+  'vote_count.gte': 0,
+  'vote_average.gte': 0,
 };
 
 export default function InternalPage(): JSX.Element {
-  const [moviesData, setData] = useState(defaultData);
+  const [moviesData, setData] = useState(Array);
   const [isLoaded, setLoading] = useState(false);
-  const getMovies = async (): Promise<void> => {
+  const getMovies = async (opt?: any): Promise<void> => {
+    if (opt) {
+      request = opt.requestURL;
+      options.page = opt.page;
+      options.language = opt.language;
+      options.with_original_language = opt.with_original_language;
+      options['vote_count.gte'] = opt['vote_count.gte'];
+      options['vote_average.gte'] = opt['vote_average.gte'];
+    }
     const url = controller(request, options);
     await axios
       .get(url)
       .then((res) => {
-        setData(res.data);
+        const data = (res.data as IMoviesData).results.filter((elem) => elem.poster_path !== null);
+        sessionStorage.setItem('totalPages', JSON.stringify(res.data.total_pages));
+        setData(data);
         setLoading(true);
       })
       .catch((err) => {
@@ -60,8 +66,12 @@ export default function InternalPage(): JSX.Element {
   useMemo(() => getMovies(), []);
 
   const showMore = (): void => {
-    options.page += 1;
-    getMovies();
+    const totalPages = Number(sessionStorage.getItem('totalPages') as string);
+
+    if (options.page < totalPages) {
+      options.page += 1;
+      getMovies();
+    }
   };
 
   // preloader need to layout
@@ -73,10 +83,10 @@ export default function InternalPage(): JSX.Element {
     <>
       <Header type="HEADER_INTERNAL_PAGE" name="header-container" />
       <InternalSearchSpot />
-      <FilterSpot isOpened={false} />
+      <FilterSpot isOpened={false} getMovies={getMovies} />
       <div className="announce">
         <ul className="announce-content">
-          {(moviesData as IMoviesData).results.map((item) => (
+          {moviesData.map((item: any) => (
             <MovieCard
               imgSrc={posterBaseURL + item.poster_path}
               imgAlt="movie-poster"

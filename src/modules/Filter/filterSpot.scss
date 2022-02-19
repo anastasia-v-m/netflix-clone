@@ -27,6 +27,10 @@
   text-decoration: none;
 }
 
+.filter-btn.active {
+  background-color: #3f51b5;
+}
+
 .filter-btn:first-child {
   margin-left: 0;
 }
@@ -72,11 +76,11 @@
 }
 
 .filter-list-container {
-  position: absolute; 
-  will-change: transform; 
+  position: absolute;
+  will-change: transform;
   width: 140px;
-  top: 0px; 
-  left: 0px; 
+  top: 0px;
+  left: 0px;
   transform: translate3d(0px, 42px, 0px);
   z-index: 1350;
 }
@@ -86,7 +90,7 @@
   width: auto;
   padding: 0px;
   z-index: 10;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .5), 0 0 2px 0 rgba(0, 0, 0, .6);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 0 2px 0 rgba(0, 0, 0, 0.6);
   border-color: rgba(255, 255, 255, 0.04);
   border-width: 1px;
   background-color: rgb(35, 35, 35);

@@ -66,7 +66,7 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
       })
       .catch((err) => {
         // document.location.href = '/stub';
-        navigator("*");
+        navigator('*');
         setError(err);
       });
 
@@ -143,7 +143,7 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
               <Button
                 type="BTN_TYPE_SIMPLE"
                 name="film-details-btn-to-home"
-                href="/"
+                linkAdr="/"
                 content={toHome}
               />
             </div>

@@ -1,5 +1,4 @@
 .film-details-main {
-  //font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   margin:  auto 0;
   background: #181818;
   color: #fff;
@@ -204,6 +203,7 @@
   margin: 5px 25px 5px 1em;
   white-space: nowrap;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 .film-details-to-home-title {
@@ -446,4 +446,11 @@
 
 .film-details-a-trailer-wrapper {
   margin: 0.8em;
+}
+
+.film-details-similar-movie {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #fff;
 }

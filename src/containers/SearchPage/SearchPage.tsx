@@ -168,7 +168,7 @@ export default function SearchPage(): JSX.Element {
                     cardTitle={elem.title}
                     liClass="card-container"
                     aClass="card-item"
-                    imageClass="card-item__poster"
+                    imageClass="card-item__poster img-load"
                     spanClass="card-item__title"
                     key={key}
                   />

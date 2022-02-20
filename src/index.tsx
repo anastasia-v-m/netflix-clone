@@ -5,6 +5,7 @@ import App from './App';
 import AppProvider from './components/AppProvider';
 
 import './reset.scss';
+import './common.scss';
 
 ReactDOM.render(
   <AppProvider>

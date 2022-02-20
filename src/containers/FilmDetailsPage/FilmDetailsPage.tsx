@@ -17,41 +17,46 @@ const toHomeTitle = 'Смотрите сколько хотите.';
 const endpoint = 'https://api.themoviedb.org/3/';
 const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
 
+const contentType = sessionStorage.getItem('contentType');
+let request = 'movie';
+
+if (contentType) {
+  request = contentType;
+}
+
 export interface IFilmDetailsResp {
-  original_title: string,
-  title: string,
-  poster_path: string,
-  genres: Array<{ id: string, name: string }>,
-  overview: string,
-  release_date: string,
-  vote_average: number,
-  tagline: string,
-  backdrop_path: string,
-  adult: boolean,
-  production_companies: Array<{ name: string }>
+  original_title: string;
+  title: string;
+  poster_path: string;
+  genres: Array<{ id: string; name: string }>;
+  overview: string;
+  release_date: string;
+  vote_average: number;
+  tagline: string;
+  backdrop_path: string;
+  adult: boolean;
+  production_companies: Array<{ name: string }>;
 }
 
 export default function FilmDetailsPage(props: { movieID: string }): JSX.Element {
   const { movieID } = props;
-  const url = `${endpoint}/movie/${movieID}?api_key=${API_KEY}&language=en-US`;
+  const url = `${endpoint}/${request}/${movieID}?api_key=${API_KEY}&language=en-US`;
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [gotData, setGotData] = useState(
-    {
-      original_title: '',
-      title: '',
-      poster_path: '',
-      genres: [{ id: '', name: '' }],
-      overview: '',
-      release_date: '',
-      vote_average: 0,
-      tagline: '',
-      backdrop_path: '',
-      adult: false,
-      production_companies: [{ name: '' }]
-    }
-  );
+  const [gotData, setGotData] = useState({
+    original_title: '',
+    title: '',
+    poster_path: '',
+    genres: [{ id: '', name: '' }],
+    overview: '',
+    release_date: '',
+    vote_average: 0,
+    tagline: '',
+    backdrop_path: '',
+    adult: false,
+    production_companies: [{ name: '' }],
+  });
 
   const navigator = useNavigate();
 
@@ -69,7 +74,6 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
         navigator('*');
         setError(err);
       });
-
   }, []);
 
   if (error) {
@@ -100,12 +104,12 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
               <div className="film-title-info-container">
                 <h1 className="film-title">{gotData.original_title}</h1>
                 <p className="film-tags">
-                    {genres.map((item) => (
-                      <Fragment key={`d-${item.id}`}>
-                        <span className="film-tags__tag-wrapper">{item.name}</span>
-                        <span className="film-tags-delimitor"> | </span>
-                      </Fragment>
-                    ))}
+                  {genres.map((item) => (
+                    <Fragment key={`d-${item.id}`}>
+                      <span className="film-tags__tag-wrapper">{item.name}</span>
+                      <span className="film-tags-delimitor"> | </span>
+                    </Fragment>
+                  ))}
                 </p>
                 <h4 className="film-about">{gotData.overview}</h4>
                 <div className="film-details-people">
@@ -115,7 +119,7 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
                   </p>
                   <p>
                     <span className="film-details-people__titles">{ratingTitle}</span>
-                      {gotData.vote_average}
+                    {gotData.vote_average}
                   </p>
                 </div>
               </div>
@@ -135,17 +139,15 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
               </defs>
               <path d="M225 0v1000c60-8 138-14 198-17V0H225" fill="#b1060e" />
               <path d="M579 0v983c71 3 131 9 198 17V0H579" fill="#b1060e" />
-              <path d="M225 0v200l198 600V557l151 426c76 3 136 9 203 17V800L579 200v240L423 0H225" fill="url(#64dd5834-188f-43c7-9b7e-27cb13c1ebd2-a)" />
+              <path
+                d="M225 0v200l198 600V557l151 426c76 3 136 9 203 17V800L579 200v240L423 0H225"
+                fill="url(#64dd5834-188f-43c7-9b7e-27cb13c1ebd2-a)"
+              />
               <path d="M225 0l349 983c76 3 136 9 203 17L423 0H225" fill="#e50914" />
             </svg>
             <div className="film-details-to-home-wrapper">
               <span className="film-details-to-home-title">{toHomeTitle}</span>
-              <Button
-                type="BTN_TYPE_SIMPLE"
-                name="film-details-btn-to-home"
-                linkAdr="/"
-                content={toHome}
-              />
+              <Button type="BTN_TYPE_SIMPLE" name="film-details-btn-to-home" linkAdr="/" content={toHome} />
             </div>
           </div>
         </section>

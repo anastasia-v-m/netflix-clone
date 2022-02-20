@@ -9,18 +9,25 @@ const acting = 'Acting';
 const endpoint = 'https://api.themoviedb.org/3/';
 const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
 
+const contentType = sessionStorage.getItem('contentType');
+let request = 'movie';
+
+if (contentType) {
+  request = contentType;
+}
+
 export interface IProdCompany {
-  name: string
+  name: string;
 }
 
 export interface IMovieCreateResp {
-  cast: Array<{ known_for_department: string, name: string }>
+  cast: Array<{ known_for_department: string; name: string }>;
 }
 
-export default function FilmDetailsCreateSpot(props: { productionCompanies: Array<IProdCompany>, movieID: string }): JSX.Element {
+export default function FilmDetailsCreateSpot(props: { productionCompanies: Array<IProdCompany>; movieID: string }): JSX.Element {
   const { productionCompanies, movieID } = props;
 
-  const url = `${endpoint}/movie/${movieID}/credits?api_key=${API_KEY}&language=en-US`;
+  const url = `${endpoint}/${request}/${movieID}/credits?api_key=${API_KEY}&language=en-US`;
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [gotData, setgotData] = useState({ cast: [{ known_for_department: '', name: '' }] });
@@ -38,7 +45,6 @@ export default function FilmDetailsCreateSpot(props: { productionCompanies: Arra
         document.location.href = '/stub';
         setError(err);
       });
-
   }, []);
 
   if (error) {
@@ -74,11 +80,13 @@ export default function FilmDetailsCreateSpot(props: { productionCompanies: Arra
         <div className="film-details-actors-list-wrapper">
           <div className="film-details-actors-list">
             {actors.map((item) => (
-              <span className="film-details-actor" key={item.name}>{item.name}</span>
+              <span className="film-details-actor" key={item.name}>
+                {item.name}
+              </span>
             ))}
           </div>
         </div>
       </div>
-    </section >
+    </section>
   );
 }

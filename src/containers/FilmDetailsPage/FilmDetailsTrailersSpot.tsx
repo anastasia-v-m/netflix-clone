@@ -6,17 +6,23 @@ const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
 
 const videoTitle = 'Видео';
 
+const contentType = sessionStorage.getItem('contentType');
+let request = 'movie';
+
+if (contentType) {
+  request = contentType;
+}
+
 export interface ITrailerVideoProp {
-  results: Array<{key: string, name: string}>,
+  results: Array<{ key: string; name: string }>;
 }
 
 function getBkg(imgKey: string): React.CSSProperties {
-  const bkg: React.CSSProperties =  {
+  const bkg: React.CSSProperties = {
     background: `url(//img.youtube.com/vi/${imgKey}/hqdefault.jpg) left bottom / contain no-repeat`,
   };
   return bkg;
 }
-
 
 const playerCommand = (command: string): void => {
   const trailerPayerEl = document.querySelector('#trailer-player') as HTMLIFrameElement;
@@ -28,11 +34,12 @@ const playerCommand = (command: string): void => {
   }
 };
 
-class TrailerPlayer extends React.Component<ITrailerVideoProp, {adr: string, shown: boolean}> {
+class TrailerPlayer extends React.Component<ITrailerVideoProp, { adr: string; shown: boolean }> {
   constructor(props: ITrailerVideoProp) {
     super(props);
     this.state = {
-      adr: '', shown: true,
+      adr: '',
+      shown: true,
     };
   }
 
@@ -55,10 +62,10 @@ class TrailerPlayer extends React.Component<ITrailerVideoProp, {adr: string, sho
       adr: curKey,
     }));
     this.openBtnToogle();
-    
+
     playerCommand('playVideo');
   };
-  
+
   closeModal(): void {
     this.setState((prevState) => ({
       shown: !prevState.shown,
@@ -66,7 +73,7 @@ class TrailerPlayer extends React.Component<ITrailerVideoProp, {adr: string, sho
     this.openBtnToogle();
     playerCommand('stopVideo');
   }
-  
+
   render(): JSX.Element {
     const { results } = this.props;
     const { adr } = this.state;
@@ -74,10 +81,14 @@ class TrailerPlayer extends React.Component<ITrailerVideoProp, {adr: string, sho
       <div>
         <div className="film-details-trailer-container">
           <div className="film-details-trailer-preview">
-
-            {results.map((item) =>
-              
-              <div className="film-details-a-trailer-wrapper" id={item.key} onClick={this.handleClick.bind(this, item.key)} aria-hidden="true" key={item.key}>
+            {results.map((item) => (
+              <div
+                className="film-details-a-trailer-wrapper"
+                id={item.key}
+                onClick={this.handleClick.bind(this, item.key)}
+                aria-hidden="true"
+                key={item.key}
+              >
                 <div className="film-details-trailer" style={getBkg(item.key)}>
                   <div className="film-details-video-btn-container">
                     <svg viewBox="0 0 50 50" className="film-details-video-btn">
@@ -92,12 +103,10 @@ class TrailerPlayer extends React.Component<ITrailerVideoProp, {adr: string, sho
                   <h4 className="film-details-a-trailer-title">{item.name}</h4>
                 </div>
               </div>
-
-            )}
-
+            ))}
           </div>
         </div>
-        
+
         <div className="film-details-modal film-non-active" onClick={this.closeModal.bind(this)} aria-hidden="true">
           <iframe
             className="film-details-trailer-video"
@@ -114,16 +123,16 @@ class TrailerPlayer extends React.Component<ITrailerVideoProp, {adr: string, sho
 }
 
 export interface IMovieTrailersResp {
-  id: string,
-  results: Array<{ key: string, name: string }>
+  id: string;
+  results: Array<{ key: string; name: string }>;
 }
 
-export default function FilmDetailsTrailersSpot(props: {filmName: string, movieID: string}): JSX.Element {
+export default function FilmDetailsTrailersSpot(props: { filmName: string; movieID: string }): JSX.Element {
   const { filmName, movieID } = props;
-  const url = `${endpoint}/movie/${movieID}/videos?api_key=${API_KEY}&language=en-US`;
+  const url = `${endpoint}/${request}/${movieID}/videos?api_key=${API_KEY}&language=en-US`;
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [gotData, setgotData] = useState( { id: '', results: [{ key: '', name: '' }]  } );
+  const [gotData, setgotData] = useState({ id: '', results: [{ key: '', name: '' }] });
 
   useEffect(() => {
     setIsLoaded(false);
@@ -138,7 +147,6 @@ export default function FilmDetailsTrailersSpot(props: {filmName: string, movieI
         document.location.href = '/stub';
         setError(err);
       });
-
   }, []);
 
   if (error) {
@@ -150,7 +158,6 @@ export default function FilmDetailsTrailersSpot(props: {filmName: string, movieI
   }
 
   return (
-    
     <section className="film-details-sect">
       <div className="for-modal-layer" />
       <div className="filn-details-trailer-titles">
@@ -159,8 +166,5 @@ export default function FilmDetailsTrailersSpot(props: {filmName: string, movieI
       </div>
       <TrailerPlayer results={gotData.results} />
     </section>
-    
   );
 }
-
-

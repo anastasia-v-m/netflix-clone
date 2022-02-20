@@ -19,6 +19,7 @@ export interface IMoviesData {
       title: string;
       poster_path: string;
       include_adult: boolean;
+      id: number;
     },
   ];
 }
@@ -38,6 +39,7 @@ export default function InternalPage(): JSX.Element {
   const [moviesData, setData] = useState(Array);
   const [isLoaded, setLoading] = useState(false);
   const getMovies = async (opt?: any): Promise<void> => {
+    const filtersOptions = JSON.parse(sessionStorage.getItem('filtersOptions') as string);
     if (opt) {
       request = opt.requestURL;
       options.page = opt.page;
@@ -46,7 +48,17 @@ export default function InternalPage(): JSX.Element {
       options['vote_count.gte'] = opt['vote_count.gte'];
       options['vote_average.gte'] = opt['vote_average.gte'];
     }
+
+    if (filtersOptions && !opt) {
+      request = filtersOptions.requestURL;
+      options.language = filtersOptions.language;
+      options.with_original_language = filtersOptions.with_original_language;
+      options['vote_count.gte'] = filtersOptions['vote_count.gte'];
+      options['vote_average.gte'] = filtersOptions['vote_average.gte'];
+    }
+
     const url = controller(request, options);
+
     await axios
       .get(url)
       .then((res) => {
@@ -69,8 +81,13 @@ export default function InternalPage(): JSX.Element {
 
     if (options.page < totalPages) {
       options.page += 1;
+      sessionStorage.setItem('currentPage', JSON.stringify(options.page));
       getMovies();
     }
+  };
+
+  const navigateToDetails = (id: string): void => {
+    sessionStorage.setItem('movieID', id);
   };
 
   // preloader need to layout
@@ -89,13 +106,15 @@ export default function InternalPage(): JSX.Element {
             <MovieCard
               imgSrc={posterBaseURL + item.poster_path}
               imgAlt="movie-poster"
-              linkAdr="/#"
+              linkAdr="/details"
               cardTitle={item.title}
               liClass="card-container"
               aClass="card-item"
               imageClass="card-item__poster"
               spanClass="card-item__title"
               key={item.title}
+              id={item.id}
+              navigate={navigateToDetails}
             />
           ))}
         </ul>

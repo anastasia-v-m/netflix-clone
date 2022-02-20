@@ -4,17 +4,25 @@
 export interface IActions {
   type: string;
   value: string;
+  isDone: boolean;
 }
 
-const INITIAL_STATE = {};
+export interface IStoreState {
+  value?: string;
+  isDone?: boolean;
+}
+
+const isDone = sessionStorage.getItem('user') !== null;
+const storeValue = isDone ? 'Выйти' : 'Войти';
+const INITIAL_STATE: IStoreState = { value: storeValue, isDone };
 
 // eslint-disable-next-line @typescript-eslint/default-param-last
-function reducer(state: any = INITIAL_STATE, action: IActions,) {
+function reducer(state = INITIAL_STATE, action: IActions,): IStoreState {
   switch (action.type) {
-    case 'ACTION':
-      return { value: action.value };
-    case 'ACTION1':
-      return { value: action.value };
+    case 'HAS_LOGED_IN':
+      return { value: action.value, isDone: true };
+    case 'HAS_LOGED_OUT':
+      return { value: action.value, isDone: false };
 
     default:
       return state;

@@ -6,6 +6,8 @@ import HeaderLogo from '../../components/HeaderLogo';
 import LandingStartSpot from '../LandingStartSpot';
 import PopupSearchInput from '../PopupSearchInput';
 
+import store from '../../store/store';
+
 import './header.scss';
 
 const HEADER_LANDING_PAGE = 'HEADER_LANDING_PAGE';
@@ -16,6 +18,7 @@ interface IHeader {
   name: string;
   type: typeof HEADER_LANDING_PAGE | typeof HEADER_INTERNAL_PAGE | typeof HEADER_404_PAGE;
 }
+
 
 export default function Header(props: IHeader): ReactElement {
   const { name, type } = props;
@@ -31,8 +34,9 @@ export default function Header(props: IHeader): ReactElement {
               type="BTN_TYPE_SIMPLE"
               name="auth-button"
               nameContent="auth-button-content"
-              content="Войти"
-              linkAdr="/login-form"
+              content={store.getState().value}
+              linkAdr={store.getState().isDone ? '' : '/login-form'}
+              logBtn
             />
           </div>
         </div>
@@ -50,8 +54,9 @@ export default function Header(props: IHeader): ReactElement {
               type="BTN_TYPE_SIMPLE"
               name="auth-button"
               nameContent="auth-button-content"
-              content="Войти"
-              linkAdr="/login-form"
+              content={<span id="logbtn">{store.getState().value}</span>}
+              linkAdr={store.getState().isDone ? '' : '/login-form'}
+              logBtn
             />
             <PopupSearchInput />
           </div>

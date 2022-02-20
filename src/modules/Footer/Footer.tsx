@@ -64,17 +64,20 @@ export default function Footer(props?: IFooterProps): JSX.Element {
         </div>
       </div>
       <div className="developers-links">
-        <a className="dev-link" href="https://rs.school/js/" target="_blank" rel="noreferrer">
-          <RsSchoolSVG />
-        </a>
+        <div className="developers-links_course">
+          <a className="dev-link" href="https://rs.school/js/" target="_blank" rel="noreferrer">
+            <RsSchoolSVG />
+          </a>
+          <span className="year-creation">2022</span>
+        </div>
         <a className="dev-link" href="https://github.com/Arxons" target="_blank" rel="noreferrer">
-          Developer 1: Arxons
+          Developer: Arxons
         </a>
         <a className="dev-link" href="https://github.com/anastasia-v-m" target="_blank" rel="noreferrer">
-          Developer 2: anastasia-v-m
+          Developer: anastasia-v-m
         </a>
         <a className="dev-link" href="https://github.com/Divakotova" target="_blank" rel="noreferrer">
-          Developer 3: Divakotova
+          Developer: Divakotova
         </a>
         <a className="dev-link" href="https://github.com/DimaKacer" target="_blank" rel="noreferrer">
           Mentor: DimaKacer

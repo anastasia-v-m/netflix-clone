@@ -71,6 +71,7 @@ footer {
   color: #757575;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-bottom: 13px;
 }
 
@@ -93,4 +94,10 @@ footer {
 
 .social-links {
   padding: 10px;
+}
+
+.year-creation {
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
 }

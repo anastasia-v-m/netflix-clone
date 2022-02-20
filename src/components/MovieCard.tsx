@@ -18,7 +18,7 @@ export default function MovieCard(props: IMovieCard): JSX.Element {
 
   return (
     <li className={liClass}>
-      <a className={aClass} href={linkAdr as string}>
+      <a className={aClass} href={linkAdr as string} target="_blank" rel="noreferrer">
         <Image src={imgSrc} alt={imgAlt} className={imageClass} />
         <span className={spanClass}>{cardTitle}</span>
       </a>

@@ -1,5 +1,5 @@
 export interface DataInterface {
-  id: number;
+  id: string;
   title: string;
   link: string;
 }

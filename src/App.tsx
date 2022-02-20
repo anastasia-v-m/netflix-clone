@@ -9,6 +9,9 @@ import PrivateRoute from './components/PrivateRoute';
 import PageOnlyOnNetflix from './containers/PageOnlyOnNetflix';
 import SearchPage from './containers/SearchPage/SearchPage';
 import InternalPage from './containers/InternalPage';
+import FAQPage from './containers/InformPage/FAQPage';
+import TermsUsePage from './containers/InformPage';
+import ComingSoonPage from './containers/InformPage/ComingSoonPage';
 
 export default function App(): JSX.Element {
   return (
@@ -19,6 +22,10 @@ export default function App(): JSX.Element {
           <Route path="/login-form" element={<LoginPage />} />
           <Route path="/registration" element={<LoginPage reg="true" />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/terms-use" element={<TermsUsePage />} />
+          <Route path="/on-netflix" element={<PageOnlyOnNetflix />} />
+          <Route path="/coming-soon" element={<ComingSoonPage />} />
           <Route
             path="/not-full-access"
             element={

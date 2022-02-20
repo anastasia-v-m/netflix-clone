@@ -1,36 +1,15 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import data from './data';
 import './filterSpot.scss';
 import dataSvg from './dataSvg';
 import FilterSVG from '../../assets/FilterSVG';
 
-const filterTitle = 'I am interested in covering titles ';
-const months = [
-  'january',
-  'february',
-  'march',
-  'april',
-  'may',
-  'june',
-  'july',
-  'august',
-  'september',
-  'october',
-  'november',
-  'december',
-];
-
-function getCurrentMonth(): string {
-  return months[new Date().getMonth()];
-}
-
-function getCurrentMonthArr(): Array<string> {
-  const arrDown = 1;
-  const arrUp = 5;
-  const firstMonthIndex = new Date().getMonth() + months.length - arrDown;
-  const workArr = [...months, ...months, ...months];
-  return workArr.slice(firstMonthIndex, firstMonthIndex + arrUp);
-}
+const filterTitle = 'I am interested in watching movies in ';
+const languages = ['english', 'russian', 'german', 'french'];
+let requestBaseURL = '/discover/movie';
+let originalLanguage = 'en';
+let voteCount = 0;
+let voteAverage = 0;
 
 export interface IFilterBtnContent {
   title: string;
@@ -39,10 +18,12 @@ export interface IFilterBtnContent {
 
 export interface IFilterDropListBtn {
   isOpened: boolean;
+  getMovies: (opt?: any) => Promise<void>;
 }
 
 export interface IFilterDropListProp {
   updateData: (value: boolean) => void;
+  getMovies: (opt?: any) => Promise<void>;
 }
 
 function getContent(props: IFilterBtnContent): JSX.Element {
@@ -51,14 +32,13 @@ function getContent(props: IFilterBtnContent): JSX.Element {
   return (
     <>
       {iconMaker()}
-      <span>{title}</span>
+      <span className={title}>{title}</span>
     </>
   );
 }
 
 function FilterDropList(props: IFilterDropListProp): JSX.Element {
-  const monthArr = getCurrentMonthArr();
-  const { updateData } = props;
+  const { updateData, getMovies } = props;
 
   function getValue(event: React.SyntheticEvent): void {
     const curElem = event.target as Element;
@@ -81,6 +61,81 @@ function FilterDropList(props: IFilterDropListProp): JSX.Element {
     const childSvg = curNode.firstChild as Element;
     childSvg.classList.remove('filter-svg-active');
   }
+
+  const changeLanguage = (e: SyntheticEvent): void => {
+    const { classList } = e.target as HTMLLIElement;
+    const en = classList.contains('english');
+    const ru = classList.contains('russian');
+    const de = classList.contains('german');
+    const fr = classList.contains('french');
+
+    switch (true) {
+      case en: {
+        originalLanguage = 'en';
+        const options = {
+          requestURL: requestBaseURL,
+          language: 'en',
+          page: 1,
+          with_original_language: 'en',
+          'vote_count.gte': voteCount,
+          'vote_average.gte': voteAverage,
+        };
+        getMovies(options);
+        break;
+      }
+      case ru: {
+        originalLanguage = 'ru';
+        const options = {
+          requestURL: requestBaseURL,
+          language: 'en',
+          page: 1,
+          with_original_language: 'ru',
+          'vote_count.gte': voteCount,
+          'vote_average.gte': voteAverage,
+        };
+        getMovies(options);
+        break;
+      }
+      case de: {
+        originalLanguage = 'de';
+        const options = {
+          requestURL: requestBaseURL,
+          language: 'en',
+          page: 1,
+          with_original_language: 'de',
+          'vote_count.gte': voteCount,
+          'vote_average.gte': voteAverage,
+        };
+        getMovies(options);
+        break;
+      }
+      case fr: {
+        originalLanguage = 'fr';
+        const options = {
+          requestURL: requestBaseURL,
+          language: 'en',
+          page: 1,
+          with_original_language: 'fr',
+          'vote_count.gte': voteCount,
+          'vote_average.gte': voteAverage,
+        };
+        getMovies(options);
+        break;
+      }
+      default: {
+        const options = {
+          requestURL: requestBaseURL,
+          language: 'en',
+          page: 1,
+          with_original_language: 'en',
+          'vote_count.gte': 0,
+          'vote_average.gte': 0,
+        };
+        getMovies(options);
+        break;
+      }
+    }
+  };
 
   return (
     <div className="filter-list-container filter-no-active-list">
@@ -106,8 +161,9 @@ function FilterDropList(props: IFilterDropListProp): JSX.Element {
               onBlur={hideCheck}
               aria-hidden="true"
             >
-              {monthArr.map((item) => (
-                <li className="filter-list-item" key={item}>
+              {languages.map((item) => (
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+                <li className={`filter-list-item ${item}`} key={item} onClick={changeLanguage}>
                   <FilterSVG />
                   {item}
                 </li>
@@ -121,9 +177,12 @@ function FilterDropList(props: IFilterDropListProp): JSX.Element {
 }
 
 export default class FilterSpot extends React.Component<IFilterDropListBtn, { opened: boolean }> {
+  getMovies;
+
   constructor(props: IFilterDropListBtn) {
     super(props);
-    const { isOpened = false } = props;
+    const { isOpened = false, getMovies } = props;
+    this.getMovies = getMovies;
     this.state = {
       opened: isOpened,
     };
@@ -167,6 +226,89 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
     this.openBtnToogle();
   };
 
+  activateFilter = (e: SyntheticEvent): void => {
+    const { classList, lastChild } = e.currentTarget as HTMLButtonElement;
+    const currentTargetList = (lastChild as HTMLSpanElement).classList;
+    const filmCase = currentTargetList.contains('Film');
+    const seriesCase = currentTargetList.contains('Series');
+    const topRatedCase = currentTargetList.contains('Top-Rated');
+    const filmElement = e.currentTarget.previousSibling;
+    const seriesElement = e.currentTarget.nextSibling;
+
+    if (!classList.contains('active')) {
+      classList.add('active');
+      switch (true) {
+        case filmCase: {
+          requestBaseURL = '/discover/movie';
+          const options = {
+            requestURL: '/discover/movie',
+            language: 'en',
+            page: 1,
+            with_original_language: originalLanguage,
+            'vote_count.gte': voteCount,
+            'vote_average.gte': voteAverage,
+          };
+          (seriesElement as HTMLSpanElement).classList.remove('active');
+          this.getMovies(options);
+          break;
+        }
+        case seriesCase: {
+          requestBaseURL = '/discover/tv';
+          const options = {
+            requestURL: '/discover/tv',
+            language: 'en',
+            page: 1,
+            with_original_language: originalLanguage,
+            'vote_count.gte': voteCount,
+            'vote_average.gte': voteAverage,
+          };
+          (filmElement as HTMLSpanElement).classList.remove('active');
+          this.getMovies(options);
+          break;
+        }
+        case topRatedCase: {
+          voteCount = 100;
+          voteAverage = 6;
+          const options = {
+            requestURL: requestBaseURL,
+            language: 'en',
+            page: 1,
+            with_original_language: originalLanguage,
+            'vote_count.gte': 100,
+            'vote_average.gte': 6,
+          };
+          this.getMovies(options);
+          break;
+        }
+        default: {
+          const options = {
+            requestURL: requestBaseURL,
+            language: 'en',
+            page: 1,
+            with_original_language: 'en',
+            'vote_count.gte': 0,
+            'vote_average.gte': 0,
+          };
+          this.getMovies(options);
+          break;
+        }
+      }
+    } else {
+      classList.remove('active');
+      voteCount = 0;
+      voteAverage = 0;
+      const options = {
+        requestURL: requestBaseURL,
+        language: 'en',
+        page: 1,
+        with_original_language: originalLanguage,
+        'vote_count.gte': 0,
+        'vote_average.gte': 0,
+      };
+      this.getMovies(options);
+    }
+  };
+
   render(): JSX.Element {
     return (
       <div className="filter-container">
@@ -183,7 +325,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
               <div className="filter-value-input-wrapper">
                 <div className="filter-drop-list-container">
                   <div className="filter-value-input">
-                    <span className="filter-value-storage">{`in ${getCurrentMonth()}`}</span>
+                    <span className="filter-value-storage">{languages[0]}</span>
                     <div className="filter-value-open-img-container">
                       <svg viewBox="0 0 24 24" className="filter-value-open-img opened filter-value-open-img-no-active">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -195,7 +337,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
                       </svg>
                     </div>
                   </div>
-                  <FilterDropList updateData={this.updateData} />
+                  <FilterDropList updateData={this.updateData} getMovies={this.getMovies} />
                 </div>
               </div>
             </div>
@@ -203,7 +345,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
         </div>
         <div className="filter-btn-wrapper">
           {data.map((item, index) => (
-            <button className="filter-btn" key={item} type="button">
+            <button className="filter-btn" key={item} type="button" onClick={this.activateFilter}>
               {getContent({ title: item, iconMaker: dataSvg[index] })}
             </button>
           ))}

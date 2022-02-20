@@ -1,3 +1,3 @@
-const data = ['Film', 'Series', 'Documentary', 'Kids', 'Reality', 'Stand-up Comedy'];
+const data = ['Film', 'Series', 'Top-Rated'];
 
 export default data;

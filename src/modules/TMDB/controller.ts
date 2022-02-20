@@ -1,5 +1,5 @@
 interface IRequestOptions {
-  [index: string]: string | number | boolean | undefined;
+  [index: string]: string | number | boolean | Date | undefined;
   language?: string;
   page?: number;
   query?: string;

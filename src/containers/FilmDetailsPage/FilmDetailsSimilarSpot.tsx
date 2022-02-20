@@ -69,8 +69,8 @@ export default function FilmDetailsSimilarsSpot(props: { movieID: string }): JSX
                 linkAdr={`/${item.id}`}
                 cardTitle={item.title}
                 liClass="film-details-similar-container"
-                aClass="only-netflix-movie"
-                imageClass="film-details-similar-poster"
+                aClass="film-details-similar-movie"
+                imageClass="film-details-similar-poster figure"
                 spanClass="film-details-similar-title"
                 key={item.id}
               />

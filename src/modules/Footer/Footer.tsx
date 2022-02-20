@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { data, IItem } from './data';
+import RsSchoolSVG from '../../assets/RsSchoolSVG';
 import { AppContext } from '../../components/constants';
 
 import { IFooterProps } from './types';
@@ -64,7 +65,7 @@ export default function Footer(props?: IFooterProps): JSX.Element {
       </div>
       <div className="developers-links">
         <a className="dev-link" href="https://rs.school/js/" target="_blank" rel="noreferrer">
-          RS Logo
+          <RsSchoolSVG />
         </a>
         <a className="dev-link" href="https://github.com/Arxons" target="_blank" rel="noreferrer">
           Developer 1: Arxons

@@ -20,7 +20,7 @@ export default function LoginPage(props: IUserFormProps): JSX.Element {
           <img className="login-background__image" src={data.link} alt="login-background" />
           <div className="login-background__shadow" />
         </div>
-        <HeaderLogo link="/" name="landing-header" />
+        <HeaderLogo link="/" name="landing-header header-wrapper" />
         <LoginOverlap reg="true" />
         <Footer footerType={FOOTER_LOGIN_PAGE_TYPE} />
       </div>
@@ -32,7 +32,7 @@ export default function LoginPage(props: IUserFormProps): JSX.Element {
         <img className="login-background__image" src={data.link} alt="login-background" />
         <div className="login-background__shadow" />
       </div>
-      <HeaderLogo link="/" name="landing-header" />
+      <HeaderLogo link="/" name="landing-header header-wrapper" />
       <LoginOverlap />
       <Footer footerType={FOOTER_LOGIN_PAGE_TYPE} />
     </div>

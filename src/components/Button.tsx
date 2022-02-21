@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 import actionGenerator from '../store/actions';
 import store from '../store/store';
 
@@ -20,6 +21,28 @@ export interface IPropsButton {
 
 export default function Button(props: IPropsButton): JSX.Element {
   const { type = BTN_TYPE_SIMPLE, name = '', linkAdr, nameContent = '', content = '', icon, logBtn = false } = props;
+  const currentLinkAdr = logBtn === true && store.getState().isDone === true ? '' : linkAdr;
+  const navigator = useNavigate();
+
+  const updateData = (e: React.SyntheticEvent): void => {
+    e.stopPropagation();
+    e.preventDefault();
+    const { isDone } = store.getState();
+
+    const storeType = isDone ? 'HAS_LOGED_OUT' : 'HAS_LOGED_IN';
+    const storeValue = isDone ? 'Войти' : 'Выйти';
+    const storeAction = actionGenerator(storeType, storeValue, !isDone);
+    store.dispatch(storeAction);
+    const elem = document.querySelector('#logbtn');
+    if (elem) {
+      elem.textContent = store.getState().value as string;
+    }
+    if (isDone) {
+      sessionStorage.removeItem('user');
+    } else {
+      navigator('/login-form');
+    }
+  };
 
   const currentLinkAdr = (logBtn === true && store.getState().isDone === true) ? '' : linkAdr;
   
@@ -45,9 +68,9 @@ export default function Button(props: IPropsButton): JSX.Element {
   
   let result: JSX.Element;
   if (type === BTN_TYPE_WITH_ICONS) {
-    result = (      
+    result = (
       <Link className={name} to={currentLinkAdr as string}>
-        <span className={nameContent} >{content}</span>
+        <span className={nameContent}>{content}</span>
         <span className={icon} />
       </Link>
     );

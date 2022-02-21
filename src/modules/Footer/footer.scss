@@ -47,6 +47,11 @@ footer {
   font-size: 13px;
   text-decoration: none;
   color: #757575;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
 }
 
 .footer-link:hover {

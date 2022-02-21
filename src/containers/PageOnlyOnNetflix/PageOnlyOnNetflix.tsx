@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '../../components/Button';
 import MovieCard from '../../components/MovieCard';
 import Header from '../../modules/Header/Header';
-import { pageHead, pageSubHead, pageEndHead, pageEndSubHead } from './data';
+import dataDescription from './data';
 import data from './data.json';
+import { AppContext } from '../../components/constants';
 
 import './pageOnlyOnNetflix.scss';
-
-const TO_HOME = 'Присоединяйтесь';
 
 export interface IOneMovieData {
   posterSrc: string;
@@ -21,13 +20,14 @@ export interface IMoviesData {
 }
 
 export default function PageOnlyOnNetflix(): JSX.Element {
+  const context = useContext(AppContext);
   return (
     <>
       <Header type="HEADER_404_PAGE" name="header-container" />
       <main className="only-netflix-main">
         <section className="only-netflix-head-sect">
-          <h1 className="only-netflix-head">{pageHead}</h1>
-          <p className="only-netflix-subhead">{pageSubHead}</p>
+          <h1 className="only-netflix-head">{dataDescription[context.locale].pageHead}</h1>
+          <p className="only-netflix-subhead">{dataDescription[context.locale].pageSubHead}</p>
         </section>
         <section className="movie-categories-container">
           {data.map((item) => (
@@ -53,9 +53,14 @@ export default function PageOnlyOnNetflix(): JSX.Element {
         </section>
         <section className="only-netflix-endhead-sect">
           <div className="only-netflix-endhead-container">
-            <h2 className="only-netflix-endhead">{pageEndHead}</h2>
-            <p className="only-netflix-endsubhead">{pageEndSubHead}</p>
-            <Button type="BTN_TYPE_SIMPLE" name="only-netflix-btn-to-home btn-flash" linkAdr="/" content={TO_HOME} />
+            <h2 className="only-netflix-endhead">{dataDescription[context.locale].pageEndHead}</h2>
+            <p className="only-netflix-endsubhead">{dataDescription[context.locale].pageEndSubHead}</p>
+            <Button
+              type="BTN_TYPE_SIMPLE"
+              name="only-netflix-btn-to-home"
+              linkAdr="/"
+              content={dataDescription[context.locale].toHomeButton}
+            />
           </div>
         </section>
       </main>

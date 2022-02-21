@@ -1,7 +1,8 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { IRegFunc } from '../UserFormMain/types';
+import { AppContext } from '../../components/constants';
 
-import data from './data';
+import data from '../UserFormMain/data';
 
 export default function RegistrationNames(props: IRegFunc): JSX.Element {
   const [isFocused, setFocusPrefix] = useState(false);
@@ -27,31 +28,35 @@ export default function RegistrationNames(props: IRegFunc): JSX.Element {
 
   const namePrefix = isFocused ? 'focus' : '';
   return (
-    <>
-      <div className="firstname-user__wrapper">
-        <input
-          className={`firstname-user__input ${namePrefix}`}
-          type="text"
-          name="firstname-user__id"
-          id="id-firstname-user"
-          onChange={onChangeName}
-        />
-        <label htmlFor="id-firstname-user" className="firstname-user__label">
-          {data.firstName}
-        </label>
-      </div>
-      <div className="secondname-user__wrapper">
-        <input
-          className={`secondname-user__input ${namePrefix}`}
-          type="text"
-          name="secondname-user__id"
-          id="id-secondname-user"
-          onChange={onChangeName}
-        />
-        <label htmlFor="id-secondname-user" className="secondname-user__label">
-          {data.secondName}
-        </label>
-      </div>
-    </>
+    <AppContext.Consumer>
+      {(context): JSX.Element => (
+        <>
+          <div className="firstname-user__wrapper">
+            <input
+              className={`firstname-user__input ${namePrefix}`}
+              type="text"
+              name="firstname-user__id"
+              id="id-firstname-user"
+              onChange={onChangeName}
+            />
+            <label htmlFor="id-firstname-user" className="firstname-user__label">
+              {data[context.locale].firstName}
+            </label>
+          </div>
+          <div className="secondname-user__wrapper">
+            <input
+              className={`secondname-user__input ${namePrefix}`}
+              type="text"
+              name="secondname-user__id"
+              id="id-secondname-user"
+              onChange={onChangeName}
+            />
+            <label htmlFor="id-secondname-user" className="secondname-user__label">
+              {data[context.locale].secondName}
+            </label>
+          </div>
+        </>
+      )}
+    </AppContext.Consumer>
   );
 }

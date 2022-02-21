@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 import FilmDetailsCreateSpot from './FilmDetailsCreateSpot';
@@ -6,13 +6,10 @@ import FilmDetailsSimilarsSpot from './FilmDetailsSimilarSpot';
 import FilmDetailsTrailersSpot from './FilmDetailsTrailersSpot';
 import Header from '../../modules/Header/Header';
 import Footer from '../../modules/Footer';
+import { AppContext } from '../../components/constants';
+import dataDetails from './data';
 
 import './filmDetailsPage.scss';
-
-const releaseTitle = 'Released: ';
-const ratingTitle = 'Rating: ';
-const toHome = 'Присоединяйтесь';
-const toHomeTitle = 'Смотрите сколько хотите.';
 
 const endpoint = 'https://api.themoviedb.org/3/';
 const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
@@ -39,6 +36,7 @@ export interface IFilmDetailsResp {
 }
 
 export default function FilmDetailsPage(props: { movieID: string }): JSX.Element {
+  const context = useContext(AppContext);
   const { movieID } = props;
   const url = `${endpoint}/${request}/${movieID}?api_key=${API_KEY}&language=en-US`;
 
@@ -102,7 +100,7 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
           <div className="film-details-basic-container">
             <div className="film-details-maininfo">
               <div className="film-title-info-container">
-                <h1 className="film-title">{gotData.original_title}</h1>
+                <h1 className="film-title">{gotData.title}</h1>
                 <p className="film-tags">
                   {genres.map((item) => (
                     <Fragment key={`d-${item.id}`}>
@@ -114,11 +112,11 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
                 <h4 className="film-about">{gotData.overview}</h4>
                 <div className="film-details-people">
                   <p>
-                    <span className="film-details-people__titles">{releaseTitle}</span>
+                    <span className="film-details-people__titles">{dataDetails[context.locale].releaseTitle}</span>
                     {gotData.release_date}
                   </p>
                   <p>
-                    <span className="film-details-people__titles">{ratingTitle}</span>
+                    <span className="film-details-people__titles">{dataDetails[context.locale].ratingTitle}</span>
                     {gotData.vote_average}
                   </p>
                 </div>
@@ -146,8 +144,13 @@ export default function FilmDetailsPage(props: { movieID: string }): JSX.Element
               <path d="M225 0l349 983c76 3 136 9 203 17L423 0H225" fill="#e50914" />
             </svg>
             <div className="film-details-to-home-wrapper">
-              <span className="film-details-to-home-title">{toHomeTitle}</span>
-              <Button type="BTN_TYPE_SIMPLE" name="film-details-btn-to-home" linkAdr="/" content={toHome} />
+              <span className="film-details-to-home-title">{dataDetails[context.locale].toHomeTitle}</span>
+              <Button
+                type="BTN_TYPE_SIMPLE"
+                name="film-details-btn-to-home"
+                linkAdr="/"
+                content={dataDetails[context.locale].toHome}
+              />
             </div>
           </div>
         </section>

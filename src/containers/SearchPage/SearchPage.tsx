@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState, useContext } from 'react';
 
 import axios from 'axios';
 
@@ -11,25 +11,27 @@ import AllFilterSVG from '../../assets/AllFilterSVG';
 import { IMoviesData } from '../InternalPage/InternalPage';
 import MovieCard from '../../components/MovieCard';
 import controller from '../../modules/TMDB/controller';
-
-import { FOOTER_INTERNAL_PAGE_TYPE } from '../../components/constants';
+import { AppContext, FOOTER_INTERNAL_PAGE_TYPE } from '../../components/constants';
+import dataSearch from '../../modules/Header/data';
 
 import './searchPage.scss';
 
 let request = '/search/movie';
-const options = {
-  language: 'ru-RU',
-  page: 1,
-  query: '',
-};
 
 export default function SearchPage(): JSX.Element {
   const posterBaseURL = 'https://image.tmdb.org/t/p/original';
   const contentType = sessionStorage.getItem('contentType');
+  const context = useContext(AppContext);
 
   if (contentType) {
     request = `/search/${contentType}`;
   }
+
+  const options = {
+    language: 'ru-RU',
+    page: 1,
+    query: '',
+  };
 
   const sessionData = JSON.parse(sessionStorage.getItem('searchMoviesData') as string);
   const sessionSearchValue = sessionStorage.getItem('searchMovieValue');
@@ -115,10 +117,15 @@ export default function SearchPage(): JSX.Element {
         <section className="search">
           <div className="search__wrapper">
             <div className="search__container">
-              <h1 className="search__title">Search Results</h1>
+              <h1 className="search__title">{dataSearch[context.locale].searchResult}</h1>
               <form className="search__input_wrapper" onSubmit={submitHandler}>
                 <SearchSVG />
-                <input className="search__input" type="text" placeholder="What are you looking for?" onChange={changeHandler} />
+                <input
+                  className="search__input"
+                  type="text"
+                  placeholder={dataSearch[context.locale].placeholderResult}
+                  onChange={changeHandler}
+                />
               </form>
             </div>
           </div>
@@ -131,7 +138,7 @@ export default function SearchPage(): JSX.Element {
                 <button type="button" className="filters-container__item film">
                   <div className="filters-container__item_wrapper">
                     <AllFilterSVG />
-                    <span className="filters-container__span">Film</span>
+                    <span className="filters-container__span">{dataSearch[context.locale].all}</span>
                   </div>
                   <ArrowSVG />
                 </button>
@@ -140,7 +147,7 @@ export default function SearchPage(): JSX.Element {
                 <button type="button" className="filters-container__item film active">
                   <div className="filters-container__item_wrapper">
                     <AllFilterSVG />
-                    <span className="filters-container__span">Film</span>
+                    <span className="filters-container__span">{dataSearch[context.locale].all}</span>
                   </div>
                   <ArrowSVG />
                 </button>
@@ -149,7 +156,7 @@ export default function SearchPage(): JSX.Element {
                 <button type="button" className="filters-container__item series">
                   <div className="filters-container__item_wrapper">
                     <AllFilterSVG />
-                    <span className="filters-container__span">Series</span>
+                    <span className="filters-container__span">{dataSearch[context.locale].titles}</span>
                   </div>
                   <ArrowSVG />
                 </button>
@@ -158,7 +165,7 @@ export default function SearchPage(): JSX.Element {
                 <button type="button" className="filters-container__item series active">
                   <div className="filters-container__item_wrapper">
                     <AllFilterSVG />
-                    <span className="filters-container__span">Series</span>
+                    <span className="filters-container__span">{dataSearch[context.locale].titles}</span>
                   </div>
                   <ArrowSVG />
                 </button>

@@ -3,11 +3,15 @@ import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
-import dataInternal from './dataInternal.json';
 import SearchIcon from '../../assets/SearchIcon';
 import controller from '../TMDB/controller';
 
 import './internalSearch.scss';
+
+interface ISearch {
+  title: string;
+  placeholder: string;
+}
 
 const options = {
   query: '',
@@ -15,12 +19,15 @@ const options = {
   page: 1,
 };
 
-export default function InternalSearchSpot(): JSX.Element {
+export default function InternalSearchSpot(props: ISearch): JSX.Element {
   const contentType = sessionStorage.getItem('contentType');
   let request = '/search/movie';
+
   if (contentType) {
     request = `/search/${contentType}`;
   }
+
+  const { title, placeholder } = props;
   const [searchValue, setValue] = useState('');
   const navigator = useNavigate();
 
@@ -45,16 +52,11 @@ export default function InternalSearchSpot(): JSX.Element {
   return (
     <div className="search-card">
       <div className="search-card-content">
-        <h2>{dataInternal.title}</h2>
+        <h2>{title}</h2>
         <form className="search-spot" onSubmit={submitHandler}>
           <div className="search-spot_block">
             <SearchIcon />
-            <input
-              type="search"
-              className="search-spot_input"
-              placeholder="Search for Netflix titles and news"
-              onChange={changeHandler}
-            />
+            <input type="search" className="search-spot_input" placeholder={placeholder} onChange={changeHandler} />
           </div>
         </form>
       </div>

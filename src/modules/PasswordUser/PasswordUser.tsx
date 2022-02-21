@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from 'react';
 
 import { IFormData } from '../UserFormMain/types';
+import { AppContext } from '../../components/constants';
 
 import data from './data';
 
@@ -42,20 +43,24 @@ export default function PasswordUser(props: IFormData): JSX.Element {
   const focusPrefix = focusPrefixStatus ? 'focus' : '';
 
   return (
-    <>
-      <div className={`password-user__wrapper ${errorPrefix}`}>
-        <input
-          className={`password-user__input ${focusPrefix}`}
-          type="password"
-          name="password-user__id"
-          id="id-password-user"
-          onChange={onChangePassword}
-        />
-        <label htmlFor="id-password-user" className="password-user__label">
-          {data.label}
-        </label>
-      </div>
-      <div className={`login-user__error ${errorPrefix}`}>{data.error}</div>
-    </>
+    <AppContext.Consumer>
+      {(context): JSX.Element => (
+        <>
+          <div className={`password-user__wrapper ${errorPrefix}`}>
+            <input
+              className={`password-user__input ${focusPrefix}`}
+              type="password"
+              name="password-user__id"
+              id="id-password-user"
+              onChange={onChangePassword}
+            />
+            <label htmlFor="id-password-user" className="password-user__label">
+              {data[context.locale].label}
+            </label>
+          </div>
+          <div className={`login-user__error ${errorPrefix}`}>{data[context.locale].error}</div>
+        </>
+      )}
+    </AppContext.Consumer>
   );
 }

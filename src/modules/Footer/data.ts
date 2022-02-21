@@ -1,3 +1,5 @@
+import { IData } from '../LandingStartSpot/data';
+
 export interface IItem {
   [index: string]: string
 }
@@ -21,12 +23,12 @@ export const data: IDataFooter = {
     {
       id: '2',
       title: 'Только на Netflix',
-      link: '/#'
+      link: '/on-netflix'
     },
     {
       id: '3',
       title: 'Скоро в кино',
-      link: '/#'
+      link: '/coming-soon'
     }
   ],
   'en': [
@@ -51,4 +53,13 @@ export const data: IDataFooter = {
       link: '/coming-soon'
     }
   ],
+};
+
+export const dataQuestion: IData = {
+  'ru': {
+      titleQuestion: 'Есть вопросы? Свяжитесь с нами',
+    },
+  'en': {
+      titleQuestion: 'Have questions? Contact us',
+    },
 };

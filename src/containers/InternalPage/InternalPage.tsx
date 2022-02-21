@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useContext } from 'react';
 
 import axios from 'axios';
 
@@ -7,6 +7,8 @@ import Header from '../../modules/Header/Header';
 import InternalSearchSpot from '../../modules/InternalSearchSpot';
 import FilterSpot from '../../modules/Filter';
 import MovieCard from '../../components/MovieCard';
+import { AppContext } from '../../components/constants';
+import dataSearch from '../../modules/Header/data';
 
 import controller from '../../modules/TMDB/controller';
 
@@ -25,8 +27,6 @@ export interface IMoviesData {
 }
 
 const posterBaseURL = 'https://image.tmdb.org/t/p/original';
-
-let request = '/discover/movie';
 const options = {
   language: 'en',
   page: 1,
@@ -36,14 +36,17 @@ const options = {
 };
 
 export default function InternalPage(): JSX.Element {
+  const context = useContext(AppContext);
+
+  let request = '/discover/movie';
   const [moviesData, setData] = useState(Array);
   const [isLoaded, setLoading] = useState(false);
   const getMovies = async (opt?: any): Promise<void> => {
     const filtersOptions = JSON.parse(sessionStorage.getItem('filtersOptions') as string);
     if (opt) {
       request = opt.requestURL;
-      options.page = opt.page;
-      options.language = opt.language;
+      options.page = 1;
+      options.language = context.locale;
       options.with_original_language = opt.with_original_language;
       options['vote_count.gte'] = opt['vote_count.gte'];
       options['vote_average.gte'] = opt['vote_average.gte'];
@@ -51,7 +54,7 @@ export default function InternalPage(): JSX.Element {
 
     if (filtersOptions && !opt) {
       request = filtersOptions.requestURL;
-      options.language = filtersOptions.language;
+      options.language = context.locale;
       options.with_original_language = filtersOptions.with_original_language;
       options['vote_count.gte'] = filtersOptions['vote_count.gte'];
       options['vote_average.gte'] = filtersOptions['vote_average.gte'];
@@ -78,7 +81,6 @@ export default function InternalPage(): JSX.Element {
 
   const showMore = (): void => {
     const totalPages = Number(sessionStorage.getItem('totalPages') as string);
-
     if (options.page < totalPages) {
       options.page += 1;
       sessionStorage.setItem('currentPage', JSON.stringify(options.page));
@@ -98,7 +100,7 @@ export default function InternalPage(): JSX.Element {
   return (
     <>
       <Header type="HEADER_INTERNAL_PAGE" name="header-container" />
-      <InternalSearchSpot />
+      <InternalSearchSpot title={dataSearch[context.locale].title} placeholder={dataSearch[context.locale].placeholder} />
       <FilterSpot isOpened={false} getMovies={getMovies} />
       <div className="announce">
         <ul className="announce-content">

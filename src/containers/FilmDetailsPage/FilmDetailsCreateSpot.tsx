@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { AppContext } from '../../components/constants';
+import dataDetails from './data';
 
 import './filmDetailsPage.scss';
 
-const aboutFilmTitle = 'Подробнее';
-const actorsTitle = 'В ролях';
-const prodTitle = 'Произведено';
 const acting = 'Acting';
 const endpoint = 'https://api.themoviedb.org/3/';
 const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
@@ -28,6 +27,7 @@ export default function FilmDetailsCreateSpot(props: { productionCompanies: Arra
   const { productionCompanies, movieID } = props;
 
   const url = `${endpoint}/${request}/${movieID}/credits?api_key=${API_KEY}&language=en-US`;
+  const context = useContext(AppContext);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [gotData, setgotData] = useState({ cast: [{ known_for_department: '', name: '' }] });
@@ -63,10 +63,10 @@ export default function FilmDetailsCreateSpot(props: { productionCompanies: Arra
   return (
     <section className="film-details-sect">
       <div className="filn-details-trailer-titles">
-        <h2 className="film-details-sect-title">{aboutFilmTitle}</h2>
+        <h2 className="film-details-sect-title">{dataDetails[context.locale].aboutFilmTitle}</h2>
       </div>
       <div className="film-details-create-category">
-        <h4 className="film-details-sect-subtitle">{prodTitle}</h4>
+        <h4 className="film-details-sect-subtitle">{dataDetails[context.locale].prodTitle}</h4>
         <div className="film-details-companies-list-wrapper">
           {productionCompanies.map((item) => (
             <div key={item.name}>
@@ -76,7 +76,7 @@ export default function FilmDetailsCreateSpot(props: { productionCompanies: Arra
         </div>
       </div>
       <div className="film-details-create-category">
-        <h4 className="film-details-sect-subtitle">{actorsTitle}</h4>
+        <h4 className="film-details-sect-subtitle">{dataDetails[context.locale].actorsTitle}</h4>
         <div className="film-details-actors-list-wrapper">
           <div className="film-details-actors-list">
             {actors.map((item) => (

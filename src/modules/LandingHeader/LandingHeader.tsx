@@ -5,6 +5,8 @@ import Button from '../../components/Button';
 import NetflixLogo from './LandingHeaderLogo';
 import StartCard from './LandingStartCard';
 
+import store from '../../store/store';
+
 import './landingHeader.scss';
 
 export default function Header(): JSX.Element {
@@ -18,7 +20,7 @@ export default function Header(): JSX.Element {
             type="BTN_TYPE_WITH_ICONS"
             name="auth-button"
             nameContent="auth-button-content"
-            content="Войти"
+            content={store.getState().value}
             linkAdr="/login-form"
           />
         </div>

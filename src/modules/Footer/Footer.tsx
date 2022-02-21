@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { data, IItem } from './data';
+import { data, dataQuestion, IItem } from './data';
 import RsSchoolSVG from '../../assets/RsSchoolSVG';
 import { AppContext } from '../../components/constants';
 
@@ -20,7 +20,7 @@ function FooterLinks(): JSX.Element {
       {(context): JSX.Element => (
         <ul className="links-list">
           {data[context.locale].map((elem: IItem) => (
-            <li className="footer-link-item" key={elem.id}>
+            <li className="footer-link-item" key={elem.title + elem.id}>
               <Link className="footer-link" to={elem.link}>
                 {elem.title}
               </Link>
@@ -33,6 +33,7 @@ function FooterLinks(): JSX.Element {
 }
 
 export default function Footer(props?: IFooterProps): JSX.Element {
+  const context = useContext(AppContext);
   const { footerType = undefined } = props as IFooterProps;
   const prefix = footerType ? 'login-page__footer' : '';
   return (
@@ -40,7 +41,7 @@ export default function Footer(props?: IFooterProps): JSX.Element {
       <div className="footer-wrapper">
         <div className="footer-links-container">
           <div className="footer-title">
-            <span>Есть вопросы? Свяжитесь с нами</span>
+            <span>{dataQuestion[context.locale].titleQuestion}</span>
           </div>
           <div className="internal-footer__item_descr">
             <a className="social-links" href="https://twitter.com/netflix" target="_blank" rel="noreferrer">

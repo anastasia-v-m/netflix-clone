@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { AppContext } from '../../components/constants';
+import dataDetails from './data';
+
 import './filmDetailsPage.scss';
 
 const endpoint = 'https://api.themoviedb.org/3/';
 const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
-
-const videoTitle = 'Видео';
 
 const contentType = sessionStorage.getItem('contentType');
 let request = 'movie';
@@ -158,13 +159,17 @@ export default function FilmDetailsTrailersSpot(props: { filmName: string; movie
   }
 
   return (
-    <section className="film-details-sect">
-      <div className="for-modal-layer" />
-      <div className="filn-details-trailer-titles">
-        <h2 className="film-details-sect-title">{videoTitle}</h2>
-        <h2 className="film-details-trailers-title">{filmName}</h2>
-      </div>
-      <TrailerPlayer results={gotData.results} />
-    </section>
+    <AppContext.Consumer>
+      {(context): JSX.Element => (
+        <section className="film-details-sect">
+          <div className="for-modal-layer" />
+          <div className="filn-details-trailer-titles">
+            <h2 className="film-details-sect-title">{dataDetails[context.locale].videoTitle}</h2>
+            <h2 className="film-details-trailers-title">{filmName}</h2>
+          </div>
+          <TrailerPlayer results={gotData.results} />
+        </section>
+      )}
+    </AppContext.Consumer>
   );
 }

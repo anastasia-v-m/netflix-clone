@@ -1,11 +1,3 @@
-@font-face {
-  font-family: 'Netflix Sans';
-  font-weight: 400;
-  font-display: optional;
-  src: url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2) format('woff2'),
-    url(https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff) format('woff');
-}
-
 .header-wrapper {
   background-color: transparent;
   transition: background-color 0.5s;
@@ -149,7 +141,6 @@
   max-width: 950px;
   margin: 0 auto;
   text-align: center;
-  font-family: 'Netflix Sans';
 }
 
 .start-card-content h1 {
@@ -235,5 +226,5 @@
 
 .black-bkg {
   background-color: #000;
-  height: 100%!important;
+  height: 100% !important;
 }

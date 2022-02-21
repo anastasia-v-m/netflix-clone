@@ -1,15 +1,18 @@
 import React from 'react';
 
-import landingStartCardData from '../modules/LandingHeader/landingStartCardData.json';
+import landingStartSpot from '../modules/LandingStartSpot/data';
 import Button from './Button';
+import { AppContext } from './constants';
 
 export interface IProps {}
 
 export interface IState {
   value?: string;
-  formTitle?: string;
-  placeLabel?: string;
-  startButton?: string;
+  content?: {
+    [index: string]: {
+      [index: string]: string;
+    };
+  };
 }
 
 export default class EmailForm extends React.Component<IProps, IState> {
@@ -17,9 +20,7 @@ export default class EmailForm extends React.Component<IProps, IState> {
     super(props);
     this.state = {
       value: '',
-      formTitle: landingStartCardData.formTitle,
-      placeLabel: landingStartCardData.placeLabel,
-      startButton: landingStartCardData.startButton,
+      content: landingStartSpot,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,31 +31,35 @@ export default class EmailForm extends React.Component<IProps, IState> {
   }
 
   render(): JSX.Element {
-    const { formTitle, placeLabel, value, startButton } = this.state;
+    const { content, value } = this.state;
     return (
-      <form className="emailForm">
-        <h3>{formTitle}</h3>
-        <div className="emailFormContainer">
-          <label htmlFor="email">
-            <input
-              type="email"
-              className="emailInput"
-              id="email"
-              value={value}
-              onChange={this.handleChange}
-              placeholder={placeLabel}
-            />
-          </label>
-          <Button
-            type="BTN_TYPE_WITH_ICONS"
-            name="start-button"
-            nameContent="start-button-content"
-            content={startButton!}
-            icon="start-button-arrow"
-            linkAdr="/registration"
-          />
-        </div>
-      </form>
+      <AppContext.Consumer>
+        {(context): JSX.Element => (
+          <form className="emailForm">
+            <h3>{content![context.locale].formTitle}</h3>
+            <div className="emailFormContainer">
+              <label htmlFor="email">
+                <input
+                  type="email"
+                  className="emailInput"
+                  id="email"
+                  value={value}
+                  onChange={this.handleChange}
+                  placeholder={content![context.locale].placeLabel}
+                />
+              </label>
+              <Button
+                type="BTN_TYPE_WITH_ICONS"
+                name="start-button"
+                nameContent="start-button-content"
+                content={content![context.locale].startButton!}
+                icon="start-button-arrow"
+                linkAdr="/registration"
+              />
+            </div>
+          </form>
+        )}
+      </AppContext.Consumer>
     );
   }
 }

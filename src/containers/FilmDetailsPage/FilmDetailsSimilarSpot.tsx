@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import MovieCard from '../../components/MovieCard';
+import { AppContext } from '../../components/constants';
+import dataDetails from './data';
 
 import '../PageOnlyOnNetflix/pageOnlyOnNetflix.scss';
 import './filmDetailsPage.scss';
 
-const similarTitle = 'Похожие';
 const endpoint = 'https://api.themoviedb.org/3/';
 const API_KEY = '224ce27b38a3805ecf6f6c36eb3ba9d0';
 
@@ -26,6 +27,7 @@ export interface ISimilrMoviesResp {
 }
 
 export default function FilmDetailsSimilarsSpot(props: { movieID: string }): JSX.Element {
+  const context = useContext(AppContext);
   const { movieID } = props;
   const url = `${endpoint}/${request}/${movieID}/similar?api_key=${API_KEY}&language=en-US`;
 
@@ -63,7 +65,7 @@ export default function FilmDetailsSimilarsSpot(props: { movieID: string }): JSX
   return (
     <section className="film-details-sect">
       <div className="filn-details-trailer-titles">
-        <h2 className="film-details-sect-title">{similarTitle}</h2>
+        <h2 className="film-details-sect-title">{dataDetails[context.locale].similarTitle}</h2>
       </div>
       <div>
         <div className="movie-category-wrapper">

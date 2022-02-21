@@ -11,6 +11,8 @@ import internalData from './data';
 import LoadingSVG from '../../assets/LoadingSVG';
 import { IError, ILoginData, ILoginResp, IRegData, IUserFormProps } from './types';
 
+import store from '../../store/store';
+
 import './userFormMain.scss';
 
 const initialFormData = { email: '', isEmailValid: false, password: '', isPasswordValid: false };
@@ -42,6 +44,7 @@ export default function UserFormMain(props?: IUserFormProps): JSX.Element {
       try {
         const { data: loginResp }: { data: ILoginResp } = await login(loginData);
         sessionStorage.setItem('user', JSON.stringify(loginResp.user));
+        store.dispatch({ type: 'HAS_LOGED_IN', value: 'Выйти', isDone: true });
         setLoading(false);
         navigator('/announces');
       } catch (err) {
@@ -75,6 +78,7 @@ export default function UserFormMain(props?: IUserFormProps): JSX.Element {
         await registration(regData);
         const { data: loginData } = await login(regData);
         sessionStorage.setItem('user', JSON.stringify(loginData.user));
+        store.dispatch({ type: 'HAS_LOGED_IN', value: 'Выйти', isDone: true });
         setLoading(false);
         navigator('/announces');
       } catch (err) {

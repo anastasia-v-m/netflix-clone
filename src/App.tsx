@@ -12,8 +12,10 @@ import InternalPage from './containers/InternalPage';
 import FAQPage from './containers/InformPage/FAQPage';
 import TermsUsePage from './containers/InformPage';
 import ComingSoonPage from './containers/InformPage/ComingSoonPage';
+import FilmDetailsPage from './containers/FilmDetailsPage';
 
 export default function App(): JSX.Element {
+  const movieID = sessionStorage.getItem('movieID');
   return (
     <React.StrictMode>
       <BrowserRouter>
@@ -47,6 +49,14 @@ export default function App(): JSX.Element {
             element={
               <PrivateRoute>
                 <PageOnlyOnNetflix />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/details"
+            element={
+              <PrivateRoute>
+                <FilmDetailsPage movieID={movieID as string} />
               </PrivateRoute>
             }
           />

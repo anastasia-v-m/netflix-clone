@@ -9,7 +9,6 @@ import controller from '../TMDB/controller';
 
 import './internalSearch.scss';
 
-const request = '/search/movie';
 const options = {
   query: '',
   language: 'ru-RU',
@@ -17,6 +16,11 @@ const options = {
 };
 
 export default function InternalSearchSpot(): JSX.Element {
+  const contentType = sessionStorage.getItem('contentType');
+  let request = '/search/movie';
+  if (contentType) {
+    request = `/search/${contentType}`;
+  }
   const [searchValue, setValue] = useState('');
   const navigator = useNavigate();
 

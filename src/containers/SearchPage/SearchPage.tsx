@@ -16,15 +16,20 @@ import { FOOTER_INTERNAL_PAGE_TYPE } from '../../components/constants';
 
 import './searchPage.scss';
 
-const posterBaseURL = 'https://image.tmdb.org/t/p/original';
-const request = '/search/movie';
+let request = '/search/movie';
+const options = {
+  language: 'ru-RU',
+  page: 1,
+  query: '',
+};
 
 export default function SearchPage(): JSX.Element {
-  const options = {
-    language: 'ru-RU',
-    page: 1,
-    query: '',
-  };
+  const posterBaseURL = 'https://image.tmdb.org/t/p/original';
+  const contentType = sessionStorage.getItem('contentType');
+
+  if (contentType) {
+    request = `/search/${contentType}`;
+  }
 
   const sessionData = JSON.parse(sessionStorage.getItem('searchMoviesData') as string);
   const sessionSearchValue = sessionStorage.getItem('searchMovieValue');
@@ -99,6 +104,10 @@ export default function SearchPage(): JSX.Element {
       .catch((err) => console.error(err));
   };
 
+  const navigateToDetails = (id: string): void => {
+    sessionStorage.setItem('movieID', id);
+  };
+
   return (
     <>
       <Header type="HEADER_INTERNAL_PAGE" name="header-container" />
@@ -118,27 +127,42 @@ export default function SearchPage(): JSX.Element {
         <section className="search-results">
           <div className="filters-wrapper">
             <div className="filters-container">
-              <button type="button" className="filters-container__item">
-                <div className="filters-container__item_wrapper">
-                  <AllFilterSVG />
-                  <span className="filters-container__span">All</span>
-                </div>
-                <ArrowSVG />
-              </button>
-              <button type="button" className="filters-container__item">
-                <div className="filters-container__item_wrapper">
-                  <AllFilterSVG />
-                  <span className="filters-container__span">Titles</span>
-                </div>
-                <ArrowSVG />
-              </button>
-              <button type="button" className="filters-container__item">
-                <div className="filters-container__item_wrapper">
-                  <AllFilterSVG />
-                  <span className="filters-container__span">News</span>
-                </div>
-                <ArrowSVG />
-              </button>
+              {contentType !== 'movie' && (
+                <button type="button" className="filters-container__item film">
+                  <div className="filters-container__item_wrapper">
+                    <AllFilterSVG />
+                    <span className="filters-container__span">Film</span>
+                  </div>
+                  <ArrowSVG />
+                </button>
+              )}
+              {contentType === 'movie' && (
+                <button type="button" className="filters-container__item film active">
+                  <div className="filters-container__item_wrapper">
+                    <AllFilterSVG />
+                    <span className="filters-container__span">Film</span>
+                  </div>
+                  <ArrowSVG />
+                </button>
+              )}
+              {contentType !== 'tv' && (
+                <button type="button" className="filters-container__item series">
+                  <div className="filters-container__item_wrapper">
+                    <AllFilterSVG />
+                    <span className="filters-container__span">Series</span>
+                  </div>
+                  <ArrowSVG />
+                </button>
+              )}
+              {contentType === 'tv' && (
+                <button type="button" className="filters-container__item series active">
+                  <div className="filters-container__item_wrapper">
+                    <AllFilterSVG />
+                    <span className="filters-container__span">Series</span>
+                  </div>
+                  <ArrowSVG />
+                </button>
+              )}
             </div>
           </div>
           <div className="cards-wrapper">
@@ -164,13 +188,15 @@ export default function SearchPage(): JSX.Element {
                   <MovieCard
                     imgSrc={posterBaseURL + elem.poster_path}
                     imgAlt="movie-poster"
-                    linkAdr="/#"
+                    linkAdr="/details"
                     cardTitle={elem.title}
                     liClass="card-container"
                     aClass="card-item"
                     imageClass="card-item__poster img-load"
                     spanClass="card-item__title"
                     key={key}
+                    id={elem.id}
+                    navigate={navigateToDetails}
                   />
                 );
               })}

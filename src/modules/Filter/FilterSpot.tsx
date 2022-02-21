@@ -1,15 +1,42 @@
 import React, { SyntheticEvent } from 'react';
 import data from './data';
-import './filterSpot.scss';
 import dataSvg from './dataSvg';
 import FilterSVG from '../../assets/FilterSVG';
+import './filterSpot.scss';
 
 const filterTitle = 'I am interested in watching movies in ';
 const languages = ['english', 'russian', 'german', 'french'];
+const contentType = sessionStorage.getItem('contentType');
+const filtersOptions = JSON.parse(sessionStorage.getItem('filtersOptions') as string);
 let requestBaseURL = '/discover/movie';
+let visibleLanguage = 'english';
+
+if (filtersOptions) {
+  if (filtersOptions.with_original_language === 'en') {
+    visibleLanguage = 'english';
+  } else if (filtersOptions.with_original_language === 'ru') {
+    visibleLanguage = 'russian';
+  } else if (filtersOptions.with_original_language === 'de') {
+    visibleLanguage = 'german';
+  } else if (filtersOptions.with_original_language === 'fr') {
+    visibleLanguage = 'french';
+  }
+}
+
+if (contentType) {
+  requestBaseURL = `/discover/${contentType}`;
+}
+
 let originalLanguage = 'en';
+
 let voteCount = 0;
 let voteAverage = 0;
+
+if (filtersOptions) {
+  originalLanguage = filtersOptions.with_original_language;
+  voteCount = filtersOptions['vote_count.gte'];
+  voteAverage = filtersOptions['vote_average.gte'];
+}
 
 export interface IFilterBtnContent {
   title: string;
@@ -80,6 +107,7 @@ function FilterDropList(props: IFilterDropListProp): JSX.Element {
           'vote_count.gte': voteCount,
           'vote_average.gte': voteAverage,
         };
+        sessionStorage.setItem('filtersOptions', JSON.stringify(options));
         getMovies(options);
         break;
       }
@@ -93,6 +121,7 @@ function FilterDropList(props: IFilterDropListProp): JSX.Element {
           'vote_count.gte': voteCount,
           'vote_average.gte': voteAverage,
         };
+        sessionStorage.setItem('filtersOptions', JSON.stringify(options));
         getMovies(options);
         break;
       }
@@ -106,6 +135,7 @@ function FilterDropList(props: IFilterDropListProp): JSX.Element {
           'vote_count.gte': voteCount,
           'vote_average.gte': voteAverage,
         };
+        sessionStorage.setItem('filtersOptions', JSON.stringify(options));
         getMovies(options);
         break;
       }
@@ -119,6 +149,7 @@ function FilterDropList(props: IFilterDropListProp): JSX.Element {
           'vote_count.gte': voteCount,
           'vote_average.gte': voteAverage,
         };
+        sessionStorage.setItem('filtersOptions', JSON.stringify(options));
         getMovies(options);
         break;
       }
@@ -179,10 +210,13 @@ function FilterDropList(props: IFilterDropListProp): JSX.Element {
 export default class FilterSpot extends React.Component<IFilterDropListBtn, { opened: boolean }> {
   getMovies;
 
+  contentType;
+
   constructor(props: IFilterDropListBtn) {
     super(props);
     const { isOpened = false, getMovies } = props;
     this.getMovies = getMovies;
+    this.contentType = sessionStorage.getItem('contentType');
     this.state = {
       opened: isOpened,
     };
@@ -239,6 +273,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
       classList.add('active');
       switch (true) {
         case filmCase: {
+          sessionStorage.setItem('contentType', 'movie');
           requestBaseURL = '/discover/movie';
           const options = {
             requestURL: '/discover/movie',
@@ -248,11 +283,13 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
             'vote_count.gte': voteCount,
             'vote_average.gte': voteAverage,
           };
+          sessionStorage.setItem('filtersOptions', JSON.stringify(options));
           (seriesElement as HTMLSpanElement).classList.remove('active');
           this.getMovies(options);
           break;
         }
         case seriesCase: {
+          sessionStorage.setItem('contentType', 'tv');
           requestBaseURL = '/discover/tv';
           const options = {
             requestURL: '/discover/tv',
@@ -262,7 +299,10 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
             'vote_count.gte': voteCount,
             'vote_average.gte': voteAverage,
           };
+          sessionStorage.setItem('filtersOptions', JSON.stringify(options));
+
           (filmElement as HTMLSpanElement).classList.remove('active');
+
           this.getMovies(options);
           break;
         }
@@ -277,6 +317,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
             'vote_count.gte': 100,
             'vote_average.gte': 6,
           };
+          sessionStorage.setItem('filtersOptions', JSON.stringify(options));
           this.getMovies(options);
           break;
         }
@@ -289,6 +330,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
             'vote_count.gte': 0,
             'vote_average.gte': 0,
           };
+          sessionStorage.setItem('filtersOptions', JSON.stringify(options));
           this.getMovies(options);
           break;
         }
@@ -305,6 +347,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
         'vote_count.gte': 0,
         'vote_average.gte': 0,
       };
+      sessionStorage.setItem('filtersOptions', JSON.stringify(options));
       this.getMovies(options);
     }
   };
@@ -325,7 +368,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
               <div className="filter-value-input-wrapper">
                 <div className="filter-drop-list-container">
                   <div className="filter-value-input">
-                    <span className="filter-value-storage">{languages[0]}</span>
+                    <span className="filter-value-storage">{visibleLanguage}</span>
                     <div className="filter-value-open-img-container">
                       <svg viewBox="0 0 24 24" className="filter-value-open-img opened filter-value-open-img-no-active">
                         <path fill="none" d="M0 0h24v24H0z" />
@@ -344,11 +387,36 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
           </h2>
         </div>
         <div className="filter-btn-wrapper">
-          {data.map((item, index) => (
-            <button className="filter-btn" key={item} type="button" onClick={this.activateFilter}>
-              {getContent({ title: item, iconMaker: dataSvg[index] })}
-            </button>
-          ))}
+          {data.map((item, index) => {
+            if ((item === 'Film' && !this.contentType) || (item === 'Film' && this.contentType === 'movie')) {
+              return (
+                <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
+                  {getContent({ title: item, iconMaker: dataSvg[index] })}
+                </button>
+              );
+            }
+            if (item === 'Series' && this.contentType === 'tv') {
+              return (
+                <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
+                  {getContent({ title: item, iconMaker: dataSvg[index] })}
+                </button>
+              );
+            }
+            if (filtersOptions) {
+              if (item === 'Top-Rated' && filtersOptions['vote_average.gte']) {
+                return (
+                  <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
+                    {getContent({ title: item, iconMaker: dataSvg[index] })}
+                  </button>
+                );
+              }
+            }
+            return (
+              <button className="filter-btn" key={item} type="button" onClick={this.activateFilter}>
+                {getContent({ title: item, iconMaker: dataSvg[index] })}
+              </button>
+            );
+          })}
         </div>
       </div>
     );

@@ -8,7 +8,7 @@ import './termsUsePage.scss';
 export default function ComingSoonPage(): JSX.Element {
   return (
     <AppContext.Consumer>
-      {(context): JSX.Element => (
+      {(): JSX.Element => (
         <>
           <Header type="HEADER_404_PAGE" name="header-container" />
           <main className="inform-main">TODO</main>

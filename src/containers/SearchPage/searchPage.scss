@@ -131,6 +131,10 @@
   display: flex;
 }
 
+.filters-container__item.active {
+  border-left: 6px solid rgb(229, 9, 20);
+}
+
 .filters-container__item_wrapper {
   width: 100%;
   text-align: start;

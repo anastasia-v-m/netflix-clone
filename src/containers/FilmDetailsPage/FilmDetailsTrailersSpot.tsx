@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from '../../components/constants';
 import dataDetails from './data';
 
@@ -130,7 +130,8 @@ export interface IMovieTrailersResp {
 
 export default function FilmDetailsTrailersSpot(props: { filmName: string; movieID: string }): JSX.Element {
   const { filmName, movieID } = props;
-  const url = `${endpoint}/${request}/${movieID}/videos?api_key=${API_KEY}&language=en-US`;
+  const context = useContext(AppContext);
+  const url = `${endpoint}/${request}/${movieID}/videos?api_key=${API_KEY}&language=${context.locale}`;
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [gotData, setgotData] = useState({ id: '', results: [{ key: '', name: '' }] });
@@ -159,17 +160,13 @@ export default function FilmDetailsTrailersSpot(props: { filmName: string; movie
   }
 
   return (
-    <AppContext.Consumer>
-      {(context): JSX.Element => (
-        <section className="film-details-sect">
-          <div className="for-modal-layer" />
-          <div className="filn-details-trailer-titles">
-            <h2 className="film-details-sect-title">{dataDetails[context.locale].videoTitle}</h2>
-            <h2 className="film-details-trailers-title">{filmName}</h2>
-          </div>
-          <TrailerPlayer results={gotData.results} />
-        </section>
-      )}
-    </AppContext.Consumer>
+    <section className="film-details-sect">
+      <div className="for-modal-layer" />
+      <div className="filn-details-trailer-titles">
+        <h2 className="film-details-sect-title">{dataDetails[context.locale].videoTitle}</h2>
+        <h2 className="film-details-trailers-title">{filmName}</h2>
+      </div>
+      <TrailerPlayer results={gotData.results} />
+    </section>
   );
 }

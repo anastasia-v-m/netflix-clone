@@ -25,9 +25,9 @@ export interface IMovieCreateResp {
 
 export default function FilmDetailsCreateSpot(props: { productionCompanies: Array<IProdCompany>; movieID: string }): JSX.Element {
   const { productionCompanies, movieID } = props;
-
-  const url = `${endpoint}/${request}/${movieID}/credits?api_key=${API_KEY}&language=en-US`;
   const context = useContext(AppContext);
+  const url = `${endpoint}/${request}/${movieID}/credits?api_key=${API_KEY}&language=${context.locale}`;
+
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [gotData, setgotData] = useState({ cast: [{ known_for_department: '', name: '' }] });

@@ -11,6 +11,8 @@ const data: IData = {
     titles: 'Заголовки',
     news: 'Новости',
     placeholderResult: 'Что вы ищете?',
+    filterTitle: 'Мне интересно смотреть фильмы на ',
+    showMore: 'Показать ещё'
     },
   'en': {
     logIn: 'Log In',
@@ -22,6 +24,8 @@ const data: IData = {
     titles: 'Titles',
     news: 'News',
     placeholderResult: 'What are you looking for?',
+    filterTitle: 'I am interested in watching movies in ',
+    showMore: 'Show more'
     },
 };
 

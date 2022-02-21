@@ -1,10 +1,11 @@
 import React, { SyntheticEvent } from 'react';
-import data from './data';
+import data from '../Header/data';
+import dataFilter from './data';
 import dataSvg from './dataSvg';
 import FilterSVG from '../../assets/FilterSVG';
+import { AppContext } from '../../components/constants';
 import './filterSpot.scss';
 
-const filterTitle = 'I am interested in watching movies in ';
 const languages = ['english', 'russian', 'german', 'french'];
 const contentType = sessionStorage.getItem('contentType');
 const filtersOptions = JSON.parse(sessionStorage.getItem('filtersOptions') as string);
@@ -354,71 +355,75 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
 
   render(): JSX.Element {
     return (
-      <div className="filter-container">
-        <div className="filter-title-wrapper">
-          <h2 className="filter-title">
-            {filterTitle}
-            <div
-              className="filter-value-container"
-              role="button"
-              tabIndex={0}
-              onClick={this.handleClick}
-              onKeyPress={this.handleKeyPress}
-            >
-              <div className="filter-value-input-wrapper">
-                <div className="filter-drop-list-container">
-                  <div className="filter-value-input">
-                    <span className="filter-value-storage">{visibleLanguage}</span>
-                    <div className="filter-value-open-img-container">
-                      <svg viewBox="0 0 24 24" className="filter-value-open-img opened filter-value-open-img-no-active">
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path d="M6 15l6-6 6 6H6z" />
-                      </svg>
-                      <svg viewBox="0 0 24 24" className="filter-value-open-img closed">
-                        <path fill="none" d="M0 24V0h24v24z" />
-                        <path d="M18 9l-6 6-6-6h12z" />
-                      </svg>
+      <AppContext.Consumer>
+        {(context): JSX.Element => (
+          <div className="filter-container">
+            <div className="filter-title-wrapper">
+              <div className="filter-title">
+                {data[context.locale].filterTitle}
+                <div
+                  className="filter-value-container"
+                  role="button"
+                  tabIndex={0}
+                  onClick={this.handleClick}
+                  onKeyPress={this.handleKeyPress}
+                >
+                  <div className="filter-value-input-wrapper">
+                    <div className="filter-drop-list-container">
+                      <div className="filter-value-input">
+                        <span className="filter-value-storage">{visibleLanguage}</span>
+                        <div className="filter-value-open-img-container">
+                          <svg viewBox="0 0 24 24" className="filter-value-open-img opened filter-value-open-img-no-active">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path d="M6 15l6-6 6 6H6z" />
+                          </svg>
+                          <svg viewBox="0 0 24 24" className="filter-value-open-img closed">
+                            <path fill="none" d="M0 24V0h24v24z" />
+                            <path d="M18 9l-6 6-6-6h12z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <FilterDropList updateData={this.updateData} getMovies={this.getMovies} />
                     </div>
                   </div>
-                  <FilterDropList updateData={this.updateData} getMovies={this.getMovies} />
                 </div>
               </div>
             </div>
-          </h2>
-        </div>
-        <div className="filter-btn-wrapper">
-          {data.map((item, index) => {
-            if ((item === 'Film' && !this.contentType) || (item === 'Film' && this.contentType === 'movie')) {
-              return (
-                <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
-                  {getContent({ title: item, iconMaker: dataSvg[index] })}
-                </button>
-              );
-            }
-            if (item === 'Series' && this.contentType === 'tv') {
-              return (
-                <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
-                  {getContent({ title: item, iconMaker: dataSvg[index] })}
-                </button>
-              );
-            }
-            if (filtersOptions) {
-              if (item === 'Top-Rated' && filtersOptions['vote_average.gte']) {
+            <div className="filter-btn-wrapper">
+              {dataFilter[context.locale].map((item, index) => {
+                if ((item === 'Film' && !this.contentType) || (item === 'Film' && this.contentType === 'movie')) {
+                  return (
+                    <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
+                      {getContent({ title: item, iconMaker: dataSvg[index] })}
+                    </button>
+                  );
+                }
+                if (item === 'Series' && this.contentType === 'tv') {
+                  return (
+                    <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
+                      {getContent({ title: item, iconMaker: dataSvg[index] })}
+                    </button>
+                  );
+                }
+                if (filtersOptions) {
+                  if (item === 'Top-Rated' && filtersOptions['vote_average.gte']) {
+                    return (
+                      <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
+                        {getContent({ title: item, iconMaker: dataSvg[index] })}
+                      </button>
+                    );
+                  }
+                }
                 return (
-                  <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
+                  <button className="filter-btn" key={item} type="button" onClick={this.activateFilter}>
                     {getContent({ title: item, iconMaker: dataSvg[index] })}
                   </button>
                 );
-              }
-            }
-            return (
-              <button className="filter-btn" key={item} type="button" onClick={this.activateFilter}>
-                {getContent({ title: item, iconMaker: dataSvg[index] })}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+              })}
+            </div>
+          </div>
+        )}
+      </AppContext.Consumer>
     );
   }
 }

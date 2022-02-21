@@ -1,3 +1,10 @@
-const data = ['Film', 'Series', 'Top-Rated'];
+interface IDataFilter {
+  [index: string]: Array<string>
+}
 
-export default data;
+const dataFilter: IDataFilter = {
+  'ru': ['Фильмы', 'Сериалы', 'Лучший рейтинг'],
+  'en': ['Films', 'Series', 'Top-Rated'],
+};
+
+export default dataFilter;

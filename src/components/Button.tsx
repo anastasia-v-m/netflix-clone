@@ -18,7 +18,6 @@ export interface IPropsButton {
   logBtn?: boolean;
 }
 
-
 export default function Button(props: IPropsButton): JSX.Element {
   const { type = BTN_TYPE_SIMPLE, name = '', linkAdr, nameContent = '', content = '', icon, logBtn = false } = props;
   const currentLinkAdr = logBtn === true && store.getState().isDone === true ? '' : linkAdr;
@@ -44,28 +43,6 @@ export default function Button(props: IPropsButton): JSX.Element {
     }
   };
 
-  const currentLinkAdr = (logBtn === true && store.getState().isDone === true) ? '' : linkAdr;
-  
-  const updateData = (e: React.SyntheticEvent): void => {
-    e.stopPropagation();
-    e.preventDefault();
-    const { isDone } = store.getState();
-  
-    const storeType = isDone ? 'HAS_LOGED_OUT' : 'HAS_LOGED_IN';
-    const storeValue = isDone ? 'Войти' : 'Выйти';
-    const storeAction = actionGenerator(storeType, storeValue, !isDone);
-    store.dispatch(storeAction);
-    const elem = document.querySelector('#logbtn');
-    if (elem) {
-      elem.textContent = store.getState().value as string;
-    }
-    if (isDone) {
-      sessionStorage.removeItem('user');
-    } else {
-      document.location.href = '/login-form';
-    }
-  };
-  
   let result: JSX.Element;
   if (type === BTN_TYPE_WITH_ICONS) {
     result = (
@@ -84,9 +61,9 @@ export default function Button(props: IPropsButton): JSX.Element {
     );
   } else {
     result = (
-    <Link className={name} to={linkAdr as string}>
-      {content}
-    </Link>
+      <Link className={name} to={linkAdr as string}>
+        {content}
+      </Link>
     );
   }
 

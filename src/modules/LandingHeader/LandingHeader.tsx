@@ -1,24 +1,31 @@
-import LangSelection from '../../components/langSelection'
-import NetflixLogo from './LandingHeaderLogo'
-import Buttons from '../../components/button'
-import StartCard from './LandingStartCard'
+import React from 'react';
 
-import '../LandingHeader/landingHeader.css'
+import LangSelection from '../../components/langSelection';
+import Button from '../../components/Button';
+import NetflixLogo from './LandingHeaderLogo';
+import StartCard from './LandingStartCard';
 
-export default function Header() {
+import store from '../../store/store';
+
+import './landingHeader.scss';
+
+export default function Header(): JSX.Element {
   return (
     <>
-      <div className='header-wrapper'>
-        <div className='header-container'>
-        <NetflixLogo />  
-        <LangSelection />
-        <Buttons 
-          name="auth-button" 
-          nameContent='auth-button-content' 
-          content='Войти' />
-        </div>      
-      </div> 
+      <div className="header-wrapper">
+        <div className="header-container">
+          <NetflixLogo />
+          <LangSelection />
+          <Button
+            type="BTN_TYPE_WITH_ICONS"
+            name="auth-button"
+            nameContent="auth-button-content"
+            content={store.getState().value}
+            linkAdr="/login-form"
+          />
+        </div>
+      </div>
       <StartCard />
-    </>       
-  )
-} 
+    </>
+  );
+}

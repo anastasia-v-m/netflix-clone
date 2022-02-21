@@ -1,13 +1,11 @@
-import { IImageProps } from "./types";
+import React from 'react';
 
-function Image(props: IImageProps) {
-  return (
-    <img
-      src={props.src}
-      alt={props.alt}
-      className={props.className ? props.className : ''}
-    />
-  );
-};
+import { IImageProps } from './types';
+
+function Image(props: IImageProps): JSX.Element {
+  const { src, alt, className = '' } = props;
+
+  return <img src={src} alt={alt} className={className} />;
+}
 
 export default Image;

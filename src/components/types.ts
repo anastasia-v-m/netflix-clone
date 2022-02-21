@@ -19,4 +19,8 @@ interface ISourceProps {
   className?: string;
 }
 
-export type { IImageProps, IVideoProps, ISourceProps };
+export type {
+  IImageProps,
+  IVideoProps,
+  ISourceProps,
+};

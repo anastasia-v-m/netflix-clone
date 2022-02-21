@@ -44,6 +44,7 @@ export default function InternalPage(): JSX.Element {
   const [isLoaded, setLoading] = useState(false);
   const getMovies = async (opt?: any): Promise<void> => {
     const filtersOptions = JSON.parse(sessionStorage.getItem('filtersOptions') as string);
+    options.language = context.locale;
     if (opt) {
       request = opt.requestURL;
       options.page = 1;

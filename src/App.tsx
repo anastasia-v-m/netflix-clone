@@ -27,7 +27,7 @@ export default function App(): JSX.Element {
           <Route path="/terms-use" element={<TermsUsePage />} />
           <Route path="/on-netflix" element={<PageOnlyOnNetflix />} />
           <Route path="/coming-soon" element={<ComingSoonPage />} />
-          <Route path="/public" element={<PublicDetails movieID={movieID as string} />} />
+          <Route path="/public" element={<PublicDetails />} />
           <Route
             path="/announces"
             element={

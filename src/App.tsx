@@ -15,7 +15,6 @@ import ComingSoonPage from './containers/InformPage/ComingSoonPage';
 import FilmDetailsPage from './containers/FilmDetailsPage';
 
 export default function App(): JSX.Element {
-  const movieID = sessionStorage.getItem('movieID');
   return (
     <React.StrictMode>
       <BrowserRouter>
@@ -56,7 +55,7 @@ export default function App(): JSX.Element {
             path="/details"
             element={
               <PrivateRoute>
-                <FilmDetailsPage movieID={movieID as string} />
+                <FilmDetailsPage />
               </PrivateRoute>
             }
           />

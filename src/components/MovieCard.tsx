@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Image from './Image';
 
@@ -37,10 +38,10 @@ export default function MovieCard(props: IMovieCard): JSX.Element {
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
     <li className={liClass} id={id.toString()} onClick={clickHandler}>
-      <a className={aClass} href={linkAdr as string}>
+      <Link className={aClass} to={linkAdr as string}>
         <Image src={imgSrc} alt={imgAlt} className={imageClass} />
         <span className={spanClass}>{cardTitle}</span>
-      </a>
+      </Link>
     </li>
   );
 }

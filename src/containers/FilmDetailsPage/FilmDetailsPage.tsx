@@ -35,9 +35,9 @@ export interface IFilmDetailsResp {
   production_companies: Array<{ name: string }>;
 }
 
-export default function FilmDetailsPage(props: { movieID: string }): JSX.Element {
+export default function FilmDetailsPage(): JSX.Element {
   const context = useContext(AppContext);
-  const { movieID } = props;
+  const movieID = sessionStorage.getItem('movieID') as string;
   const url = `${endpoint}/${request}/${movieID}?api_key=${API_KEY}&language=en-US`;
 
   const [error, setError] = useState(null);

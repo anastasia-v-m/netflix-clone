@@ -5,8 +5,6 @@ import Header from '../../modules/Header/Header';
 import AnnouncesSpot from '../../modules/AnnouncesSpot';
 import QuestionsSpot from '../../modules/QuestionSpot';
 
-import EmailForm from '../../components/EmailForm';
-
 export default function LandingStructure(): JSX.Element {
   return (
     <>
@@ -17,7 +15,6 @@ export default function LandingStructure(): JSX.Element {
         </div>
         <div className="questions">
           <QuestionsSpot />
-          <EmailForm />
         </div>
       </main>
       <Footer />

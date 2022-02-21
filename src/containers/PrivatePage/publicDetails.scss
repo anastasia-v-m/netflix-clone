@@ -27,7 +27,7 @@
 }
 
 .movie-title {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
   margin: 0;
   margin-top: 24px;
@@ -43,6 +43,7 @@
 }
 
 .movie-description {
+  font-size: 24px;
   margin-top: 24px;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 8px;
@@ -154,15 +155,17 @@
   white-space: pre;
   position: absolute;
   padding: 8px 12px;
+  margin-top: 1%;
   font-size: 13px;
-  min-height: 40px;
+  min-height: 16px;
   font-weight: 600;
   letter-spacing: normal;
+  text-decoration: none;
 }
 
 .movie-tags {
   display: flex;
-  padding-top: 16px;
+  padding-top: 45px;
   margin-bottom: 8px;
   color: rgb(255, 255, 255);
   background-color: transparent;
@@ -181,6 +184,7 @@
     border-radius: 4px;
 
     &-wrapper {
+      font-size: 20px;
       padding: 8px;
       overflow: hidden;
       text-overflow: ellipsis;

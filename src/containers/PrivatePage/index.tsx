@@ -1,3 +1,3 @@
-import PrivatePage from './PrivatePage';
+import PublicDetails from './PublicDetails';
 
-export default PrivatePage;
+export default PublicDetails;

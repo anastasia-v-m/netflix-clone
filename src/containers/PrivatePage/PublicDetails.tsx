@@ -23,9 +23,9 @@ if (contentType) {
   request = contentType;
 }
 
-export default function PublicDetails(): JSX.Element {
+export default function PublicDetails(props: { movieID: string }): JSX.Element {
   const context = useContext(AppContext);
-  const movieID = sessionStorage.getItem('movieID') as string;
+  const { movieID } = props;
   const url = `${endpoint}/${request}/${movieID}?api_key=${API_KEY}&language=${context.locale}`;
 
   const [error, setError] = useState(null);

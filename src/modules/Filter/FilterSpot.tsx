@@ -264,7 +264,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
   activateFilter = (e: SyntheticEvent): void => {
     const { classList, lastChild } = e.currentTarget as HTMLButtonElement;
     const currentTargetList = (lastChild as HTMLSpanElement).classList;
-    const filmCase = currentTargetList.contains('Film');
+    const filmCase = currentTargetList.contains('Films');
     const seriesCase = currentTargetList.contains('Series');
     const topRatedCase = currentTargetList.contains('Top-Rated');
     const filmElement = e.currentTarget.previousSibling;
@@ -390,8 +390,8 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
               </div>
             </div>
             <div className="filter-btn-wrapper">
-              {dataFilter[context.locale].map((item, index) => {
-                if ((item === 'Film' && !this.contentType) || (item === 'Film' && this.contentType === 'movie')) {
+              {dataFilter.map((item, index) => {
+                if ((item === 'Films' && !this.contentType) || (item === 'Films' && this.contentType === 'movie')) {
                   return (
                     <button className="filter-btn active" key={item} type="button" onClick={this.activateFilter}>
                       {getContent({ title: item, iconMaker: dataSvg[index] })}

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useContext } from 'react';
 
 import LangSelection from '../../components/langSelection';
 import Button from '../../components/Button';
@@ -9,6 +9,8 @@ import PopupSearchInput from '../PopupSearchInput';
 import store from '../../store/store';
 
 import './header.scss';
+import { AppContext } from '../../components/constants';
+import data from './data';
 
 const HEADER_LANDING_PAGE = 'HEADER_LANDING_PAGE';
 const HEADER_INTERNAL_PAGE = 'HEADER_INTERNAL_PAGE';
@@ -20,6 +22,7 @@ interface IHeader {
 }
 
 export default function Header(props: IHeader): ReactElement {
+  const context = useContext(AppContext);
   const { name, type } = props;
 
   if (type === HEADER_LANDING_PAGE) {
@@ -33,8 +36,8 @@ export default function Header(props: IHeader): ReactElement {
               type="BTN_TYPE_SIMPLE"
               name="auth-button btn-flash"
               nameContent="auth-button-content"
-              content={store.getState().value}
-              linkAdr={store.getState().isDone ? '' : '/login-form'}
+              content={store.getState().isDone ? data[context.locale].logOut : data[context.locale].logIn}
+              linkAdr={store.getState().isDone ? '/' : '/login-form'}
               logBtn
             />
           </div>
@@ -53,7 +56,7 @@ export default function Header(props: IHeader): ReactElement {
               type="BTN_TYPE_SIMPLE"
               name="auth-button btn-flash"
               nameContent="auth-button-content"
-              content={<span id="logbtn">{store.getState().value}</span>}
+              content={store.getState().isDone ? data[context.locale].logOut : data[context.locale].logIn}
               linkAdr={store.getState().isDone ? '/' : '/login-form'}
               logBtn
             />

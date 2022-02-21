@@ -32,7 +32,9 @@ export default function ComingSoonPage(): JSX.Element {
     await axios
       .get(url)
       .then((res) => {
-        const data = (res.data as IMoviesData).results.filter((elem) => elem.poster_path !== null);
+        const data = (res.data as IMoviesData).results.filter(
+          (elem) => elem.poster_path !== null && +elem.release_date.slice(0, 4) >= 2021,
+        );
         sessionStorage.setItem('totalPages', JSON.stringify(res.data.total_pages));
         setData(data);
         setLoading(true);
@@ -45,6 +47,10 @@ export default function ComingSoonPage(): JSX.Element {
   };
 
   useMemo(() => getMovies(), []);
+
+  const navigateToDetails = (id: string): void => {
+    sessionStorage.setItem('movieID', id);
+  };
 
   // preloader need to layout
   if (!isLoaded) {
@@ -59,13 +65,15 @@ export default function ComingSoonPage(): JSX.Element {
             <MovieCard
               imgSrc={posterBaseURL + item.poster_path}
               imgAlt="movie-poster"
-              linkAdr="/#"
+              linkAdr="/details"
               cardTitle={item.title}
               liClass="card-container"
               aClass="card-item"
               imageClass="card-item__poster img-load"
               spanClass="card-item__title"
               key={item.title}
+              id={item.id}
+              navigate={navigateToDetails}
             />
           ))}
         </ul>

@@ -29,7 +29,7 @@ export interface ISimilrMoviesResp {
 export default function FilmDetailsSimilarsSpot(props: { movieID: string }): JSX.Element {
   const context = useContext(AppContext);
   const { movieID } = props;
-  const url = `${endpoint}/${request}/${movieID}/similar?api_key=${API_KEY}&language=en-US`;
+  const url = `${endpoint}/${request}/${movieID}/similar?api_key=${API_KEY}&language=${context.locale}`;
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);

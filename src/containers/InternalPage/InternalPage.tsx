@@ -20,6 +20,7 @@ export interface IMoviesData {
       backdrop_path: string;
       title: string;
       poster_path: string;
+      release_date: string;
       include_adult: boolean;
       id: number;
     },
@@ -121,7 +122,7 @@ export default function InternalPage(): JSX.Element {
           ))}
         </ul>
         <button type="button" className="show-more-btn btn-flash" onClick={showMore}>
-          Show More
+          {dataSearch[context.locale].showMore}
         </button>
       </div>
       <Footer />

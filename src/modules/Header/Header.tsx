@@ -19,6 +19,7 @@ interface IHeader {
   type: typeof HEADER_LANDING_PAGE | typeof HEADER_INTERNAL_PAGE | typeof HEADER_404_PAGE;
 }
 
+
 export default function Header(props: IHeader): ReactElement {
   const { name, type } = props;
 

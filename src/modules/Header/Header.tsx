@@ -29,7 +29,7 @@ export default function Header(props: IHeader): ReactElement {
             <LangSelection />
             <Button
               type="BTN_TYPE_SIMPLE"
-              name="auth-button"
+              name="auth-button btn-flash"
               nameContent="auth-button-content"
               content="Войти"
               linkAdr="/login-form"
@@ -48,7 +48,7 @@ export default function Header(props: IHeader): ReactElement {
             <HeaderLogo type="LOGO_PAGE" name="internal-header" link="/" />
             <Button
               type="BTN_TYPE_SIMPLE"
-              name="auth-button"
+              name="auth-button btn-flash"
               nameContent="auth-button-content"
               content="Войти"
               linkAdr="/login-form"

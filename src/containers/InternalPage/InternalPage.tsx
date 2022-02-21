@@ -93,13 +93,13 @@ export default function InternalPage(): JSX.Element {
               cardTitle={item.title}
               liClass="card-container"
               aClass="card-item"
-              imageClass="card-item__poster"
+              imageClass="card-item__poster img-load"
               spanClass="card-item__title"
               key={item.title}
             />
           ))}
         </ul>
-        <button type="button" className="show-more-btn" onClick={showMore}>
+        <button type="button" className="show-more-btn btn-flash" onClick={showMore}>
           Show More
         </button>
       </div>

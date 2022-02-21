@@ -70,7 +70,7 @@ export default function FilmDetailsSimilarsSpot(props: { movieID: string }): JSX
                 cardTitle={item.title}
                 liClass="film-details-similar-container"
                 aClass="film-details-similar-movie"
-                imageClass="film-details-similar-poster figure"
+                imageClass="film-details-similar-poster img-load"
                 spanClass="film-details-similar-title"
                 key={item.id}
               />

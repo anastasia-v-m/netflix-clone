@@ -32,7 +32,7 @@ function Page404Spot(): JSX.Element {
           <div className="message-container">
             <h1 className="p404-message">{data.header}</h1>
             <h4 className="p404-message2">{data.explanation}</h4>
-            <Button type="BTN_TYPE_SIMPLE" name="btn-to-home" linkAdr="/" content={data.buttonText} />
+            <Button type="BTN_TYPE_SIMPLE" name="btn-to-home btn-flash" linkAdr="/" content={data.buttonText} />
           </div>
           <p className="p404-error-code">
             {data.errorCodeTitle}

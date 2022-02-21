@@ -42,7 +42,7 @@ export default function PageOnlyOnNetflix(): JSX.Element {
                       cardTitle={innerItem.title}
                       liClass="only-netflix-movie-container"
                       aClass="only-netflix-movie"
-                      imageClass="only-netflix-movie-poster"
+                      imageClass="only-netflix-movie-poster img-load"
                       spanClass="only-netflix-movie-title"
                     />
                   ))}
@@ -55,7 +55,7 @@ export default function PageOnlyOnNetflix(): JSX.Element {
           <div className="only-netflix-endhead-container">
             <h2 className="only-netflix-endhead">{pageEndHead}</h2>
             <p className="only-netflix-endsubhead">{pageEndSubHead}</p>
-            <Button type="BTN_TYPE_SIMPLE" name="only-netflix-btn-to-home" linkAdr="/" content={TO_HOME} />
+            <Button type="BTN_TYPE_SIMPLE" name="only-netflix-btn-to-home btn-flash" linkAdr="/" content={TO_HOME} />
           </div>
         </section>
       </main>

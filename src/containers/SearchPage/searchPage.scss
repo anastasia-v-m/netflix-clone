@@ -172,7 +172,13 @@
 }
 
 .card-container:hover {
-  transform: scale3d(1.05, 1.05, 1.05);
+  animation: scaleincrease 300ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+  
+@keyframes scaleincrease {
+  0%  {transform: scale3d(1.0, 1.0, 1.0);}
+  100% {transform: scale3d(1.05, 1.05, 1.05);}
 }
 
 .card-item {

@@ -42,7 +42,7 @@
   position: relative;
   background-color: #fff;
   color: #000;
-  font-size: 1.45em;
+  font-size: 1.45rem;
   align-items: center;
   appearance: none;
   border: 0;
@@ -57,6 +57,7 @@
   will-change: background-color, color;
   word-break: break-word;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 body,

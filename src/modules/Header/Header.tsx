@@ -19,7 +19,6 @@ interface IHeader {
   type: typeof HEADER_LANDING_PAGE | typeof HEADER_INTERNAL_PAGE | typeof HEADER_404_PAGE;
 }
 
-
 export default function Header(props: IHeader): ReactElement {
   const { name, type } = props;
 
@@ -55,7 +54,7 @@ export default function Header(props: IHeader): ReactElement {
               name="auth-button btn-flash"
               nameContent="auth-button-content"
               content={<span id="logbtn">{store.getState().value}</span>}
-              linkAdr={store.getState().isDone ? '' : '/login-form'}
+              linkAdr={store.getState().isDone ? '/' : '/login-form'}
               logBtn
             />
             <PopupSearchInput />

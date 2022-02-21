@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './containers/LandingPage';
 import LoginPage from './containers/LoginPage';
 import Page404 from './containers/Page404';
-import PrivatePage from './containers/PrivatePage';
 import PrivateRoute from './components/PrivateRoute';
 import PageOnlyOnNetflix from './containers/PageOnlyOnNetflix';
 import SearchPage from './containers/SearchPage/SearchPage';
@@ -13,6 +12,7 @@ import FAQPage from './containers/InformPage/FAQPage';
 import TermsUsePage from './containers/InformPage';
 import ComingSoonPage from './containers/InformPage/ComingSoonPage';
 import FilmDetailsPage from './containers/FilmDetailsPage';
+import PublicDetails from './containers/PrivatePage';
 
 export default function App(): JSX.Element {
   const movieID = sessionStorage.getItem('movieID');
@@ -28,14 +28,7 @@ export default function App(): JSX.Element {
           <Route path="/terms-use" element={<TermsUsePage />} />
           <Route path="/on-netflix" element={<PageOnlyOnNetflix />} />
           <Route path="/coming-soon" element={<ComingSoonPage />} />
-          <Route
-            path="/not-full-access"
-            element={
-              <PrivateRoute>
-                <PrivatePage />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/public" element={<PublicDetails movieID={movieID as string} />} />
           <Route
             path="/announces"
             element={
@@ -44,14 +37,7 @@ export default function App(): JSX.Element {
               </PrivateRoute>
             }
           />
-          <Route
-            path="/on-netflix"
-            element={
-              <PrivateRoute>
-                <PageOnlyOnNetflix />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/on-netflix" element={<PageOnlyOnNetflix />} />
           <Route
             path="/details"
             element={

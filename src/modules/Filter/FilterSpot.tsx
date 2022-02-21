@@ -359,7 +359,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
         {(context): JSX.Element => (
           <div className="filter-container">
             <div className="filter-title-wrapper">
-              <h2 className="filter-title">
+              <div className="filter-title">
                 {data[context.locale].filterTitle}
                 <div
                   className="filter-value-container"
@@ -387,7 +387,7 @@ export default class FilterSpot extends React.Component<IFilterDropListBtn, { op
                     </div>
                   </div>
                 </div>
-              </h2>
+              </div>
             </div>
             <div className="filter-btn-wrapper">
               {dataFilter[context.locale].map((item, index) => {

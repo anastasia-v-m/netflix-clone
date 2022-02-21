@@ -15,6 +15,7 @@ import FilmDetailsPage from './containers/FilmDetailsPage';
 import PublicDetails from './containers/PrivatePage';
 
 export default function App(): JSX.Element {
+  const movieID = sessionStorage.getItem('movieID');
   return (
     <React.StrictMode>
       <BrowserRouter>
@@ -41,7 +42,7 @@ export default function App(): JSX.Element {
             path="/details"
             element={
               <PrivateRoute>
-                <FilmDetailsPage />
+                <FilmDetailsPage movieID={movieID as string} />
               </PrivateRoute>
             }
           />

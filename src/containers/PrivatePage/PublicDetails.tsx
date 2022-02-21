@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Image from '../../components/Image';
@@ -6,7 +6,7 @@ import Footer from '../../modules/Footer';
 import LoginHeader from '../../modules/LoginHeader';
 
 import internalData from './data.json';
-import { FOOTER_INTERNAL_PAGE_TYPE } from '../../components/constants';
+import { AppContext, FOOTER_INTERNAL_PAGE_TYPE } from '../../components/constants';
 import { IFilmDetailsResp } from '../FilmDetailsPage/FilmDetailsPage';
 import Button from '../../components/Button';
 
@@ -24,8 +24,9 @@ if (contentType) {
 }
 
 export default function PublicDetails(props: { movieID: string }): JSX.Element {
+  const context = useContext(AppContext);
   const { movieID } = props;
-  const url = `${endpoint}/${request}/${movieID}?api_key=${API_KEY}&language=en-US`;
+  const url = `${endpoint}/${request}/${movieID}?api_key=${API_KEY}&language=${context.locale}`;
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);

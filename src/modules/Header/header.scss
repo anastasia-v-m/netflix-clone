@@ -1,0 +1,230 @@
+.header-wrapper {
+  background-color: transparent;
+  transition: background-color 0.5s;
+  position: relative;
+  margin: 0 auto;
+  padding-top: 20px;
+  height: 5rem;
+  z-index: 10;
+}
+
+.header-container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 3.5rem;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  height: auto;
+  max-width: 1920px;
+}
+
+.header-svg-icon {
+  margin-right: auto;
+}
+
+.header-logo {
+  fill: #e50914;
+  line-height: normal;
+}
+
+.svg-icon-netflix-logo {
+  width: 10rem;
+  height: 2.8rem;
+}
+
+.header-container .lang-selection-container {
+  display: inline-block;
+  margin: 0 0.75rem;
+  margin-right: 2rem;
+}
+
+.header-container .authButton {
+  float: none;
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.lang-selection-container .select-arrow::before,
+.lang-selection-container .select-arrow::after {
+  color: #fff;
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+.lang-selection-container .select-arrow::before {
+  font-size: 0.75rem;
+  left: 0.5rem;
+  content: '';
+}
+.lang-selection-container .select-arrow::after {
+  right: 10px;
+  font-size: 6px;
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.lang-selection-wrapper .select-arrow {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-arrow .select-value {
+  padding-left: 1.375rem;
+  padding-right: 1.375rem;
+  padding: 0.5rem 1.375rem;
+  line-height: 1.3em;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #aaa;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.auth-button {
+  background-color: #e50914;
+  line-height: normal;
+  padding: 7px 17px;
+  font-weight: 400;
+  font-size: 1rem;
+  float: right;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  text-indent: 0;
+  text-decoration: none;
+  outline: none;
+  border: none;
+}
+
+.start-card {
+  margin: 0 auto;
+  padding: 70px 45px;
+  position: relative;
+  border-bottom: 8px solid #222;
+  margin-bottom: 0;
+  background: 0 0;
+  color: #fff;
+}
+
+.start-card-background {
+  position: absolute;
+  top: -100px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.start-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-gradient {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.start-card-content {
+  position: relative;
+  width: 100%;
+  padding: 75px 0;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.start-card-content h1 {
+  margin: auto;
+  font-size: 4rem;
+  max-width: 800px;
+}
+
+.start-card-content h2 {
+  margin: 1rem auto;
+  font-size: 1.6rem;
+  max-width: 800px;
+}
+
+.start-card-content h3 {
+  font-size: 1.2rem;
+  padding: 0 5%;
+}
+
+.emailForm {
+  max-width: 950px;
+  padding-top: 0.5rem;
+}
+
+.emailFormContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-content: center;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.emailInput {
+  margin: 0;
+  min-width: 500px;
+  height: 58px;
+  padding: 10px 10px 0;
+  font-size: 16px;
+  border: solid 1px #8c8c8c;
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin: 0;
+  font-size: 1.8rem;
+  min-height: 70px;
+  color: #fff;
+  background-color: #e50914;
+  background-image: linear-gradient(to bottom, #e50914, #db0510);
+  border: 0;
+  cursor: pointer;
+}
+
+.start-button-content {
+  padding: 0 1em;
+}
+
+.search-icon,
+.close-icon {
+  height: 20px;
+}
+
+@media screen and (max-width: 950px) {
+  .svg-icon-netflix-logo {
+    width: 6.75rem;
+    height: 2rem;
+  }
+
+  .header-container .lang-selection-container {
+    margin-right: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 951px) and (max-width: 1280px) {
+  .svg-icon-netflix-logo {
+    width: 8rem;
+    height: 2.25rem;
+  }
+}
+
+.black-bkg {
+  background-color: #000;
+  height: 100% !important;
+}

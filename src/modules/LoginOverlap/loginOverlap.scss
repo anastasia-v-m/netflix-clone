@@ -1,0 +1,27 @@
+.login-overlap {
+  margin: 0 auto;
+  min-height: 660px;
+  max-width: 450px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10%;
+}
+
+.login-overlap__shadow {
+  background-color: #000;
+  position: absolute;
+  max-width: 450px;
+  min-height: 700px;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.login-overlap__form {
+  max-width: 315px;
+  width: 100%;
+  padding: 60px 68px 40px;
+  z-index: 1;
+  margin-bottom: 90px;
+}

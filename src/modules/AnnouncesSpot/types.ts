@@ -1,5 +1,3 @@
-interface IAnimPartProps {
+export interface IAnimPartProps {
   ind: number;
 }
-
-export type { IAnimPartProps };

@@ -1,23 +1,23 @@
-import FooterSpot from '../../modules/FooterSpot';
-import LandingHeader from '../../modules/LandingHeader';
+import React from 'react';
+
+import Footer from '../../modules/Footer';
+import Header from '../../modules/Header/Header';
 import AnnouncesSpot from '../../modules/AnnouncesSpot';
 import QuestionsSpot from '../../modules/QuestionSpot';
-import EmailForm from '../../components/emailForm';
 
-export default function LandingStructure() {
+export default function LandingStructure(): JSX.Element {
   return (
     <>
-      <LandingHeader />
+      <Header type="HEADER_LANDING_PAGE" name="header-container" />
       <main>
         <div className="about">
-          <AnnouncesSpot></AnnouncesSpot>
+          <AnnouncesSpot />
         </div>
         <div className="questions">
           <QuestionsSpot />
-          <EmailForm />
         </div>
       </main>
-      <FooterSpot />
+      <Footer />
     </>
   );
 }

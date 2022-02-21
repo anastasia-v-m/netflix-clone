@@ -1,17 +1,17 @@
-import EmailForm from "../../components/emailForm";
-import landingStartCardData from "../LandingHeader/landingStartCardData.json"
+import React from 'react';
 
-import "./landingHeader.css"
+import EmailForm from '../../components/EmailForm';
 
-export default function StartCard() {
+import landingStartCardData from './landingStartCardData.json';
+
+import './landingHeader.scss';
+
+export default function StartCard(): JSX.Element {
   return (
-    <div className='start-card'>
+    <div className="start-card">
       <div className="start-card-background">
-        <img 
-          className="start-card-img" 
-          src={landingStartCardData.imgSrc} 
-          alt={landingStartCardData.altDescription} />
-        <div className="img-gradient"></div>
+        <img className="start-card-img" src={landingStartCardData.imgSrc} alt={landingStartCardData.altDescription} />
+        <div className="img-gradient" />
       </div>
       <div className="start-card-content">
         <h1>{landingStartCardData.title}</h1>
@@ -19,5 +19,5 @@ export default function StartCard() {
         <EmailForm />
       </div>
     </div>
-  )
+  );
 }

@@ -1,0 +1,26 @@
+body,
+main {
+  font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+.img-load {
+  animation-name: appearance;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(.1,-.6,.2,0);
+}
+
+@keyframes appearance {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.btn-flash {
+  animation: flash 8s infinite;
+  -webkit-animation: flash 18s infinite;
+  text-shadow: 2px 2px 8px #FFFFFF;
+}
+
+@keyframes flash {
+  0%, 50%, 100% {opacity: 1;}
+  25%, 75% {opacity: 0.3;}
+}
